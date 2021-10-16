@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class NewGameSetting : MonoBehaviour
 {
-    //게임데이터 호출==============================================================================
+    //게임데이터 선언==============================================================================
     Data game_data;
     //가상키보드===================================================================================
     TouchScreenKeyboard keyboard;
@@ -15,7 +15,6 @@ public class NewGameSetting : MonoBehaviour
     public Text coach_name_text;                    //Text_Coach_Name 텍스트
     public Text school_name_text;                   //Text_Coach_Name 텍스트
     public Text birth_month_text;                   //
-    public GameObject scroll_birth_month_content;   //Scroll_Birth_Month 의 Content
     //=============================================================================================
     void Start()
     {
@@ -44,17 +43,8 @@ public class NewGameSetting : MonoBehaviour
         {
             school_name_text.text = keyboard.text;
         }
-        //Scroll_Birth_Month 무한 스크롤===========================================================
-        if (scroll_birth_month_content.GetComponent<RectTransform>().localPosition.x > 0)
-        {
-            scroll_birth_month_content.GetComponent<RectTransform>().localPosition = new Vector2(-1200+(scroll_birth_month_content.GetComponent<RectTransform>().localPosition.x), 0);
-        }
-        else if (scroll_birth_month_content.GetComponent<RectTransform>().localPosition.x < -1200)
-        {
-            scroll_birth_month_content.GetComponent<RectTransform>().localPosition = new Vector2(0+ (scroll_birth_month_content.GetComponent<RectTransform>().localPosition.x + 1200), 0);
-        }
     }
-    //코치 이름 확정 함수==========================================================================
+    //코치 이름 입력 함수==========================================================================
     public void Coach_Name_Agree()
     {
         game_data.clubs[0].coach.name = coach_name_text.text;
