@@ -6,9 +6,7 @@ using UnityEngine;
 public class Infinite_Scroll : MonoBehaviour
 {
     //선언=========================================================================================
-    public GameObject scroll_cell_num0;//0번 셀
-    public bool is_pooling;//풀링 유무
-    public bool is_dial;
+    public GameObject scroll_cell_temp;//셀 템플릿
     public float content_x;//Content의 x좌표
     private float view_width, cell_width;//Viewport의 넓이, Cell의 넓이
 
@@ -16,28 +14,27 @@ public class Infinite_Scroll : MonoBehaviour
     {
         //초기화===================================================================================
         view_width = this.transform.parent.GetComponent<RectTransform>().rect.width;
-        cell_width = scroll_cell_num0.GetComponent<RectTransform>().rect.width;
+        cell_width = this.scroll_cell_temp.GetComponent<RectTransform>().rect.width;
     }
     void Update()
     {
         //매 프레임 초기화=========================================================================
         content_x = -1 * this.GetComponent<RectTransform>().localPosition.x;
+        //루프=====================================================================================
         loop();
-        //풀링 ture================================================================================
-        if (is_pooling == true)
-        {
-            pooling();
-        }
+        //풀링=====================================================================================
+        pooling();
         if(Input.GetMouseButtonDown(0))
         {
 
         }
         if (Input.GetMouseButtonUp(0))
         {
+            //다이얼===============================================================================
             Dial();
         }
     }
-
+    //다이얼 함수(터치가 끝나면 Cell이 Viewport 중심에 위치)=======================================
     void Dial()
     {
         this.GetComponent<RectTransform>().localPosition = new Vector2(-1 * (Mathf.Floor(content_x / 100) * 100 + cell_width / 2), 0);
@@ -62,6 +59,7 @@ public class Infinite_Scroll : MonoBehaviour
             }
         }
     }
+    //루프 함수(끝으로 이동시 반대편 셀을 연결시켜 스크롤이 이어지게 만듬)=========================
     void loop()
     {
         //좌측으로 이동============================================================================
