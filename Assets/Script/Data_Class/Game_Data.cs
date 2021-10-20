@@ -20,7 +20,7 @@ public class Data
 public class Club
 {
     //인물 정보====================================================================================
-    public char[] code;             //격투부의 코드
+    public string code;             //격투부의 코드
     public string name;             //학교의 이름
     public Coach coach;             //격투부 코치
     public List<Student> students;  //격투부 학생 리스트
@@ -32,7 +32,7 @@ public class Club
 public class Coach
 {
     //개인 정보====================================================================================
-    public char[] code;             //코치의 코드 01(생월)/0000(중복되지 않는 랜덤)
+    public string code;             //코치의 코드 01(생월)/0000(중복되지 않는 랜덤)
     public string name;             //코치의 이름
     public char gender;             //코치의 성별(M : 남성, F : 여성)
     public string nickname;         //코치의 별명
@@ -41,7 +41,7 @@ public class Coach
     public int condition;           //컨디션 (기본 최대치 100, 배치한 훈련의 효과 = 훈련 효과 수치 * (1 + (condition/100)))
     public int prestige;            //코치의 명망(지도학생의 대회 성적, 프로데뷔 여부로 상승)
     public string training;         //이번 턴 배정된 훈련(없을 시 NONE 으로 초기화)
-    //교육 가능한 스킬 목록========================================================================
+    //교육 가능한 스킬 목록(최대 4개)==============================================================
     public List<Skill> skills;
 }
 
@@ -50,7 +50,7 @@ public class Coach
 public class Student
 {
     //개인 정보====================================================================================
-    public char[] code;             //학생의 코드 01(생월)/0000(중복되지 않는 랜덤)
+    public string code;             //학생의 코드 01(생월)/0000(중복되지 않는 랜덤)
     public string name;             //학생의 이름
     public char gender;             //학생의 성별(M : 남성, F : 여성)
     public string nickname;         //학생의 별명
@@ -76,7 +76,7 @@ public class Student
 [System.Serializable]
 public class Skill
 {
-    public char[] code;             //스킬의 코드 01(생월)/0000(중복되지 않는 랜덤)
+    public string code;             //스킬의 코드 00(타입)/0000(작성 순서)
     public string name;             //스킬의 이름
     public float need_SP;           //사용에 필요한 SP
     public string qualification;    //스킬 습득 조건(정해진 규칙에 따라 작성)
