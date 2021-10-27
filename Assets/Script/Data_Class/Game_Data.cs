@@ -42,7 +42,8 @@ public class Coach
     public int prestige;            //코치의 명망(지도학생의 대회 성적, 프로데뷔 여부로 상승)
     public string training;         //이번 턴 배정된 훈련(없을 시 NONE 으로 초기화)
     //교육 가능한 스킬 목록(최대 4개)==============================================================
-    public List<Skill> skills;
+    public List<ActiveSkill> active_skills;
+    public List<PassiveSkill> passive_skills;
 }
 
 //학생 클래스======================================================================================
@@ -70,15 +71,25 @@ public class Student
     public float st_WIL, pt_WIL;    //의지, 의지 잠재력
     public float st_LUK;            //운(표시되지 않음)
     //보유한 스킬==================================================================================
-    public Skill skill;
+    public ActiveSkill active_skill;
+    public PassiveSkill passive_skill;
 }
 //스킬 클래스======================================================================================
 [System.Serializable]
-public class Skill
+public class ActiveSkill
 {
     public string code;             //스킬의 코드 00(타입)/0000(작성 순서)
     public string name;             //스킬의 이름
     public float need_SP;           //사용에 필요한 SP
+    public string qualification;    //스킬 습득 조건(정해진 규칙에 따라 작성)
+    public string effect;           //스킬의 효과(정해진 규칙에 따라 작성)
+}
+[System.Serializable]
+public class PassiveSkill
+{
+    public string code;             //스킬의 코드 00(타입)/0000(작성 순서)
+    public string name;             //스킬의 이름
+    public string need;             //사용에 필요한 조건
     public string qualification;    //스킬 습득 조건(정해진 규칙에 따라 작성)
     public string effect;           //스킬의 효과(정해진 규칙에 따라 작성)
 }

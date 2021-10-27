@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e5f8f3cb56e67348865c9c0b94bd64b, type: 3}
-  m_Name: "\uBE44\uB8E1\uAC01"
+  m_Script: {fileID: 11500000, guid: e715510f4a045174eaeec0ec3cb82f6a, type: 3}
+  m_Name: "\uBC31\uD638\uAD8C\uBC95"
   m_EditorClassIdentifier: 
-  skill:
-    code: 130001
-    name: "\uBE44\uB8E1\uAC01"
-    need_SP: 50
-    qualification: DEX120
-    effect: DMG(DEX*1,1)
+  passive_skill:
+    code: '10001 '
+    name: "\uBC31\uD638\uAD8C\uBC95"
+    need: NONE
+    qualification: STR120
+    effect: ATK(DMG(STR*0.5))

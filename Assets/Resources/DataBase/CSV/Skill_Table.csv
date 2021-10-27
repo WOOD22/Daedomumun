@@ -1,5 +1,0 @@
-﻿code,name,need_SP,qualifiction,effect
-110001,붕권,100,STR120,"DMG(STR*2,1)&STUN(1,100%)"
-120001,폭렬장,200,STR120,"DMG(STR*4,1)"
-130001,비룡각,50,DEX120,"DMG(DEX*1,1)"
-110002,질풍권,100,DEX120,"DMG(DEX*0.5,4)"

@@ -70,9 +70,12 @@ public class NewGameSetting : MonoBehaviour
         game_data.clubs[0].name = school_name_text.text;
     }
     //=============================================================================================
-    public void Coach_Skill_Decision(Skill_Data skill_data)
+    public void Coach_ActiveSkill_Decision(ActiveSkill_Data active_skill_data)
     {
-        
-        game_data.clubs[0].coach.skills.Add(skill_data.skill);
+        game_data.clubs[0].coach.active_skills[0] = active_skill_data.active_skill;
+    }
+    public void Coach_PassiveSkill_Decision(PassiveSkill_Data passive_skill_data)
+    {
+        game_data.clubs[0].coach.passive_skills[0] = passive_skill_data.passive_skill;
     }
 }

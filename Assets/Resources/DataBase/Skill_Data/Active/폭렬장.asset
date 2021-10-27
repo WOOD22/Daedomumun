@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e5f8f3cb56e67348865c9c0b94bd64b, type: 3}
-  m_Name: "\uBD95\uAD8C"
+  m_Name: "\uD3ED\uB82C\uC7A5"
   m_EditorClassIdentifier: 
-  skill:
-    code: 110001
-    name: "\uBD95\uAD8C"
-    need_SP: 100
+  active_skill:
+    code: 20001
+    name: "\uD3ED\uB82C\uC7A5"
+    need_SP: 200
     qualification: STR120
-    effect: DMG(STR*2,1)&STUN(1,100%)
+    effect: DMG(STR*4,1)

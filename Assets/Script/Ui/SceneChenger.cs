@@ -9,4 +9,9 @@ public class SceneChenger : MonoBehaviour
     {
         SceneManager.LoadScene("NewGameScene");
     }
+
+    public void From_NewGameScene_To_InGameScene()
+    {
+        SceneManager.LoadScene("InGameScene");
+    }
 }
