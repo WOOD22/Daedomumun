@@ -17,4 +17,4 @@ MonoBehaviour:
     name: "\uD3ED\uB82C\uC7A5"
     need_SP: 200
     qualification: STR120
-    effect: DMG(STR*4,1)
+    effect: DMG(STR,4,1)

@@ -17,4 +17,4 @@ MonoBehaviour:
     name: "\uC8FC\uC791\uC7A5\uBC95"
     need: NONE
     qualification: STR120
-    effect: ATK(BURN(1,51%))
+    effect: ATK(BURN(1,50))

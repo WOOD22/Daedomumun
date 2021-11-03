@@ -17,4 +17,4 @@ MonoBehaviour:
     name: "\uBD95\uAD8C"
     need_SP: 100
     qualification: STR120
-    effect: DMG(STR*2,1)&STUN(1,100%)
+    effect: DMG(STR,4,1)&STUN(1,100)

@@ -17,4 +17,4 @@ MonoBehaviour:
     name: "\uBC31\uD638\uAD8C\uBC95"
     need: NONE
     qualification: STR120
-    effect: ATK(DMG(STR*0.5))
+    effect: ATK(DMG(STR,0.5))

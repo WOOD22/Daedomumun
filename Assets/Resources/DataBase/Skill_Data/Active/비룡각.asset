@@ -17,4 +17,4 @@ MonoBehaviour:
     name: "\uBE44\uB8E1\uAC01"
     need_SP: 50
     qualification: DEX120
-    effect: DMG(DEX*1,1)
+    effect: DMG(DEX,1,1)

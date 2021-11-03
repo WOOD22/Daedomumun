@@ -17,4 +17,4 @@ MonoBehaviour:
     name: "\uCCAD\uB8E1\uAC01\uBC95"
     need: NONE
     qualification: DEX120
-    effect: ATK(DMG(DEX*0.1))
+    effect: ATK(DMG(DEX,0.1))
