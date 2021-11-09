@@ -531,13 +531,13 @@ MonoBehaviour:
       - m_Target: {fileID: 959200480}
         m_TargetAssemblyTypeName: NewGameSetting, Assembly-CSharp
         m_MethodName: Coach_PassiveSkill_Decision
-        m_Mode: 2
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 833cea489acc8fc4ea01b26d9ab6828b, type: 2}
-          m_ObjectArgumentAssemblyTypeName: PassiveSkill_Data, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 30001
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &90378790
@@ -876,13 +876,13 @@ MonoBehaviour:
       - m_Target: {fileID: 959200480}
         m_TargetAssemblyTypeName: NewGameSetting, Assembly-CSharp
         m_MethodName: Coach_ActiveSkill_Decision
-        m_Mode: 2
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 0095bd42a0337fb4fa5dcc9dc207fecf, type: 2}
-          m_ObjectArgumentAssemblyTypeName: ActiveSkill_Data, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 10002
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &152543706
@@ -1229,7 +1229,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &296066663
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1665,13 +1665,13 @@ MonoBehaviour:
       - m_Target: {fileID: 959200480}
         m_TargetAssemblyTypeName: NewGameSetting, Assembly-CSharp
         m_MethodName: Coach_ActiveSkill_Decision
-        m_Mode: 2
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 78a4e1f71d227bf4bbfe8a6a233aa630, type: 2}
-          m_ObjectArgumentAssemblyTypeName: ActiveSkill_Data, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 20001
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &438331374
@@ -2650,6 +2650,7 @@ GameObject:
   m_Component:
   - component: {fileID: 787547796}
   - component: {fileID: 787547795}
+  - component: {fileID: 787547797}
   m_Layer: 0
   m_Name: GameData
   m_TagString: Untagged
@@ -2687,7 +2688,7 @@ MonoBehaviour:
         active_skills:
         - code: 
           name: 
-          need_SP: 0
+          need: 
           qualification: 
           effect: 
         passive_skills:
@@ -2712,6 +2713,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &787547797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787547794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a8f78aa8502b344caf7ee1b84b81f20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &818088183
 GameObject:
   m_ObjectHideFlags: 0
@@ -4054,13 +4067,13 @@ MonoBehaviour:
       - m_Target: {fileID: 959200480}
         m_TargetAssemblyTypeName: NewGameSetting, Assembly-CSharp
         m_MethodName: Coach_ActiveSkill_Decision
-        m_Mode: 2
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 87c5ef38c1aabc644b705fa327637c49, type: 2}
-          m_ObjectArgumentAssemblyTypeName: ActiveSkill_Data, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 10001
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1205050667
@@ -5398,13 +5411,13 @@ MonoBehaviour:
       - m_Target: {fileID: 959200480}
         m_TargetAssemblyTypeName: NewGameSetting, Assembly-CSharp
         m_MethodName: Coach_PassiveSkill_Decision
-        m_Mode: 2
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 21490a9cb246dd14fbbc000c29c1c01b, type: 2}
-          m_ObjectArgumentAssemblyTypeName: PassiveSkill_Data, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 10002
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1615199146
@@ -5976,13 +5989,13 @@ MonoBehaviour:
       - m_Target: {fileID: 959200480}
         m_TargetAssemblyTypeName: NewGameSetting, Assembly-CSharp
         m_MethodName: Coach_PassiveSkill_Decision
-        m_Mode: 2
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 77937b1f5956ea94bb533a008de71a97, type: 2}
-          m_ObjectArgumentAssemblyTypeName: PassiveSkill_Data, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 10001
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1861070023
@@ -6242,13 +6255,13 @@ MonoBehaviour:
       - m_Target: {fileID: 959200480}
         m_TargetAssemblyTypeName: NewGameSetting, Assembly-CSharp
         m_MethodName: Coach_PassiveSkill_Decision
-        m_Mode: 2
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: e07ce9b3d5e46b44aa139b2666c8534d, type: 2}
-          m_ObjectArgumentAssemblyTypeName: PassiveSkill_Data, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 20001
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1909828728
@@ -6675,7 +6688,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2022405637
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7225,13 +7238,13 @@ MonoBehaviour:
       - m_Target: {fileID: 959200480}
         m_TargetAssemblyTypeName: NewGameSetting, Assembly-CSharp
         m_MethodName: Coach_ActiveSkill_Decision
-        m_Mode: 2
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 667b37c0dcc4acb449213bb9592db7f5, type: 2}
-          m_ObjectArgumentAssemblyTypeName: ActiveSkill_Data, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 30001
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2127254809

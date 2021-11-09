@@ -1,0 +1,5 @@
+﻿code,name,need,qualification,effect
+10001,백호권법,NONE,STR120,"ATK(DMG(STR,0.5))"
+20001,주작장법,NONE,STR120,"ATK(BURN(1,50))"
+10002,현무권법,NONE,CON120,UP(CON(25))
+30001,청룡각법,NONE,DEX120,"ATK(DMG(DEX,0.1))"

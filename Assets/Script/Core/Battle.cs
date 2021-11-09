@@ -1,14 +1,13 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Battle : MonoBehaviour
 {
-    public ActiveSkill_Data active_skill;
-
+    //선언=========================================================================================
     public BattleStat red;
     public BattleStat blue;
-
+    //전투 시작시 체력 초기화======================================================================
     void Start()
     {
         red.max_HP = (int)Mathf.Floor(red.student.st_CON) * 100;
@@ -17,48 +16,57 @@ public class Battle : MonoBehaviour
         blue.max_HP = (int)Mathf.Floor(red.student.st_CON) * 100;
         blue.now_HP = red.max_HP;
     }
-
-    public void check(ActiveSkill_Data _active_skill, BattleStat me ,BattleStat taget)
+    //
+    public void check(ActiveSkill _active_skill, BattleStat me, BattleStat target)
     {
         string active_effect;
 
-        int i = _active_skill.active_skill.effect.IndexOf("(");
+        int i = _active_skill.effect.IndexOf("(");
 
-        active_effect = _active_skill.active_skill.effect.Substring(0, i);
+        active_effect = _active_skill.effect.Substring(0, i);
         Debug.Log(active_effect);
 
         switch (active_effect)
         {
             case "DMG":
-                int j = _active_skill.active_skill.effect.IndexOf(",", i);
+                int j = _active_skill.effect.IndexOf(",", i);
                 int a;
-                if (_active_skill.active_skill.effect.IndexOf(",", j+1) == -1)
+                if (_active_skill.effect.IndexOf(",", j+1) == -1)
                 {
-                    a = _active_skill.active_skill.effect.IndexOf(")", j);
+                    a = _active_skill.effect.IndexOf(")", j);
                 }
                 else
                 {
-                    a = _active_skill.active_skill.effect.IndexOf(",", j+1);
+                    a = _active_skill.effect.IndexOf(",", j+1);
                 }
-                string stat = _active_skill.active_skill.effect.Substring(i + 1, j - 1 - i);
-                string facter = _active_skill.active_skill.effect.Substring(j + 1, a - 1 - j);
+                string stat = _active_skill.effect.Substring(i + 1, j - 1 - i);
+                string facter = _active_skill.effect.Substring(j + 1, a - 1 - j);
                 Debug.Log(stat);
                 Debug.Log(facter);
                 break;
         }
     }
-
-    void DMG(string stat, string facter, string hit_num, int target_HP)
+    //액티브 스킬 DMG 효과=========================================================================
+    void Active_DMG(string stat, string facter, string hit_num, BattleStat me, BattleStat target)
     {
         switch (stat)
         {
             case "STR":
-                target_HP += (-1);
+                for (int i = 0; i < int.Parse(hit_num); i++)
+                {
+                    target.now_HP += (int)((-1) * Mathf.Floor(me.student.st_STR) * int.Parse(facter));
+                }
+                break;
+            case "DEX":
+                for (int i = 0; i < int.Parse(hit_num); i++)
+                {
+                    target.now_HP += (int)((-1) * Mathf.Floor(me.student.st_DEX) * int.Parse(facter));
+                }
                 break;
         }
     }
 }
-
+//전투시 필요 스탯 클래스화========================================================================
 [System.Serializable]
 public class BattleStat
 {

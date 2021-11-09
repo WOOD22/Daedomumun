@@ -1,0 +1,5 @@
+﻿code,name,need,qualification,effect
+10001,붕권,100,STR120,"DMG(STR,4,1))&STUN(1,100)"
+20001,폭렬장,200,STR120,"DMG(STR,8,1))"
+30001,비룡각,50,DEX120,"DMG(DEX,1,1)"
+10002,질풍권,100,DEX120,"DMG(DEX,0.5,4)"
