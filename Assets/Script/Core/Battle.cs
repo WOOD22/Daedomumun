@@ -5,6 +5,8 @@ using UnityEngine;
 public class Battle : MonoBehaviour
 {
     //선언=========================================================================================
+    //red  : 홍코너
+    //blue : 청코너
     public BattleStat red;
     public BattleStat blue;
     //전투 시작시 체력 초기화======================================================================
@@ -12,55 +14,91 @@ public class Battle : MonoBehaviour
     {
         red.max_HP = (int)Mathf.Floor(red.student.st_CON) * 100;
         red.now_HP = red.max_HP;
+        red.max_SP = int.Parse(red.student.active_skill.need);
+        red.now_SP = 0;
 
         blue.max_HP = (int)Mathf.Floor(red.student.st_CON) * 100;
         blue.now_HP = red.max_HP;
+        blue.max_SP = int.Parse(blue.student.active_skill.need);
+        blue.now_SP = 0;
     }
-    //
-    public void check(ActiveSkill _active_skill, BattleStat me, BattleStat target)
+
+    private void FixedUpdate()
+    {
+        
+    }
+
+    void Charge_SP(float time, BattleStat user)
+    {
+        user.now_SP += (int)(red.student.st_INT / 10);
+    }
+    //액티브 스킬 발동(복수의 effect의 경우 &를 기준으로 나누어서 적용 ## & 는 문자열에서 제외한다)
+    public void Use_Active_Skill(string skill_effect, BattleStat user, BattleStat target)
     {
         string active_effect;
 
-        int i = _active_skill.effect.IndexOf("(");
+        int effect_start = skill_effect.IndexOf("(");
 
-        active_effect = _active_skill.effect.Substring(0, i);
+        active_effect = skill_effect.Substring(0, effect_start);
         Debug.Log(active_effect);
 
         switch (active_effect)
         {
+            //DMG 효과일 경우======================================================================
             case "DMG":
-                int j = _active_skill.effect.IndexOf(",", i);
-                int a;
-                if (_active_skill.effect.IndexOf(",", j+1) == -1)
+                //effect_stat    : 계수가 적용되는 스탯 뒤의 쉼표(,)
+                //effect_facter  : 적용되는 계수 뒤의 쉼표(,), 또는 괄호())
+                //effect_hit_num : 타격 횟수 뒤의 쉼표(,),또는 괄호())
+                int effect_stat, effect_facter, effect_hit_num;
+
+                effect_stat = skill_effect.IndexOf(",", effect_start);
+
+                if (skill_effect.IndexOf(",", effect_stat + 1) == -1)
                 {
-                    a = _active_skill.effect.IndexOf(")", j);
+                    effect_facter = skill_effect.IndexOf(")", effect_stat);
                 }
                 else
                 {
-                    a = _active_skill.effect.IndexOf(",", j+1);
+                    effect_facter = skill_effect.IndexOf(",", effect_stat + 1);
                 }
-                string stat = _active_skill.effect.Substring(i + 1, j - 1 - i);
-                string facter = _active_skill.effect.Substring(j + 1, a - 1 - j);
-                Debug.Log(stat);
-                Debug.Log(facter);
+                //
+                if (skill_effect.IndexOf(",", effect_facter + 1) == -1)
+                {
+                    effect_hit_num = skill_effect.IndexOf(")", effect_facter);
+                }
+                else
+                {
+                    effect_hit_num = skill_effect.IndexOf(",", effect_facter + 1);
+                }
+
+                //stat    : 계수가 적용되는 스탯
+                //facter  : 적용되는 계수
+                //hit_num : 타격 횟수
+                string stat = skill_effect.Substring(effect_start + 1, effect_stat - 1 - effect_start);
+                string facter = skill_effect.Substring(effect_stat + 1, effect_facter - 1 - effect_stat);
+                string hit_num = skill_effect.Substring(effect_facter + 1, effect_hit_num - 1 - effect_facter);
+
+                Active_DMG(stat, facter, hit_num, user, target);
                 break;
         }
     }
     //액티브 스킬 DMG 효과=========================================================================
-    void Active_DMG(string stat, string facter, string hit_num, BattleStat me, BattleStat target)
+    void Active_DMG(string stat, string facter, string hit_num, BattleStat user, BattleStat target)
     {
         switch (stat)
         {
             case "STR":
                 for (int i = 0; i < int.Parse(hit_num); i++)
                 {
-                    target.now_HP += (int)((-1) * Mathf.Floor(me.student.st_STR) * int.Parse(facter));
+                    target.now_HP += (int)((-1) * Mathf.Floor(user.student.st_STR) * int.Parse(facter));
+                    Debug.Log((int)((-1) * Mathf.Floor(user.student.st_DEX) * int.Parse(facter)));
                 }
                 break;
             case "DEX":
                 for (int i = 0; i < int.Parse(hit_num); i++)
                 {
-                    target.now_HP += (int)((-1) * Mathf.Floor(me.student.st_DEX) * int.Parse(facter));
+                    target.now_HP += (int)((-1) * Mathf.Floor(user.student.st_DEX) * int.Parse(facter));
+                    Debug.Log((int)((-1) * Mathf.Floor(user.student.st_DEX) * int.Parse(facter)));
                 }
                 break;
         }
