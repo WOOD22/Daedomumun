@@ -16,16 +16,46 @@ public class Battle : MonoBehaviour
         red.now_HP = red.max_HP;
         red.max_SP = int.Parse(red.student.active_skill.need);
         red.now_SP = 0;
+        red.cool_ATK = 2.5f - red.student.st_DEX / 100;
+        red.can_ATK = true;
 
         blue.max_HP = (int)Mathf.Floor(red.student.st_CON) * 100;
         blue.now_HP = red.max_HP;
         blue.max_SP = int.Parse(blue.student.active_skill.need);
         blue.now_SP = 0;
+        blue.cool_ATK = 2.5f - blue.student.st_DEX / 100;
+        blue.can_ATK = true;
     }
 
-    private void FixedUpdate()
+    void Update()
     {
-        
+        if(red.can_ATK == true)
+        {
+            red.can_ATK = false;
+            StartCoroutine(ATK_Cooltime(red));
+            Target_ATK(red, blue);
+        }
+
+        if (blue.can_ATK == true)
+        {
+            blue.can_ATK = false;
+            StartCoroutine(ATK_Cooltime(blue));
+            Target_ATK(blue, red);
+        }
+    }
+
+    void Target_ATK(BattleStat user, BattleStat target)
+    {
+        int target_DMG = (-1) * (int)(user.student.st_STR * (1 + Random.Range(0, user.student.st_LUK) / 200));
+        target.now_HP += target_DMG;
+        Debug.Log(target.student.name + target_DMG);
+        user.can_ATK = false;
+    }
+
+    IEnumerator ATK_Cooltime(BattleStat user)
+    {
+        yield return new WaitForSeconds(user.cool_ATK);
+        user.can_ATK = true;
     }
 
     void Charge_SP(float time, BattleStat user)
@@ -113,4 +143,6 @@ public class BattleStat
     public int max_SP;
     public int now_SP;
     public Student student;
+    public bool can_ATK;
+    public float cool_ATK;
 }
