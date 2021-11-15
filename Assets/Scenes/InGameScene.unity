@@ -758,6 +758,10 @@ MonoBehaviour:
     now_HP: 0
     max_SP: 0
     now_SP: 0
+    ATK_can: 0
+    ATK_cool: 0
+    SP_can: 0
+    SP_cool: 0
     student:
       code: 
       name: "\uB178\uBB34\uD604"
@@ -784,23 +788,25 @@ MonoBehaviour:
       st_LUK: 100
       active_skill:
         code: 
-        name: 
-        need: 100
+        name: "\uC30D\uBE44\uAD8C"
+        need: 70
         qualification: 
-        effect: 
+        effect: DMG(DEX,0.7,2)
       passive_skill:
         code: 
         name: 
         need: 
         qualification: 
         effect: 
-    can_ATK: 1
-    cool_ATK: 0
   blue:
     max_HP: 0
     now_HP: 0
     max_SP: 0
     now_SP: 0
+    ATK_can: 0
+    ATK_cool: 0
+    SP_can: 0
+    SP_cool: 0
     student:
       code: 
       name: "\uC774\uBA85\uBC15"
@@ -827,18 +833,16 @@ MonoBehaviour:
       st_LUK: 100
       active_skill:
         code: 
-        name: 
+        name: "\uBD95\uAD8C"
         need: 100
         qualification: 
-        effect: 
+        effect: DMG(STR,2,1)
       passive_skill:
         code: 
         name: 
         need: 
         qualification: 
         effect: 
-    can_ATK: 1
-    cool_ATK: 0
 --- !u!1 &655307810
 GameObject:
   m_ObjectHideFlags: 0
