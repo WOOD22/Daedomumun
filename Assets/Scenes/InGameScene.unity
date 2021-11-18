@@ -773,9 +773,9 @@ MonoBehaviour:
       prestige: 0
       training: 
       schedule: 
-      st_STR: 100
+      st_STR: 80
       pt_STR: 0
-      st_DEX: 100
+      st_DEX: 110
       pt_DEX: 0
       st_CON: 100
       pt_CON: 0
@@ -818,7 +818,7 @@ MonoBehaviour:
       prestige: 0
       training: 
       schedule: 
-      st_STR: 100
+      st_STR: 120
       pt_STR: 0
       st_DEX: 100
       pt_DEX: 0

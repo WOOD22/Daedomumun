@@ -12,7 +12,7 @@ public class Battle : MonoBehaviour
     //초기화 용도==================================================================================
     void Initialization(BattleStat user)
     {
-        user.max_HP = (int)Mathf.Floor(user.student.st_CON) * 20;
+        user.max_HP = (int)Mathf.Floor(user.student.st_CON) * 10;
         user.now_HP = user.max_HP;
         user.max_SP = int.Parse(user.student.active_skill.need);
         user.now_SP = 0;
@@ -22,10 +22,24 @@ public class Battle : MonoBehaviour
         user.SP_can = true;
     }
     //전투 시작시 초기화===========================================================================
-    void Start()
+    void OnEnable()
     {
         Initialization(red);
         Initialization(blue);
+    }
+    //전투 결과====================================================================================
+    void Check_Result()
+    {
+        if(red.now_HP <= 0)
+        {
+            Debug.Log(blue.student.name + "승리");
+            this.GetComponent<Battle>().enabled = false;
+        }
+        if (blue.now_HP <= 0)
+        {
+            Debug.Log(red.student.name + "승리");
+            this.GetComponent<Battle>().enabled = false;
+        }
     }
     //일반 공격====================================================================================
     void ATK_Can(BattleStat user, BattleStat target)
@@ -35,6 +49,7 @@ public class Battle : MonoBehaviour
             red.ATK_can = false;
             StartCoroutine(ATK_Cooltime(user));
             ATK_Target(user, target);
+            Check_Result();
         }
     }
     //액티브 스킬==================================================================================
@@ -48,6 +63,7 @@ public class Battle : MonoBehaviour
             if (user.now_SP >= user.max_SP)
             {
                 Use_Active_Skill(user.student.active_skill.effect, user, target);
+                Check_Result();
             }
         }
     }
@@ -65,7 +81,7 @@ public class Battle : MonoBehaviour
     {
         int target_DMG = (-1) * (int)(user.student.st_STR * (1 + Random.Range(0, user.student.st_LUK) / 200));
         target.now_HP += target_DMG;
-        Debug.Log(target.student.name + target_DMG);
+        Debug.Log(target.student.name + target.now_HP);
         user.ATK_can = false;
     }
     //일반 공격 속도(0 = 2.5 초당 1회, 100 = 1.5 초당 1회, 200 = 0.5 초당 1회)=================================
@@ -94,7 +110,6 @@ public class Battle : MonoBehaviour
         int effect_start = skill_effect.IndexOf("(");
 
         active_effect = skill_effect.Substring(0, effect_start);
-        Debug.Log(active_effect);
 
         switch (active_effect)
         {
@@ -144,17 +159,22 @@ public class Battle : MonoBehaviour
             case "STR":
                 for (int i = 0; i < int.Parse(hit_num); i++)
                 {
-                    target.now_HP += (int)((-1) * Mathf.Floor(user.student.st_STR) * float.Parse(facter));
-                    Debug.Log((int)((-1) * Mathf.Floor(user.student.st_DEX) * float.Parse(facter)));
+                    DMG(user.student.st_STR);
                 }
                 break;
             case "DEX":
                 for (int i = 0; i < int.Parse(hit_num); i++)
                 {
-                    target.now_HP += (int)((-1) * Mathf.Floor(user.student.st_DEX) * float.Parse(facter));
-                    Debug.Log((int)((-1) * Mathf.Floor(user.student.st_DEX) * float.Parse(facter)));
+                    DMG(user.student.st_DEX);
                 }
                 break;
+        }
+        //DMG 효과 함수화
+        void DMG(float facter_stat)
+        {
+            int dmg = (int)(Mathf.Floor(facter_stat) * float.Parse(facter) * (1 + Random.Range(0, user.student.st_LUK) / 200));
+            target.now_HP -= dmg;
+            Debug.Log(dmg + target.student.name + "의 남은 HP" + target.now_HP);
         }
     }
 }

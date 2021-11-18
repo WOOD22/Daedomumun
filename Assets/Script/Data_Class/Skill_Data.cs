@@ -12,8 +12,8 @@ public class Skill_Data : MonoBehaviour
 
     private void Start()
     {
-        List<Dictionary<string, object>> active_skill_table = CSVReader.Read("DataBase/CSV/Active_Skill_Table");
-        List<Dictionary<string, object>> passive_skill_table = CSVReader.Read("DataBase/CSV/Passive_Skill_Table");
+        active_skill_table = CSVReader.Read("DataBase/CSV/Active_Skill_Table");
+        passive_skill_table = CSVReader.Read("DataBase/CSV/Passive_Skill_Table");
 
         for (int i = 0; i < active_skill_table.Count; i++)
         {

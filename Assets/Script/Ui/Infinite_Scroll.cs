@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //스크롤 뷰의 Content에 달아서 사용
 public class Infinite_Scroll : MonoBehaviour
