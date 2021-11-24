@@ -3267,6 +3267,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   last_name: 
   first_name: 
+  gender: 0
+  school_class: 0
+  birth_month: 0
+  st_STR: 0
+  pt_STR: 0
+  st_DEX: 0
+  pt_DEX: 0
+  st_CON: 0
+  pt_CON: 0
+  st_INT: 0
+  pt_INT: 0
+  st_WIS: 0
+  pt_WIS: 0
+  st_WIL: 0
+  pt_WIL: 0
+  st_LUK: 0
 --- !u!1 &1039732272
 GameObject:
   m_ObjectHideFlags: 0
@@ -4711,7 +4727,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 959200481}
         m_TargetAssemblyTypeName: Instantiate_Student, Assembly-CSharp
-        m_MethodName: Set_Name
+        m_MethodName: Set_Student
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
