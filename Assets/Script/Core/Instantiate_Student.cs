@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,13 +7,18 @@ public class Instantiate_Student : MonoBehaviour
     List<Dictionary<string, object>> last_name_table;
     List<Dictionary<string, object>> first_name_male_table;
     List<Dictionary<string, object>> first_name_female_table;
-    //°³ÀÎ Á¤º¸====================================================================================
+
+    Dictionary<string, ActiveSkill> active_skill_data;
+    Dictionary<string, PassiveSkill> passive_skill_data;
+    //ê°œì¸ ì •ë³´====================================================================================
     public string last_name;
     public string first_name;
     public char gender;
     public int school_class;
     public int birth_month;
-    //´É·ÂÄ¡ Á¤º¸==================================================================================
+    public string main_MA;
+    public int prestige;
+    //ëŠ¥ë ¥ì¹˜ ì •ë³´==================================================================================
     public float st_STR, pt_STR;    
     public float st_DEX, pt_DEX;    
     public float st_CON, pt_CON;    
@@ -21,23 +26,40 @@ public class Instantiate_Student : MonoBehaviour
     public float st_WIS, pt_WIS;    
     public float st_WIL, pt_WIL;    
     public float st_LUK;
-    //CSVÆÄÀÏ È£Ãâ=================================================================================
+    //ë³´ìœ í•œ ìŠ¤í‚¬==================================================================================
+    public List<ActiveSkill> active_skills;
+    public List<PassiveSkill> passive_skills;
+    //CSVíŒŒì¼ í˜¸ì¶œ=================================================================================
     void Start()
     {
         last_name_table = CSVReader.Read("DataBase/CSV/LastName");
         first_name_male_table = CSVReader.Read("DataBase/CSV/FirstName_Male");
         first_name_female_table = CSVReader.Read("DataBase/CSV/FirstName_Female");
+
+        active_skill_data = GameObject.Find("GameData").GetComponent<Skill_Data>().active_skill_data;
+        passive_skill_data = GameObject.Find("GameData").GetComponent<Skill_Data>().passive_skill_data;
     }
-    //ÇĞ»ı ½ºÅÈ ¼¼ÆÃ===============================================================================
+    //ì½”ì¹˜ ìŠ¤íƒ¯ ì„¸íŒ…===============================================================================
+    public void Set_Coach()
+    {
+        Set_Gender();
+        Set_Name(gender);
+        Set_Birth_Month();
+        Set_Main_MA();
+        //Set_Active_Skills(school_class);
+    }
+    //í•™ìƒ ìŠ¤íƒ¯ ì„¸íŒ…===============================================================================
     public void Set_Student()
     {
         Set_Gender();
         Set_Name(gender);
         Set_School_Class();
         Set_Birth_Month();
+        Set_Main_MA();
         Set_Stat(school_class,'C');
+        //Set_Active_Skills(school_class);
     }
-    //¼ºº° ¼¼ÆÃ====================================================================================
+    //ì„±ë³„ ì„¸íŒ…====================================================================================
     void Set_Gender()
     {
         if(Random.Range(0,2) == 0)
@@ -49,7 +71,7 @@ public class Instantiate_Student : MonoBehaviour
             gender = 'F';
         }
     }
-    //ÀÌ¸§ ¼¼ÆÃ====================================================================================
+    //ì´ë¦„ ì„¸íŒ…====================================================================================
     void Set_Name(char _gender)
     {
         Set_LastName();
@@ -62,7 +84,7 @@ public class Instantiate_Student : MonoBehaviour
             Set_FirstName_Female();
         }
     }
-    //¼º¾¾ ¼¼ÆÃ====================================================================================
+    //ì„±ì”¨ ì„¸íŒ…====================================================================================
     void Set_LastName()
     {
         int num = Random.Range(0, int.Parse(last_name_table[0]["total"].ToString()));
@@ -78,7 +100,7 @@ public class Instantiate_Student : MonoBehaviour
             total += int.Parse(last_name_table[i]["number"].ToString());
         }
     }
-    //³²¼º ÀÌ¸§====================================================================================
+    //ë‚¨ì„± ì´ë¦„====================================================================================
     void Set_FirstName_Male()
     {
         int num = Random.Range(0, int.Parse(first_name_male_table[0]["total"].ToString()));
@@ -94,7 +116,7 @@ public class Instantiate_Student : MonoBehaviour
             total += int.Parse(first_name_male_table[i]["number"].ToString());
         }
     }
-    //¿©¼º ÀÌ¸§====================================================================================
+    //ì—¬ì„± ì´ë¦„====================================================================================
     void Set_FirstName_Female()
     {
         int num = Random.Range(0, int.Parse(first_name_female_table[0]["total"].ToString()));
@@ -110,17 +132,34 @@ public class Instantiate_Student : MonoBehaviour
             total += int.Parse(first_name_female_table[i]["number"].ToString());
         }
     }
-    //ÇĞ³â=========================================================================================
+    //í•™ë…„=========================================================================================
     void Set_School_Class()
     {
         school_class = Random.Range(1, 4);
     }
-    //»ı¿ù=========================================================================================
+    //ìƒì›”=========================================================================================
     void Set_Birth_Month()
     {
         birth_month = Random.Range(1, 13);
     }
-    //½ºÅÈ ¼¼ÆÃ(Rank¿¡ ºñ·ÊÇÏ¿© ÀáÀç·Â, ÇöÀç ½ºÅÈ °áÁ¤, ÇĞ³â¿¡ ºñ·ÊÇÏ¿© ÇöÀç ½ºÅÈ °áÁ¤)============
+    //ì£¼ ë¬´ê³µ======================================================================================
+    void Set_Main_MA()
+    {
+        int r = Random.Range(0, 3);
+        if (r == 0)
+        {
+            main_MA = "ê¶Œ";
+        }
+        else if (r == 1)
+        {
+            main_MA = "ì¥";
+        }
+        else if (r == 2)
+        {
+            main_MA = "ê°";
+        }
+    }
+    //ìŠ¤íƒ¯ ì„¸íŒ…(Rankì— ë¹„ë¡€í•˜ì—¬ ì ì¬ë ¥, í˜„ì¬ ìŠ¤íƒ¯ ê²°ì •, í•™ë…„ì— ë¹„ë¡€í•˜ì—¬ í˜„ì¬ ìŠ¤íƒ¯ ê²°ì •)============
     void Set_Stat(int _school_class, char rank)
     {
         if (rank == 'S')
@@ -195,5 +234,10 @@ public class Instantiate_Student : MonoBehaviour
 
             st_LUK = Random.Range(0.0f, 200.0f);
         }
+    }
+    //
+    void Set_Active_Skills(int _school_class)
+    {
+
     }
 }

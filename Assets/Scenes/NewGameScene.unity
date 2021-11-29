@@ -3283,6 +3283,8 @@ MonoBehaviour:
   st_WIL: 0
   pt_WIL: 0
   st_LUK: 0
+  active_skills: []
+  passive_skills: []
 --- !u!1 &1039732272
 GameObject:
   m_ObjectHideFlags: 0
