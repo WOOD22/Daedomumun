@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Instantiate_Student : MonoBehaviour
+public class Instantiate_Character : MonoBehaviour
 {
     List<Dictionary<string, object>> last_name_table;
     List<Dictionary<string, object>> first_name_male_table;
     List<Dictionary<string, object>> first_name_female_table;
 
-    Dictionary<string, ActiveSkill> active_skill_data;
-    Dictionary<string, PassiveSkill> passive_skill_data;
+    Dictionary<int, ActiveSkill> active_skill_data;
+    Dictionary<int, PassiveSkill> passive_skill_data;
     //개인 정보====================================================================================
     public string last_name;
     public string first_name;
@@ -46,6 +46,7 @@ public class Instantiate_Student : MonoBehaviour
         Set_Name(gender);
         Set_Birth_Month();
         Set_Main_MA();
+        Set_Active_Skills(1);
         //Set_Active_Skills(school_class);
     }
     //학생 스탯 세팅===============================================================================
@@ -57,7 +58,7 @@ public class Instantiate_Student : MonoBehaviour
         Set_Birth_Month();
         Set_Main_MA();
         Set_Stat(school_class,'C');
-        //Set_Active_Skills(school_class);
+        Set_Active_Skills(school_class);
     }
     //성별 세팅====================================================================================
     void Set_Gender()
@@ -235,9 +236,9 @@ public class Instantiate_Student : MonoBehaviour
             st_LUK = Random.Range(0.0f, 200.0f);
         }
     }
-    //
+    //무공 세팅
     void Set_Active_Skills(int _school_class)
     {
-
+        active_skills.Add(active_skill_data[0]);
     }
 }

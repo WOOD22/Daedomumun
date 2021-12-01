@@ -5,10 +5,10 @@ using UnityEngine;
 public class Skill_Data : MonoBehaviour
 {
     List<Dictionary<string, object>> active_skill_table;
-    public Dictionary<string, ActiveSkill> active_skill_data = new Dictionary<string, ActiveSkill>();
+    public Dictionary<int, ActiveSkill> active_skill_data = new Dictionary<int, ActiveSkill>();
 
     List<Dictionary<string, object>> passive_skill_table;
-    public Dictionary<string, PassiveSkill> passive_skill_data = new Dictionary<string, PassiveSkill>();
+    public Dictionary<int, PassiveSkill> passive_skill_data = new Dictionary<int, PassiveSkill>();
 
     private void Start()
     {
@@ -19,8 +19,9 @@ public class Skill_Data : MonoBehaviour
         {
             ActiveSkill new_activeskill = new ActiveSkill();
 
-            new_activeskill.code = active_skill_table[i]["code"].ToString();
+            new_activeskill.code = int.Parse(active_skill_table[i]["code"].ToString());
             new_activeskill.name = active_skill_table[i]["name"].ToString();
+            new_activeskill.main_MA = active_skill_table[i]["main_MA"].ToString();
             new_activeskill.need = active_skill_table[i]["need"].ToString();
             new_activeskill.qualification = active_skill_table[i]["qualification"].ToString();
             new_activeskill.effect = active_skill_table[i]["effect"].ToString();
@@ -32,8 +33,9 @@ public class Skill_Data : MonoBehaviour
         {
             PassiveSkill new_passiveskill = new PassiveSkill();
 
-            new_passiveskill.code = passive_skill_table[i]["code"].ToString();
+            new_passiveskill.code = int.Parse(passive_skill_table[i]["code"].ToString());
             new_passiveskill.name = passive_skill_table[i]["name"].ToString();
+            new_passiveskill.main_MA = passive_skill_table[i]["main_MA"].ToString();
             new_passiveskill.need = passive_skill_table[i]["need"].ToString();
             new_passiveskill.qualification = passive_skill_table[i]["qualification"].ToString();
             new_passiveskill.effect = passive_skill_table[i]["effect"].ToString();

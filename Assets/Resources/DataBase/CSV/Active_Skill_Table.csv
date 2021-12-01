@@ -1,5 +1,5 @@
-﻿code,name,need,qualification,effect
-10001,붕권,100,STR120,"DMG(STR,4,1))&STUN(1,100)"
-20001,폭렬장,200,STR120,"DMG(STR,8,1))"
-30001,비룡각,50,DEX120,"DMG(DEX,1,1)"
-10002,질풍권,100,DEX120,"DMG(DEX,0.5,4)"
+﻿code,name,main_MA,need,qualification,effect
+0,붕권,권,100,STR120,"DMG(STR,4,1))&STUN(1,100)"
+1,폭렬장,장,200,STR120,"DMG(STR,8,1))"
+2,비룡각,각,50,DEX120,"DMG(DEX,1,1)"
+3,질풍권,권,100,DEX120,"DMG(DEX,0.5,4)"

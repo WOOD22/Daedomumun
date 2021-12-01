@@ -83,8 +83,9 @@ public class Student
 [System.Serializable]
 public class ActiveSkill
 {
-    public string code;             //스킬의 코드 00(타입)/0000(작성 순서)
+    public int code;                //스킬의 코드 00(타입)/0000(작성 순서)
     public string name;             //스킬의 이름
+    public string main_MA;          //무공 종류(권, 장, 각 3타입)
     public string need;             //사용에 필요한 조건
     public string qualification;    //스킬 습득 조건(정해진 규칙에 따라 작성)
     public string effect;           //스킬의 효과(정해진 규칙에 따라 작성)
@@ -92,8 +93,9 @@ public class ActiveSkill
 [System.Serializable]
 public class PassiveSkill
 {
-    public string code;             //스킬의 코드 00(타입)/0000(작성 순서)
+    public int code;                //스킬의 코드 00(타입)/0000(작성 순서)
     public string name;             //스킬의 이름
+    public string main_MA;          //무공 종류(권, 장, 각 3타입)
     public string need;             //사용에 필요한 조건
     public string qualification;    //스킬 습득 조건(정해진 규칙에 따라 작성)
     public string effect;           //스킬의 효과(정해진 규칙에 따라 작성)

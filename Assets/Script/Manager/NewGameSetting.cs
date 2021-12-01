@@ -70,11 +70,11 @@ public class NewGameSetting : MonoBehaviour
         game_data.clubs[0].name = school_name_text.text;
     }
     //=============================================================================================
-    public void Coach_ActiveSkill_Decision(string code)
+    public void Coach_ActiveSkill_Decision(int code)
     {
         game_data.clubs[0].coach.active_skills[0] = GameObject.Find("GameData").GetComponent<Skill_Data>().active_skill_data[code];
     }
-    public void Coach_PassiveSkill_Decision(string code)
+    public void Coach_PassiveSkill_Decision(int code)
     {
         game_data.clubs[0].coach.passive_skills[0] = GameObject.Find("GameData").GetComponent<Skill_Data>().passive_skill_data[code];
     }
