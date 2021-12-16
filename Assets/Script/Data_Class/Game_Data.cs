@@ -4,28 +4,27 @@ using UnityEngine;
 
 public class Game_Data : MonoBehaviour
 {
-    public Data game_data;
+    public GameData game_data;
 }
-
 //게임 데이터 클래스===============================================================================
 [System.Serializable]
-public class Data
+public class GameData
 {
     public int year;//게임 진행 년도
     public int month;//현재 월
-    public List<Club> clubs;//격투부 리스트
+    public List<School> schools;//격투부 리스트
 }
 //격투부 클래스====================================================================================
 [System.Serializable]
-public class Club
+public class School
 {
     //인물 정보====================================================================================
-    public string code;             //격투부의 코드
-    public string name;             //학교의 이름
-    public Coach coach;             //격투부 코치
-    public List<Student> students;  //격투부 학생 리스트
+    public string code;                                         //학교의 코드(0~999)
+    public string name;                                         //학교의 이름
+    public Coach coach = new Coach();                           //학교의 코치
+    public List<Student> students = new List<Student>();        //학교의 학생 리스트
     //상태 정보====================================================================================
-    public int prestige;            //격투부의 명망(학생의 대회 성적, 프로데뷔 여부로 상승)
+    public int prestige;                                        //학교의 명망(학생의 대회 성적, 프로데뷔 여부로 상승)
 }
 //코치 클래스======================================================================================
 [System.Serializable]
@@ -37,7 +36,6 @@ public class Coach
     public char gender;             //코치의 성별(M : 남성, F : 여성)
     public string nickname;         //코치의 별명
     public int birth_month;         //코치의 생월
-    public int prestige;            //코치의 명망(지도학생의 대회 성적, 프로데뷔 여부로 상승)
     //상태 정보====================================================================================
     public int condition;           //컨디션 (기본 최대치 100, 배치한 훈련의 효과 = 훈련 효과 수치 * (1 + (condition/100)))
     public string training;         //이번 턴 배정된 훈련(없을 시 NONE 으로 초기화)
@@ -46,7 +44,6 @@ public class Coach
     public List<ActiveSkill> active_skills;
     public List<PassiveSkill> passive_skills;
 }
-
 //학생 클래스======================================================================================
 [System.Serializable]
 public class Student

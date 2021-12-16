@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Instantiate_Character : MonoBehaviour
 {
@@ -8,9 +9,11 @@ public class Instantiate_Character : MonoBehaviour
     List<Dictionary<string, object>> first_name_male_table;
     List<Dictionary<string, object>> first_name_female_table;
 
+    GameData game_data;
+
     Dictionary<int, ActiveSkill> active_skill_data;
     Dictionary<int, PassiveSkill> passive_skill_data;
-    //개인 정보====================================================================================
+    //캐릭터 개인 정보=============================================================================
     public string last_name;
     public string first_name;
     public char gender;
@@ -18,7 +21,7 @@ public class Instantiate_Character : MonoBehaviour
     public int birth_month;
     public string main_MA;
     public int prestige;
-    //능력치 정보==================================================================================
+    //캐릭터 능력치 정보===========================================================================
     public float st_STR, pt_STR;    
     public float st_DEX, pt_DEX;    
     public float st_CON, pt_CON;    
@@ -38,16 +41,31 @@ public class Instantiate_Character : MonoBehaviour
 
         active_skill_data = GameObject.Find("GameData").GetComponent<Skill_Data>().active_skill_data;
         passive_skill_data = GameObject.Find("GameData").GetComponent<Skill_Data>().passive_skill_data;
+        game_data = GameObject.Find("GameData").GetComponent<Game_Data>().game_data;
+    }
+    //새로운 학교 생성=============================================================================
+    public void Set_School()
+    {
+        School new_school = new School();
+
+        Set_Coach(new_school.coach);
+
+        new_school.prestige = Random.Range(0, 1000);
+
+        game_data.schools.Add(new_school);
     }
     //코치 스탯 세팅===============================================================================
-    public void Set_Coach()
+    public void Set_Coach(Coach new_coach)
     {
         Set_Gender();
         Set_Name(gender);
         Set_Birth_Month();
         Set_Main_MA();
-        Set_Active_Skills(1);
-        //Set_Active_Skills(school_class);
+
+        new_coach.name = last_name + first_name;
+        new_coach.gender = gender;
+        new_coach.birth_month = birth_month;
+        new_coach.main_MA = main_MA;
     }
     //학생 스탯 세팅===============================================================================
     public void Set_Student()
@@ -58,12 +76,11 @@ public class Instantiate_Character : MonoBehaviour
         Set_Birth_Month();
         Set_Main_MA();
         Set_Stat(school_class,'C');
-        Set_Active_Skills(school_class);
     }
     //성별 세팅====================================================================================
     void Set_Gender()
     {
-        if(Random.Range(0,2) == 0)
+        if(Random.Range(0,100) < 70)
         {
             gender = 'M';
         }
@@ -172,12 +189,12 @@ public class Instantiate_Character : MonoBehaviour
             pt_WIS = Random.Range(160.0f, 200.0f);
             pt_WIL = Random.Range(160.0f, 200.0f);
 
-            st_STR = Random.Range(pt_STR / 5 * _school_class, pt_STR / 3 * _school_class);
-            st_DEX = Random.Range(pt_DEX / 5 * _school_class, pt_DEX / 3 * _school_class);
-            st_CON = Random.Range(pt_CON / 5 * _school_class, pt_CON / 3 * _school_class);
-            st_INT = Random.Range(pt_INT / 5 * _school_class, pt_INT / 3 * _school_class);
-            st_WIS = Random.Range(pt_WIS / 5 * _school_class, pt_WIS / 3 * _school_class);
-            st_WIL = Random.Range(pt_WIL / 5 * _school_class, pt_WIL / 3 * _school_class);
+            st_STR = Random.Range(pt_STR / 10 * _school_class, pt_STR / 6 * _school_class);
+            st_DEX = Random.Range(pt_DEX / 10 * _school_class, pt_DEX / 6 * _school_class);
+            st_CON = Random.Range(pt_CON / 10 * _school_class, pt_CON / 6 * _school_class);
+            st_INT = Random.Range(pt_INT / 10 * _school_class, pt_INT / 6 * _school_class);
+            st_WIS = Random.Range(pt_WIS / 10 * _school_class, pt_WIS / 6 * _school_class);
+            st_WIL = Random.Range(pt_WIL / 10 * _school_class, pt_WIL / 6 * _school_class);
 
             st_LUK = Random.Range(0.0f, 200.0f);
         }
@@ -190,12 +207,12 @@ public class Instantiate_Character : MonoBehaviour
             pt_WIS = Random.Range(120.0f, 200.0f);
             pt_WIL = Random.Range(120.0f, 200.0f);
 
-            st_STR = Random.Range(pt_STR / 5 * _school_class, pt_STR / 3 * _school_class);
-            st_DEX = Random.Range(pt_DEX / 5 * _school_class, pt_DEX / 3 * _school_class);
-            st_CON = Random.Range(pt_CON / 5 * _school_class, pt_CON / 3 * _school_class);
-            st_INT = Random.Range(pt_INT / 5 * _school_class, pt_INT / 3 * _school_class);
-            st_WIS = Random.Range(pt_WIS / 5 * _school_class, pt_WIS / 3 * _school_class);
-            st_WIL = Random.Range(pt_WIL / 5 * _school_class, pt_WIL / 3 * _school_class);
+            st_STR = Random.Range(pt_STR / 10 * _school_class, pt_STR / 6 * _school_class);
+            st_DEX = Random.Range(pt_DEX / 10 * _school_class, pt_DEX / 6 * _school_class);
+            st_CON = Random.Range(pt_CON / 10 * _school_class, pt_CON / 6 * _school_class);
+            st_INT = Random.Range(pt_INT / 10 * _school_class, pt_INT / 6 * _school_class);
+            st_WIS = Random.Range(pt_WIS / 10 * _school_class, pt_WIS / 6 * _school_class);
+            st_WIL = Random.Range(pt_WIL / 10 * _school_class, pt_WIL / 6 * _school_class);
 
             st_LUK = Random.Range(0.0f, 200.0f);
         }
@@ -208,12 +225,12 @@ public class Instantiate_Character : MonoBehaviour
             pt_WIS = Random.Range(100.0f, 200.0f);
             pt_WIL = Random.Range(100.0f, 200.0f);
 
-            st_STR = Random.Range(pt_STR / 5 * _school_class, pt_STR / 3 * _school_class);
-            st_DEX = Random.Range(pt_DEX / 5 * _school_class, pt_DEX / 3 * _school_class);
-            st_CON = Random.Range(pt_CON / 5 * _school_class, pt_CON / 3 * _school_class);
-            st_INT = Random.Range(pt_INT / 5 * _school_class, pt_INT / 3 * _school_class);
-            st_WIS = Random.Range(pt_WIS / 5 * _school_class, pt_WIS / 3 * _school_class);
-            st_WIL = Random.Range(pt_WIL / 5 * _school_class, pt_WIL / 3 * _school_class);
+            st_STR = Random.Range(pt_STR / 10 * _school_class, pt_STR / 6 * _school_class);
+            st_DEX = Random.Range(pt_DEX / 10 * _school_class, pt_DEX / 6 * _school_class);
+            st_CON = Random.Range(pt_CON / 10 * _school_class, pt_CON / 6 * _school_class);
+            st_INT = Random.Range(pt_INT / 10 * _school_class, pt_INT / 6 * _school_class);
+            st_WIS = Random.Range(pt_WIS / 10 * _school_class, pt_WIS / 6 * _school_class);
+            st_WIL = Random.Range(pt_WIL / 10 * _school_class, pt_WIL / 6 * _school_class);
 
             st_LUK = Random.Range(0.0f, 200.0f);
         }
@@ -226,17 +243,17 @@ public class Instantiate_Character : MonoBehaviour
             pt_WIS = Random.Range(60.0f, 200.0f);
             pt_WIL = Random.Range(60.0f, 200.0f);
 
-            st_STR = Random.Range(pt_STR / 5 * _school_class, pt_STR / 3 * _school_class);
-            st_DEX = Random.Range(pt_DEX / 5 * _school_class, pt_DEX / 3 * _school_class);
-            st_CON = Random.Range(pt_CON / 5 * _school_class, pt_CON / 3 * _school_class);
-            st_INT = Random.Range(pt_INT / 5 * _school_class, pt_INT / 3 * _school_class);
-            st_WIS = Random.Range(pt_WIS / 5 * _school_class, pt_WIS / 3 * _school_class);
-            st_WIL = Random.Range(pt_WIL / 5 * _school_class, pt_WIL / 3 * _school_class);
+            st_STR = Random.Range(pt_STR / 10 * _school_class, pt_STR / 6 * _school_class);
+            st_DEX = Random.Range(pt_DEX / 10 * _school_class, pt_DEX / 6 * _school_class);
+            st_CON = Random.Range(pt_CON / 10 * _school_class, pt_CON / 6 * _school_class);
+            st_INT = Random.Range(pt_INT / 10 * _school_class, pt_INT / 6 * _school_class);
+            st_WIS = Random.Range(pt_WIS / 10 * _school_class, pt_WIS / 6 * _school_class);
+            st_WIL = Random.Range(pt_WIL / 10 * _school_class, pt_WIL / 6 * _school_class);
 
             st_LUK = Random.Range(0.0f, 200.0f);
         }
     }
-    //무공 세팅
+    //무공 세팅(임시)==============================================================================
     void Set_Active_Skills(int _school_class)
     {
         active_skills.Add(active_skill_data[0]);

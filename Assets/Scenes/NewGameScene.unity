@@ -2674,32 +2674,7 @@ MonoBehaviour:
   game_data:
     year: 0
     month: 0
-    clubs:
-    - code: 
-      name: 
-      coach:
-        code: 
-        name: 
-        gender: 0
-        nickname: 
-        birth_month: 0
-        condition: 0
-        prestige: 0
-        training: 
-        active_skills:
-        - code: 
-          name: 
-          need: 
-          qualification: 
-          effect: 
-        passive_skills:
-        - code: 
-          name: 
-          need: 
-          qualification: 
-          effect: 
-      students: []
-      prestige: 0
+    schools: []
 --- !u!4 &787547796
 Transform:
   m_ObjectHideFlags: 0
@@ -3215,6 +3190,7 @@ GameObject:
   - component: {fileID: 959200479}
   - component: {fileID: 959200480}
   - component: {fileID: 959200481}
+  - component: {fileID: 959200482}
   m_Layer: 0
   m_Name: NewGameManager
   m_TagString: Untagged
@@ -3270,6 +3246,8 @@ MonoBehaviour:
   gender: 0
   school_class: 0
   birth_month: 0
+  main_MA: 
+  prestige: 0
   st_STR: 0
   pt_STR: 0
   st_DEX: 0
@@ -3285,6 +3263,18 @@ MonoBehaviour:
   st_LUK: 0
   active_skills: []
   passive_skills: []
+--- !u!114 &959200482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959200478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9df22737252ab5d42900f897f778ce41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1039732272
 GameObject:
   m_ObjectHideFlags: 0
@@ -4728,8 +4718,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 959200481}
-        m_TargetAssemblyTypeName: Instantiate_Student, Assembly-CSharp
-        m_MethodName: Set_Student
+        m_TargetAssemblyTypeName: Instantiate_Character, Assembly-CSharp
+        m_MethodName: Set_School
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6501,11 +6491,11 @@ MonoBehaviour:
       - m_Target: {fileID: 959200480}
         m_TargetAssemblyTypeName: NewGameSetting, Assembly-CSharp
         m_MethodName: Coach_PassiveSkill_Decision
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 20001
           m_BoolArgument: 0

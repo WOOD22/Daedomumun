@@ -748,7 +748,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558730213}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c089ff15620e54f4fae6b3563110ff4e, type: 3}
   m_Name: 
@@ -769,10 +769,11 @@ MonoBehaviour:
       nickname: 
       birth_month: 0
       school_class: 0
-      condition: 0
       prestige: 0
+      condition: 0
       training: 
       schedule: 
+      main_MA: 
       st_STR: 80
       pt_STR: 0
       st_DEX: 110
@@ -787,17 +788,21 @@ MonoBehaviour:
       pt_WIL: 0
       st_LUK: 100
       active_skill:
-        code: 
+        code: 0
         name: "\uC30D\uBE44\uAD8C"
+        main_MA: 
         need: 70
         qualification: 
         effect: DMG(DEX,0.7,2)
       passive_skill:
-        code: 
+        code: 0
         name: 
+        main_MA: 
         need: 
         qualification: 
         effect: 
+      active_skills: []
+      passive_skills: []
   blue:
     max_HP: 0
     now_HP: 0
@@ -814,10 +819,11 @@ MonoBehaviour:
       nickname: 
       birth_month: 0
       school_class: 0
-      condition: 0
       prestige: 0
+      condition: 0
       training: 
       schedule: 
+      main_MA: 
       st_STR: 120
       pt_STR: 0
       st_DEX: 100
@@ -832,17 +838,21 @@ MonoBehaviour:
       pt_WIL: 0
       st_LUK: 100
       active_skill:
-        code: 
+        code: 0
         name: "\uBD95\uAD8C"
+        main_MA: 
         need: 100
         qualification: 
         effect: DMG(STR,2,1)
       passive_skill:
-        code: 
+        code: 0
         name: 
+        main_MA: 
         need: 
         qualification: 
         effect: 
+      active_skills: []
+      passive_skills: []
 --- !u!1 &655307810
 GameObject:
   m_ObjectHideFlags: 0
