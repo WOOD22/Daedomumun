@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Instantiate_Character : MonoBehaviour
 {
+    List<Dictionary<string, object>> school_name_table;
     List<Dictionary<string, object>> last_name_table;
     List<Dictionary<string, object>> first_name_male_table;
     List<Dictionary<string, object>> first_name_female_table;
@@ -13,6 +14,7 @@ public class Instantiate_Character : MonoBehaviour
 
     Dictionary<int, ActiveSkill> active_skill_data;
     Dictionary<int, PassiveSkill> passive_skill_data;
+    public string school_name;
     //캐릭터 개인 정보=============================================================================
     public string last_name;
     public string first_name;
@@ -35,6 +37,7 @@ public class Instantiate_Character : MonoBehaviour
     //CSV파일 호출=================================================================================
     void Start()
     {
+        school_name_table = CSVReader.Read("DataBase/CSV/SchoolName");
         last_name_table = CSVReader.Read("DataBase/CSV/LastName");
         first_name_male_table = CSVReader.Read("DataBase/CSV/FirstName_Male");
         first_name_female_table = CSVReader.Read("DataBase/CSV/FirstName_Female");
@@ -47,6 +50,10 @@ public class Instantiate_Character : MonoBehaviour
     public void Set_School()
     {
         School new_school = new School();
+
+        Set_SchoolName();
+
+        new_school.name = school_name;
 
         Set_Coach(new_school.coach);
 
@@ -88,6 +95,12 @@ public class Instantiate_Character : MonoBehaviour
         {
             gender = 'F';
         }
+    }
+    //학교 이름 세팅====================================================================================
+    void Set_SchoolName()
+    {
+        int i = Random.Range(0, school_name_table.Count);
+        school_name= school_name_table[i]["school_name"].ToString();
     }
     //이름 세팅====================================================================================
     void Set_Name(char _gender)
