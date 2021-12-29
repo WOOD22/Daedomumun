@@ -37,10 +37,10 @@ public class Instantiate_Character : MonoBehaviour
     //CSV파일 호출=================================================================================
     void Start()
     {
-        school_name_table = CSVReader.Read("DataBase/CSV/SchoolName");
-        last_name_table = CSVReader.Read("DataBase/CSV/LastName");
-        first_name_male_table = CSVReader.Read("DataBase/CSV/FirstName_Male");
-        first_name_female_table = CSVReader.Read("DataBase/CSV/FirstName_Female");
+        school_name_table = CSVReader.Read("DataBase/CSV/SchoolName");              //학교이름 CSV
+        last_name_table = CSVReader.Read("DataBase/CSV/LastName");                  //성씨 CSV
+        first_name_male_table = CSVReader.Read("DataBase/CSV/FirstName_Male");      //남자이름 CSV
+        first_name_female_table = CSVReader.Read("DataBase/CSV/FirstName_Female");  //여자이름 CSV
 
         active_skill_data = GameObject.Find("GameData").GetComponent<Skill_Data>().active_skill_data;
         passive_skill_data = GameObject.Find("GameData").GetComponent<Skill_Data>().passive_skill_data;
@@ -50,39 +50,60 @@ public class Instantiate_Character : MonoBehaviour
     public void Set_School()
     {
         School new_school = new School();
-
         Set_SchoolName();
+        Set_Coach(new_school);
+
+        for (int i = 0; i < Random.Range(3, 8); i++)
+        {
+            Set_Student(new_school);
+        }
 
         new_school.name = school_name;
-
-        Set_Coach(new_school.coach);
-
         new_school.prestige = Random.Range(0, 1000);
 
         game_data.schools.Add(new_school);
     }
-    //코치 스탯 세팅===============================================================================
-    public void Set_Coach(Coach new_coach)
+    //코치 생성====================================================================================
+    public void Set_Coach(School i_school)
     {
+        Coach new_coach = new Coach();
+
         Set_Gender();
         Set_Name(gender);
-        Set_Birth_Month();
+        Set_Birth_Month(); 
         Set_Main_MA();
 
         new_coach.name = last_name + first_name;
         new_coach.gender = gender;
         new_coach.birth_month = birth_month;
         new_coach.main_MA = main_MA;
+
+        i_school.coach = new_coach;
     }
-    //학생 스탯 세팅===============================================================================
-    public void Set_Student()
+    //학생 생성====================================================================================
+    public void Set_Student(School i_school)
     {
+        Student new_student = new Student();
+
         Set_Gender();
         Set_Name(gender);
         Set_School_Class();
         Set_Birth_Month();
         Set_Main_MA();
         Set_Stat(school_class,'C');
+
+        new_student.name = last_name + first_name;
+        new_student.gender = gender;
+        new_student.birth_month = birth_month;
+        new_student.main_MA = main_MA;
+
+        i_school.students.Add(new_student);
+    }
+    //학교 이름 세팅===============================================================================
+    void Set_SchoolName()
+    {
+        int i = Random.Range(0, school_name_table.Count);
+        school_name = school_name_table[i]["school_name"].ToString();
     }
     //성별 세팅====================================================================================
     void Set_Gender()
@@ -96,12 +117,7 @@ public class Instantiate_Character : MonoBehaviour
             gender = 'F';
         }
     }
-    //학교 이름 세팅====================================================================================
-    void Set_SchoolName()
-    {
-        int i = Random.Range(0, school_name_table.Count);
-        school_name= school_name_table[i]["school_name"].ToString();
-    }
+    //---------------------------------------------------------------------------------------------
     //이름 세팅====================================================================================
     void Set_Name(char _gender)
     {
@@ -126,7 +142,6 @@ public class Instantiate_Character : MonoBehaviour
             if (total < num)
             {
                 last_name = last_name_table[i]["name"].ToString();
-                Debug.Log(total + last_name);
             }
             total += int.Parse(last_name_table[i]["number"].ToString());
         }
@@ -142,7 +157,6 @@ public class Instantiate_Character : MonoBehaviour
             if (total < num)
             {
                 first_name = first_name_male_table[i]["name"].ToString();
-                Debug.Log(total + first_name);
             }
             total += int.Parse(first_name_male_table[i]["number"].ToString());
         }
@@ -158,11 +172,11 @@ public class Instantiate_Character : MonoBehaviour
             if (total < num)
             {
                 first_name = first_name_female_table[i]["name"].ToString();
-                Debug.Log(total + first_name);
             }
             total += int.Parse(first_name_female_table[i]["number"].ToString());
         }
     }
+    //---------------------------------------------------------------------------------------------
     //학년=========================================================================================
     void Set_School_Class()
     {
