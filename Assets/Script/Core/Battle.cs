@@ -12,13 +12,13 @@ public class Battle : MonoBehaviour
     //초기화 용도==================================================================================
     void Initialization(BattleStat user)
     {
-        user.max_HP = (int)Mathf.Floor(user.student.st_CON) * 10;
+        user.max_HP = (int)Mathf.Floor(user.student.stat.st_CON) * 10;
         user.now_HP = user.max_HP;
         user.max_SP = int.Parse(user.student.active_skill.need);
         user.now_SP = 0;
-        user.ATK_cool = 2.5f - user.student.st_DEX / 100;
+        user.ATK_cool = 2.5f - user.student.stat.st_DEX / 100;
         user.ATK_can = true;
-        user.SP_cool = 2.5f - user.student.st_INT / 100;
+        user.SP_cool = 2.5f - user.student.stat.st_INT / 100;
         user.SP_can = true;
     }
     //전투 시작시 초기화===========================================================================
@@ -79,7 +79,7 @@ public class Battle : MonoBehaviour
     //일반 공격(데미지는 STR에 비례, LUK으로 추가 데미지 배율 랜덤 적용)===========================
     void ATK_Target(BattleStat user, BattleStat target)
     {
-        int target_DMG = (-1) * (int)(user.student.st_STR * (1 + Random.Range(0, user.student.st_LUK) / 200));
+        int target_DMG = (-1) * (int)(user.student.stat.st_STR * (1 + Random.Range(0, user.student.stat.st_LUK) / 200));
         target.now_HP += target_DMG;
         Debug.Log(target.student.name + target.now_HP);
         user.ATK_can = false;
@@ -93,7 +93,7 @@ public class Battle : MonoBehaviour
     //SP 충전======================================================================================
     void Charge_SP(BattleStat user)
     {
-        user.now_SP += (int)(red.student.st_WIS / 10);
+        user.now_SP += (int)(red.student.stat.st_WIS / 10);
         user.SP_can = false;
     }
     //SP 충전 속도(0 = 초당)
@@ -159,20 +159,20 @@ public class Battle : MonoBehaviour
             case "STR":
                 for (int i = 0; i < int.Parse(hit_num); i++)
                 {
-                    DMG(user.student.st_STR);
+                    DMG(user.student.stat.st_STR);
                 }
                 break;
             case "DEX":
                 for (int i = 0; i < int.Parse(hit_num); i++)
                 {
-                    DMG(user.student.st_DEX);
+                    DMG(user.student.stat.st_DEX);
                 }
                 break;
         }
         //DMG 효과 함수화
         void DMG(float facter_stat)
         {
-            int dmg = (int)(Mathf.Floor(facter_stat) * float.Parse(facter) * (1 + Random.Range(0, user.student.st_LUK) / 200));
+            int dmg = (int)(Mathf.Floor(facter_stat) * float.Parse(facter) * (1 + Random.Range(0, user.student.stat.st_LUK) / 200));
             target.now_HP -= dmg;
             Debug.Log(dmg + target.student.name + "의 남은 HP" + target.now_HP);
         }

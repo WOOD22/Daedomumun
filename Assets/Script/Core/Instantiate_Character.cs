@@ -196,7 +196,7 @@ public class Instantiate_Character : MonoBehaviour
             main_MA = "권";
         }
         else if (r == 1)
-        {
+        { 
             main_MA = "장";
         }
         else if (r == 2)

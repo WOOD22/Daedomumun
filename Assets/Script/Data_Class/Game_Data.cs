@@ -62,6 +62,18 @@ public class Student
     public string schedule;         //이번 턴 배정된 일정(없을 시 NONE 으로 초기화)
     public string main_MA;          //주 무공 종류(권, 장, 각 3타입)
     //능력치 정보==================================================================================
+    public Stat stat = new Stat(); 
+    //장착한 스킬==================================================================================
+    public ActiveSkill active_skill;
+    public PassiveSkill passive_skill;
+    //보유한 스킬==================================================================================
+    public List<ActiveSkill> active_skills;
+    public List<PassiveSkill> passive_skills;
+}
+[System.Serializable]
+public class Stat
+{
+    //능력치 정보==================================================================================
     public float st_STR, pt_STR;    //근력, 근력 잠재력
     public float st_DEX, pt_DEX;    //민첩, 민첩 잠재력
     public float st_CON, pt_CON;    //체질, 체질 잠재력
@@ -69,12 +81,6 @@ public class Student
     public float st_WIS, pt_WIS;    //지혜, 지혜 잠재력
     public float st_WIL, pt_WIL;    //의지, 의지 잠재력
     public float st_LUK;            //운(표시되지 않음)
-    //장착한 스킬==================================================================================
-    public ActiveSkill active_skill;
-    public PassiveSkill passive_skill;
-    //보유한 스킬==================================================================================
-    public List<ActiveSkill> active_skills;
-    public List<PassiveSkill> passive_skills;
 }
 //스킬 클래스======================================================================================
 [System.Serializable]
