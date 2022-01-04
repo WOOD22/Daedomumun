@@ -1,5 +1,5 @@
 ﻿code,name,main_MA,need,qualification,effect
-0,백호권법,권,NONE,STR120,"ATK(DMG(STR,0.5))"
-1,주작장법,장,NONE,STR120,"ATK(BURN(1,50))"
-2,현무권법,권,NONE,CON120,UP(CON(25))
-3,청룡각법,각,NONE,DEX120,"ATK(DMG(DEX,0.1))"
+0,백호권법,권,0,STR120,"ATK(DMG(STR,0.5))"
+1,주작장법,장,0,STR120,"ATK(BURN(1,50))"
+2,현무권법,권,0,CON120,UP(CON(25))
+3,청룡각법,각,0,DEX120,"ATK(DMG(DEX,0.1))"

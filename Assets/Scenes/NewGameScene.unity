@@ -531,11 +531,11 @@ MonoBehaviour:
       - m_Target: {fileID: 959200480}
         m_TargetAssemblyTypeName: NewGameSetting, Assembly-CSharp
         m_MethodName: Coach_PassiveSkill_Decision
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 30001
           m_BoolArgument: 0
@@ -876,11 +876,11 @@ MonoBehaviour:
       - m_Target: {fileID: 959200480}
         m_TargetAssemblyTypeName: NewGameSetting, Assembly-CSharp
         m_MethodName: Coach_ActiveSkill_Decision
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 10002
           m_BoolArgument: 0
@@ -1666,13 +1666,13 @@ MonoBehaviour:
       - m_Target: {fileID: 959200480}
         m_TargetAssemblyTypeName: NewGameSetting, Assembly-CSharp
         m_MethodName: Coach_ActiveSkill_Decision
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: 20001
+          m_StringArgument: 1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &438331374
@@ -3190,7 +3190,6 @@ GameObject:
   - component: {fileID: 959200479}
   - component: {fileID: 959200480}
   - component: {fileID: 959200481}
-  - component: {fileID: 959200482}
   m_Layer: 0
   m_Name: NewGameManager
   m_TagString: Untagged
@@ -3241,6 +3240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa78225fe2b817346b429e36a09ea424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  school_name: 
   last_name: 
   first_name: 
   gender: 0
@@ -3248,33 +3248,20 @@ MonoBehaviour:
   birth_month: 0
   main_MA: 
   prestige: 0
-  st_STR: 0
-  pt_STR: 0
-  st_DEX: 0
-  pt_DEX: 0
-  st_CON: 0
-  pt_CON: 0
-  st_INT: 0
-  pt_INT: 0
-  st_WIS: 0
-  pt_WIS: 0
-  st_WIL: 0
-  pt_WIL: 0
-  st_LUK: 0
-  active_skills: []
-  passive_skills: []
---- !u!114 &959200482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 959200478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9df22737252ab5d42900f897f778ce41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  stat:
+    st_STR: 0
+    pt_STR: 0
+    st_DEX: 0
+    pt_DEX: 0
+    st_CON: 0
+    pt_CON: 0
+    st_INT: 0
+    pt_INT: 0
+    st_WIS: 0
+    pt_WIS: 0
+    st_WIL: 0
+    pt_WIL: 0
+    st_LUK: 0
 --- !u!1 &1039732272
 GameObject:
   m_ObjectHideFlags: 0
@@ -4091,7 +4078,7 @@ MonoBehaviour:
       - m_Target: {fileID: 959200480}
         m_TargetAssemblyTypeName: NewGameSetting, Assembly-CSharp
         m_MethodName: Coach_ActiveSkill_Decision
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5647,11 +5634,11 @@ MonoBehaviour:
       - m_Target: {fileID: 959200480}
         m_TargetAssemblyTypeName: NewGameSetting, Assembly-CSharp
         m_MethodName: Coach_PassiveSkill_Decision
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 10002
           m_BoolArgument: 0
@@ -6225,7 +6212,7 @@ MonoBehaviour:
       - m_Target: {fileID: 959200480}
         m_TargetAssemblyTypeName: NewGameSetting, Assembly-CSharp
         m_MethodName: Coach_PassiveSkill_Decision
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6495,7 +6482,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 20001
           m_BoolArgument: 0
@@ -7474,11 +7461,11 @@ MonoBehaviour:
       - m_Target: {fileID: 959200480}
         m_TargetAssemblyTypeName: NewGameSetting, Assembly-CSharp
         m_MethodName: Coach_ActiveSkill_Decision
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 30001
           m_BoolArgument: 0

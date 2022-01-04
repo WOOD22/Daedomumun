@@ -72,10 +72,14 @@ public class NewGameSetting : MonoBehaviour
     //=============================================================================================
     public void Coach_ActiveSkill_Decision(int code)
     {
-        game_data.schools[0].coach.active_skills[0] = GameObject.Find("GameData").GetComponent<Skill_Data>().active_skill_data[code];
+        ActiveSkill active_skill = new ActiveSkill();
+        active_skill = GameObject.Find("GameData").GetComponent<Skill_Data>().active_skill_data[code];
+        game_data.schools[0].coach.active_skills.Add(active_skill);
     }
     public void Coach_PassiveSkill_Decision(int code)
     {
-        game_data.schools[0].coach.passive_skills[0] = GameObject.Find("GameData").GetComponent<Skill_Data>().passive_skill_data[code];
+        PassiveSkill passive_skill = new PassiveSkill();
+        passive_skill = GameObject.Find("GameData").GetComponent<Skill_Data>().passive_skill_data[code];
+        game_data.schools[0].coach.passive_skills.Add(passive_skill);
     }
 }

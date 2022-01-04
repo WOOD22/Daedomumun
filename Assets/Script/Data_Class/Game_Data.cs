@@ -41,8 +41,8 @@ public class Coach
     public string training;         //이번 턴 배정된 훈련(없을 시 NONE 으로 초기화)
     public string main_MA;          //주 무공 종류(권, 장, 각 3타입)
     //교육 가능한 스킬 목록(최대 4개)==============================================================
-    public List<ActiveSkill> active_skills;
-    public List<PassiveSkill> passive_skills;
+    public List<ActiveSkill> active_skills = new List<ActiveSkill>();
+    public List<PassiveSkill> passive_skills = new List<PassiveSkill>();
 }
 //학생 클래스======================================================================================
 [System.Serializable]
@@ -64,11 +64,11 @@ public class Student
     //능력치 정보==================================================================================
     public Stat stat = new Stat(); 
     //장착한 스킬==================================================================================
-    public ActiveSkill active_skill;
-    public PassiveSkill passive_skill;
+    public ActiveSkill active_skill = new ActiveSkill();
+    public PassiveSkill passive_skill = new PassiveSkill();
     //보유한 스킬==================================================================================
-    public List<ActiveSkill> active_skills;
-    public List<PassiveSkill> passive_skills;
+    public List<ActiveSkill> active_skills = new List<ActiveSkill>();
+    public List<PassiveSkill> passive_skills = new List<PassiveSkill>();
 }
 [System.Serializable]
 public class Stat

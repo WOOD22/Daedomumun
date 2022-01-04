@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Instantiate_Character : MonoBehaviour
 {
@@ -23,17 +22,10 @@ public class Instantiate_Character : MonoBehaviour
     public int birth_month;
     public string main_MA;
     public int prestige;
-    //캐릭터 능력치 정보===========================================================================
-    public float st_STR, pt_STR;    
-    public float st_DEX, pt_DEX;    
-    public float st_CON, pt_CON;    
-    public float st_INT, pt_INT;    
-    public float st_WIS, pt_WIS;    
-    public float st_WIL, pt_WIL;    
-    public float st_LUK;
+    //캐릭터 능력치================================================================================
+    public Stat stat = new Stat();
     //보유한 스킬==================================================================================
-    public List<ActiveSkill> active_skills;
-    public List<PassiveSkill> passive_skills;
+
     //CSV파일 호출=================================================================================
     void Start()
     {
@@ -78,6 +70,9 @@ public class Instantiate_Character : MonoBehaviour
         new_coach.birth_month = birth_month;
         new_coach.main_MA = main_MA;
 
+        Set_Active_Skills(new_coach.main_MA, new_coach.active_skills, 1);
+        Set_Passive_Skills(new_coach.main_MA, new_coach.passive_skills, 1);
+
         i_school.coach = new_coach;
     }
     //학생 생성====================================================================================
@@ -96,6 +91,7 @@ public class Instantiate_Character : MonoBehaviour
         new_student.gender = gender;
         new_student.birth_month = birth_month;
         new_student.main_MA = main_MA;
+        new_student.stat = stat;
 
         i_school.students.Add(new_student);
     }
@@ -209,80 +205,111 @@ public class Instantiate_Character : MonoBehaviour
     {
         if (rank == 'S')
         {
-            pt_STR = Random.Range(160.0f, 200.0f);
-            pt_DEX = Random.Range(160.0f, 200.0f);
-            pt_CON = Random.Range(160.0f, 200.0f);
-            pt_INT = Random.Range(160.0f, 200.0f);
-            pt_WIS = Random.Range(160.0f, 200.0f);
-            pt_WIL = Random.Range(160.0f, 200.0f);
+            stat.pt_STR = Random.Range(160.0f, 200.0f);
+            stat.pt_DEX = Random.Range(160.0f, 200.0f);
+            stat.pt_CON = Random.Range(160.0f, 200.0f);
+            stat.pt_INT = Random.Range(160.0f, 200.0f);
+            stat.pt_WIS = Random.Range(160.0f, 200.0f);
+            stat.pt_WIL = Random.Range(160.0f, 200.0f);
 
-            st_STR = Random.Range(pt_STR / 10 * _school_class, pt_STR / 6 * _school_class);
-            st_DEX = Random.Range(pt_DEX / 10 * _school_class, pt_DEX / 6 * _school_class);
-            st_CON = Random.Range(pt_CON / 10 * _school_class, pt_CON / 6 * _school_class);
-            st_INT = Random.Range(pt_INT / 10 * _school_class, pt_INT / 6 * _school_class);
-            st_WIS = Random.Range(pt_WIS / 10 * _school_class, pt_WIS / 6 * _school_class);
-            st_WIL = Random.Range(pt_WIL / 10 * _school_class, pt_WIL / 6 * _school_class);
+            stat.st_STR = Random.Range(stat.pt_STR / 10 * _school_class, stat.pt_STR / 6 * _school_class);
+            stat.st_DEX = Random.Range(stat.pt_DEX / 10 * _school_class, stat.pt_DEX / 6 * _school_class);
+            stat.st_CON = Random.Range(stat.pt_CON / 10 * _school_class, stat.pt_CON / 6 * _school_class);
+            stat.st_INT = Random.Range(stat.pt_INT / 10 * _school_class, stat.pt_INT / 6 * _school_class);
+            stat.st_WIS = Random.Range(stat.pt_WIS / 10 * _school_class, stat.pt_WIS / 6 * _school_class);
+            stat.st_WIL = Random.Range(stat.pt_WIL / 10 * _school_class, stat.pt_WIL / 6 * _school_class);
 
-            st_LUK = Random.Range(0.0f, 200.0f);
+            stat.st_LUK = Random.Range(0.0f, 200.0f);
         }
         else if (rank == 'A')
         {
-            pt_STR = Random.Range(120.0f, 200.0f);
-            pt_DEX = Random.Range(120.0f, 200.0f);
-            pt_CON = Random.Range(120.0f, 200.0f);
-            pt_INT = Random.Range(120.0f, 200.0f);
-            pt_WIS = Random.Range(120.0f, 200.0f);
-            pt_WIL = Random.Range(120.0f, 200.0f);
+            stat.pt_STR = Random.Range(120.0f, 200.0f);
+            stat.pt_DEX = Random.Range(120.0f, 200.0f);
+            stat.pt_CON = Random.Range(120.0f, 200.0f);
+            stat.pt_INT = Random.Range(120.0f, 200.0f);
+            stat.pt_WIS = Random.Range(120.0f, 200.0f);
+            stat.pt_WIL = Random.Range(120.0f, 200.0f);
 
-            st_STR = Random.Range(pt_STR / 10 * _school_class, pt_STR / 6 * _school_class);
-            st_DEX = Random.Range(pt_DEX / 10 * _school_class, pt_DEX / 6 * _school_class);
-            st_CON = Random.Range(pt_CON / 10 * _school_class, pt_CON / 6 * _school_class);
-            st_INT = Random.Range(pt_INT / 10 * _school_class, pt_INT / 6 * _school_class);
-            st_WIS = Random.Range(pt_WIS / 10 * _school_class, pt_WIS / 6 * _school_class);
-            st_WIL = Random.Range(pt_WIL / 10 * _school_class, pt_WIL / 6 * _school_class);
+            stat.st_STR = Random.Range(stat.pt_STR / 10 * _school_class, stat.pt_STR / 6 * _school_class);
+            stat.st_DEX = Random.Range(stat.pt_DEX / 10 * _school_class, stat.pt_DEX / 6 * _school_class);
+            stat.st_CON = Random.Range(stat.pt_CON / 10 * _school_class, stat.pt_CON / 6 * _school_class);
+            stat.st_INT = Random.Range(stat.pt_INT / 10 * _school_class, stat.pt_INT / 6 * _school_class);
+            stat.st_WIS = Random.Range(stat.pt_WIS / 10 * _school_class, stat.pt_WIS / 6 * _school_class);
+            stat.st_WIL = Random.Range(stat.pt_WIL / 10 * _school_class, stat.pt_WIL / 6 * _school_class);
 
-            st_LUK = Random.Range(0.0f, 200.0f);
+            stat.st_LUK = Random.Range(0.0f, 200.0f);
         }
         else if (rank == 'B')
         {
-            pt_STR = Random.Range(100.0f, 200.0f);
-            pt_DEX = Random.Range(100.0f, 200.0f);
-            pt_CON = Random.Range(100.0f, 200.0f);
-            pt_INT = Random.Range(100.0f, 200.0f);
-            pt_WIS = Random.Range(100.0f, 200.0f);
-            pt_WIL = Random.Range(100.0f, 200.0f);
+            stat.pt_STR = Random.Range(100.0f, 200.0f);
+            stat.pt_DEX = Random.Range(100.0f, 200.0f);
+            stat.pt_CON = Random.Range(100.0f, 200.0f);
+            stat.pt_INT = Random.Range(100.0f, 200.0f);
+            stat.pt_WIS = Random.Range(100.0f, 200.0f);
+            stat.pt_WIL = Random.Range(100.0f, 200.0f);
 
-            st_STR = Random.Range(pt_STR / 10 * _school_class, pt_STR / 6 * _school_class);
-            st_DEX = Random.Range(pt_DEX / 10 * _school_class, pt_DEX / 6 * _school_class);
-            st_CON = Random.Range(pt_CON / 10 * _school_class, pt_CON / 6 * _school_class);
-            st_INT = Random.Range(pt_INT / 10 * _school_class, pt_INT / 6 * _school_class);
-            st_WIS = Random.Range(pt_WIS / 10 * _school_class, pt_WIS / 6 * _school_class);
-            st_WIL = Random.Range(pt_WIL / 10 * _school_class, pt_WIL / 6 * _school_class);
+            stat.st_STR = Random.Range(stat.pt_STR / 10 * _school_class, stat.pt_STR / 6 * _school_class);
+            stat.st_DEX = Random.Range(stat.pt_DEX / 10 * _school_class, stat.pt_DEX / 6 * _school_class);
+            stat.st_CON = Random.Range(stat.pt_CON / 10 * _school_class, stat.pt_CON / 6 * _school_class);
+            stat.st_INT = Random.Range(stat.pt_INT / 10 * _school_class, stat.pt_INT / 6 * _school_class);
+            stat.st_WIS = Random.Range(stat.pt_WIS / 10 * _school_class, stat.pt_WIS / 6 * _school_class);
+            stat.st_WIL = Random.Range(stat.pt_WIL / 10 * _school_class, stat.pt_WIL / 6 * _school_class);
 
-            st_LUK = Random.Range(0.0f, 200.0f);
+            stat.st_LUK = Random.Range(0.0f, 200.0f);
         }
         else if (rank == 'C')
         {
-            pt_STR = Random.Range(60.0f, 200.0f);
-            pt_DEX = Random.Range(60.0f, 200.0f);
-            pt_CON = Random.Range(60.0f, 200.0f);
-            pt_INT = Random.Range(60.0f, 200.0f);
-            pt_WIS = Random.Range(60.0f, 200.0f);
-            pt_WIL = Random.Range(60.0f, 200.0f);
+            stat.pt_STR = Random.Range(60.0f, 200.0f);
+            stat.pt_DEX = Random.Range(60.0f, 200.0f);
+            stat.pt_CON = Random.Range(60.0f, 200.0f);
+            stat.pt_INT = Random.Range(60.0f, 200.0f);
+            stat.pt_WIS = Random.Range(60.0f, 200.0f);
+            stat.pt_WIL = Random.Range(60.0f, 200.0f);
 
-            st_STR = Random.Range(pt_STR / 10 * _school_class, pt_STR / 6 * _school_class);
-            st_DEX = Random.Range(pt_DEX / 10 * _school_class, pt_DEX / 6 * _school_class);
-            st_CON = Random.Range(pt_CON / 10 * _school_class, pt_CON / 6 * _school_class);
-            st_INT = Random.Range(pt_INT / 10 * _school_class, pt_INT / 6 * _school_class);
-            st_WIS = Random.Range(pt_WIS / 10 * _school_class, pt_WIS / 6 * _school_class);
-            st_WIL = Random.Range(pt_WIL / 10 * _school_class, pt_WIL / 6 * _school_class);
+            stat.st_STR = Random.Range(stat.pt_STR / 10 * _school_class, stat.pt_STR / 6 * _school_class);
+            stat.st_DEX = Random.Range(stat.pt_DEX / 10 * _school_class, stat.pt_DEX / 6 * _school_class);
+            stat.st_CON = Random.Range(stat.pt_CON / 10 * _school_class, stat.pt_CON / 6 * _school_class);
+            stat.st_INT = Random.Range(stat.pt_INT / 10 * _school_class, stat.pt_INT / 6 * _school_class);
+            stat.st_WIS = Random.Range(stat.pt_WIS / 10 * _school_class, stat.pt_WIS / 6 * _school_class);
+            stat.st_WIL = Random.Range(stat.pt_WIL / 10 * _school_class, stat.pt_WIL / 6 * _school_class);
 
-            st_LUK = Random.Range(0.0f, 200.0f);
+            stat.st_LUK = Random.Range(0.0f, 200.0f);
         }
     }
-    //무공 세팅(임시)==============================================================================
-    void Set_Active_Skills(int _school_class)
+    //액티브 스킬 세팅(임시)=======================================================================
+    void Set_Active_Skills(string main_MA, List<ActiveSkill> active_skill_list, int num)
     {
-        active_skills.Add(active_skill_data[0]);
+        for (; active_skill_list.Count < num;)
+        {
+            int i_MA = Random.Range(0, active_skill_data.Count);
+            int chance = Random.Range(0, 100);
+
+            if (active_skill_data[i_MA].main_MA == main_MA && chance < 90)
+            {
+                active_skill_list.Add(active_skill_data[i_MA]);
+            }
+            else if (active_skill_data[i_MA].main_MA != main_MA && 90 <= chance)
+            {
+                active_skill_list.Add(active_skill_data[i_MA]);
+            }
+        }
+    }
+    //패시브 스킬 세팅(임시)=======================================================================
+    void Set_Passive_Skills(string main_MA, List<PassiveSkill> passive_skill_list, int num)
+    {
+        for (; passive_skill_list.Count < num;)
+        {
+            int i_MAE = Random.Range(0, passive_skill_data.Count);
+            int chance = Random.Range(0, 100);
+
+            if (passive_skill_data[i_MAE].main_MA == main_MA && chance < 90)
+            {
+                passive_skill_list.Add(passive_skill_data[i_MAE]);
+            }
+            else if (passive_skill_data[i_MAE].main_MA != main_MA && 90 <= chance)
+            {
+                passive_skill_list.Add(passive_skill_data[i_MAE]);
+            }
+        }
     }
 }
