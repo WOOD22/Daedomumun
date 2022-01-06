@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: b3cafcaf2c3912d438ca98d05d0bd3cc
+guid: 97565dcea1c56b244a73671422d03e6a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - prefab_portrait_card: {fileID: 6041474339421415396, guid: a19828830a9fbcb44ae733fa01d66c2b, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
