@@ -21,6 +21,7 @@ public class NewGameSetting : MonoBehaviour
         //플레이어 학교 생성=====================================================================
         game_data = GameObject.Find("GameData").GetComponent<Game_Data>().game_data;
         game_data.schools.Add(new School());
+        game_data.schools[0].code = "0";
         //=========================================================================================
     }
 

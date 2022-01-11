@@ -14,6 +14,7 @@ public class Instantiate_Character : MonoBehaviour
     Dictionary<int, ActiveSkill> active_skill_data;
     Dictionary<int, PassiveSkill> passive_skill_data;
     public string school_name;
+    public string school_code;
     //캐릭터 개인 정보=============================================================================
     public string last_name;
     public string first_name;
@@ -39,24 +40,30 @@ public class Instantiate_Character : MonoBehaviour
         game_data = GameObject.Find("GameData").GetComponent<Game_Data>().game_data;
     }
     //새로운 학교 생성=============================================================================
-    public void Set_School()
+    public void New_School()
     {
         School new_school = new School();
         Set_SchoolName();
-        Set_Coach(new_school);
-
-        for (int i = 0; i < Random.Range(3, 8); i++)
-        {
-            Set_Student(new_school);
-        }
+        school_code = game_data.schools.Count.ToString();
 
         new_school.name = school_name;
+        new_school.code = school_code;
         new_school.prestige = Random.Range(0, 1000);
 
         game_data.schools.Add(new_school);
+        Set_School(school_code);
+    }
+    //학교 인원 구성하기===========================================================================
+    public void Set_School(string code)
+    {
+        New_Coach(code);
+        for (int i = 0; i < Random.Range(3, 7); i++)
+        {
+            New_Student(code);
+        }
     }
     //코치 생성====================================================================================
-    public void Set_Coach(School i_school)
+    public void New_Coach(string school_code)
     {
         Coach new_coach = new Coach();
 
@@ -73,10 +80,10 @@ public class Instantiate_Character : MonoBehaviour
         Set_Active_Skills(new_coach.main_MA, new_coach.active_skills, 1);
         Set_Passive_Skills(new_coach.main_MA, new_coach.passive_skills, 1);
 
-        i_school.coach = new_coach;
+        game_data.schools[int.Parse(school_code)].coach = new_coach;
     }
     //학생 생성====================================================================================
-    public void Set_Student(School i_school)
+    public void New_Student(string school_code)
     {
         Student new_student = new Student();
 
@@ -93,7 +100,7 @@ public class Instantiate_Character : MonoBehaviour
         new_student.main_MA = main_MA;
         new_student.stat = stat;
 
-        i_school.students.Add(new_student);
+        game_data.schools[int.Parse(school_code)].students.Add(new_student);
     }
     //학교 이름 세팅===============================================================================
     void Set_SchoolName()

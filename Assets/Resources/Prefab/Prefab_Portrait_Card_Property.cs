@@ -12,8 +12,9 @@ public class Prefab_Portrait_Card_Property : MonoBehaviour
 
     public Student student = new Student();
     //Text변경 필요할 때만 업데이트================================================================
-    void Update()
+    void Start()
     {
+        Debug.Log("Check");
         if (student.name != name.text)
         {
             name.text = student.name;

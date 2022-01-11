@@ -2652,6 +2652,7 @@ GameObject:
   - component: {fileID: 787547796}
   - component: {fileID: 787547795}
   - component: {fileID: 787547797}
+  - component: {fileID: 787547798}
   m_Layer: 0
   m_Name: GameData
   m_TagString: Untagged
@@ -2699,6 +2700,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a8f78aa8502b344caf7ee1b84b81f20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &787547798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787547794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97ea84c21a12f8f488909034abce82ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &818088183
@@ -3241,6 +3254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   school_name: 
+  school_code: 
   last_name: 
   first_name: 
   gender: 0
@@ -3850,6 +3864,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 787547798}
+        m_TargetAssemblyTypeName: Save_Load, Assembly-CSharp
+        m_MethodName: Save_File
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 0
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 661647757}
@@ -4706,7 +4732,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 959200481}
         m_TargetAssemblyTypeName: Instantiate_Character, Assembly-CSharp
-        m_MethodName: Set_School
+        m_MethodName: New_School
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -1,0 +1,263 @@
+{
+    "year": 0,
+    "month": 0,
+    "schools": [
+        {
+            "code": "0",
+            "name": "이름 입력",
+            "coach": {
+                "code": "",
+                "name": "이름 입력",
+                "gender": 77,
+                "nickname": "",
+                "birth_month": 1,
+                "condition": 0,
+                "training": "",
+                "main_MA": "",
+                "active_skills": [
+                    {
+                        "code": 2,
+                        "name": "비룡각",
+                        "main_MA": "각",
+                        "need": "50",
+                        "qualification": "DEX120",
+                        "effect": "DMG(DEX,1,1)"
+                    }
+                ],
+                "passive_skills": [
+                    {
+                        "code": 3,
+                        "name": "청룡각법",
+                        "main_MA": "각",
+                        "need": "0",
+                        "qualification": "DEX120",
+                        "effect": "ATK(DMG(DEX,0.1))"
+                    }
+                ]
+            },
+            "students": [],
+            "prestige": 0
+        },
+        {
+            "code": "1",
+            "name": "구덕",
+            "coach": {
+                "code": "",
+                "name": "배규빈",
+                "gender": 77,
+                "nickname": "",
+                "birth_month": 11,
+                "condition": 0,
+                "training": "",
+                "main_MA": "장",
+                "active_skills": [
+                    {
+                        "code": 3,
+                        "name": "질풍권",
+                        "main_MA": "권",
+                        "need": "100",
+                        "qualification": "DEX120",
+                        "effect": "DMG(DEX,0.5,4)"
+                    }
+                ],
+                "passive_skills": [
+                    {
+                        "code": 1,
+                        "name": "주작장법",
+                        "main_MA": "장",
+                        "need": "0",
+                        "qualification": "STR120",
+                        "effect": "ATK(BURN(1,50))"
+                    }
+                ]
+            },
+            "students": [
+                {
+                    "code": "",
+                    "name": "한은율",
+                    "gender": 77,
+                    "nickname": "",
+                    "birth_month": 3,
+                    "school_class": 0,
+                    "prestige": 0,
+                    "condition": 0,
+                    "training": "",
+                    "schedule": "",
+                    "main_MA": "권",
+                    "stat": {
+                        "st_STR": 42.6702880859375,
+                        "pt_STR": 141.9962921142578,
+                        "st_DEX": 41.7091178894043,
+                        "pt_DEX": 104.8312759399414,
+                        "st_CON": 41.22407531738281,
+                        "pt_CON": 106.03831481933594,
+                        "st_INT": 78.07413482666016,
+                        "pt_INT": 173.84571838378907,
+                        "st_WIS": 66.72667694091797,
+                        "pt_WIS": 189.6836700439453,
+                        "st_WIL": 70.62715911865235,
+                        "pt_WIL": 145.43966674804688,
+                        "st_LUK": 4.55629825592041
+                    },
+                    "active_skill": {
+                        "code": 0,
+                        "name": "",
+                        "main_MA": "",
+                        "need": "",
+                        "qualification": "",
+                        "effect": ""
+                    },
+                    "passive_skill": {
+                        "code": 0,
+                        "name": "",
+                        "main_MA": "",
+                        "need": "",
+                        "qualification": "",
+                        "effect": ""
+                    },
+                    "active_skills": [],
+                    "passive_skills": []
+                },
+                {
+                    "code": "",
+                    "name": "박혜빈",
+                    "gender": 70,
+                    "nickname": "",
+                    "birth_month": 10,
+                    "school_class": 0,
+                    "prestige": 0,
+                    "condition": 0,
+                    "training": "",
+                    "schedule": "",
+                    "main_MA": "장",
+                    "stat": {
+                        "st_STR": 42.6702880859375,
+                        "pt_STR": 141.9962921142578,
+                        "st_DEX": 41.7091178894043,
+                        "pt_DEX": 104.8312759399414,
+                        "st_CON": 41.22407531738281,
+                        "pt_CON": 106.03831481933594,
+                        "st_INT": 78.07413482666016,
+                        "pt_INT": 173.84571838378907,
+                        "st_WIS": 66.72667694091797,
+                        "pt_WIS": 189.6836700439453,
+                        "st_WIL": 70.62715911865235,
+                        "pt_WIL": 145.43966674804688,
+                        "st_LUK": 4.55629825592041
+                    },
+                    "active_skill": {
+                        "code": 0,
+                        "name": "",
+                        "main_MA": "",
+                        "need": "",
+                        "qualification": "",
+                        "effect": ""
+                    },
+                    "passive_skill": {
+                        "code": 0,
+                        "name": "",
+                        "main_MA": "",
+                        "need": "",
+                        "qualification": "",
+                        "effect": ""
+                    },
+                    "active_skills": [],
+                    "passive_skills": []
+                },
+                {
+                    "code": "",
+                    "name": "정민성",
+                    "gender": 77,
+                    "nickname": "",
+                    "birth_month": 3,
+                    "school_class": 0,
+                    "prestige": 0,
+                    "condition": 0,
+                    "training": "",
+                    "schedule": "",
+                    "main_MA": "장",
+                    "stat": {
+                        "st_STR": 42.6702880859375,
+                        "pt_STR": 141.9962921142578,
+                        "st_DEX": 41.7091178894043,
+                        "pt_DEX": 104.8312759399414,
+                        "st_CON": 41.22407531738281,
+                        "pt_CON": 106.03831481933594,
+                        "st_INT": 78.07413482666016,
+                        "pt_INT": 173.84571838378907,
+                        "st_WIS": 66.72667694091797,
+                        "pt_WIS": 189.6836700439453,
+                        "st_WIL": 70.62715911865235,
+                        "pt_WIL": 145.43966674804688,
+                        "st_LUK": 4.55629825592041
+                    },
+                    "active_skill": {
+                        "code": 0,
+                        "name": "",
+                        "main_MA": "",
+                        "need": "",
+                        "qualification": "",
+                        "effect": ""
+                    },
+                    "passive_skill": {
+                        "code": 0,
+                        "name": "",
+                        "main_MA": "",
+                        "need": "",
+                        "qualification": "",
+                        "effect": ""
+                    },
+                    "active_skills": [],
+                    "passive_skills": []
+                },
+                {
+                    "code": "",
+                    "name": "이승현",
+                    "gender": 77,
+                    "nickname": "",
+                    "birth_month": 10,
+                    "school_class": 0,
+                    "prestige": 0,
+                    "condition": 0,
+                    "training": "",
+                    "schedule": "",
+                    "main_MA": "권",
+                    "stat": {
+                        "st_STR": 42.6702880859375,
+                        "pt_STR": 141.9962921142578,
+                        "st_DEX": 41.7091178894043,
+                        "pt_DEX": 104.8312759399414,
+                        "st_CON": 41.22407531738281,
+                        "pt_CON": 106.03831481933594,
+                        "st_INT": 78.07413482666016,
+                        "pt_INT": 173.84571838378907,
+                        "st_WIS": 66.72667694091797,
+                        "pt_WIS": 189.6836700439453,
+                        "st_WIL": 70.62715911865235,
+                        "pt_WIL": 145.43966674804688,
+                        "st_LUK": 4.55629825592041
+                    },
+                    "active_skill": {
+                        "code": 0,
+                        "name": "",
+                        "main_MA": "",
+                        "need": "",
+                        "qualification": "",
+                        "effect": ""
+                    },
+                    "passive_skill": {
+                        "code": 0,
+                        "name": "",
+                        "main_MA": "",
+                        "need": "",
+                        "qualification": "",
+                        "effect": ""
+                    },
+                    "active_skills": [],
+                    "passive_skills": []
+                }
+            ],
+            "prestige": 591
+        }
+    ]
+}
