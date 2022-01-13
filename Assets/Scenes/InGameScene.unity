@@ -1339,6 +1339,7 @@ GameObject:
   - component: {fileID: 558730214}
   - component: {fileID: 558730216}
   - component: {fileID: 558730217}
+  - component: {fileID: 558730218}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1500,22 +1501,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab_portrait_card: {fileID: 6041474339421415396, guid: a19828830a9fbcb44ae733fa01d66c2b, type: 3}
   content: {fileID: 116389509}
-  player_school:
-    code: 
-    name: 
-    coach:
-      code: 
-      name: 
-      gender: 0
-      nickname: 
-      birth_month: 0
-      condition: 0
-      training: 
-      main_MA: 
-      active_skills: []
-      passive_skills: []
-    students: []
-    prestige: 0
+  player_student_list: []
+--- !u!114 &558730218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558730213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d7b59628d265c4fbff9dcccbdf7f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  student_list: []
 --- !u!1 &605100350
 GameObject:
   m_ObjectHideFlags: 0
@@ -2080,7 +2079,9 @@ MonoBehaviour:
   game_data:
     year: 0
     month: 0
-    schools: []
+    school_list: []
+    coach_list: []
+    student_list: []
 --- !u!114 &924599441
 MonoBehaviour:
   m_ObjectHideFlags: 0

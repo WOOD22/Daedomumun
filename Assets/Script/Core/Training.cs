@@ -1,24 +1,25 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
 public class Training : MonoBehaviour
 {
+    Sort_Portrait_Card sort_portrait_card;
+
     public GameObject prefab_portrait_card;
     public GameObject content;
-    public School player_school = new School();
-    public List<Student> player_student_list = new List<Student>();
+    public List<Student> player_student_list;
 
     public void Init_Training_Unit()
     {
-        player_school = GameObject.Find("GameData").GetComponent<Game_Data>().game_data.schools[1];
-        //¹®ÀÚ¼øÀ¸·Î Á¤·Ä==========================================================================
-        player_student_list = player_school.students;
-        var temp = player_student_list.OrderBy(x => x.name);
-        player_student_list = temp.ToList<Student>();
+        sort_portrait_card = GameObject.Find("GameManager").GetComponent<Sort_Portrait_Card>();
+        //ë¬¸ììˆœìœ¼ë¡œ ì •ë ¬==========================================================================
+        sort_portrait_card.student_list = GameObject.Find("GameData").GetComponent<Game_Data>().game_data.school_list[1].students;
+        sort_portrait_card.Sort_Name(false);
+        player_student_list = sort_portrait_card.student_list;
         //===========
-        for (int i = 0; i < player_school.students.Count; i++)
+        for (int i = 0; i < player_student_list.Count; i++)
         {
             GameObject instance;
             instance = Instantiate(prefab_portrait_card, content.transform);

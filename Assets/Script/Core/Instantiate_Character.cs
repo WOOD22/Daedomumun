@@ -44,13 +44,13 @@ public class Instantiate_Character : MonoBehaviour
     {
         School new_school = new School();
         Set_SchoolName();
-        school_code = game_data.schools.Count.ToString();
+        school_code = game_data.school_list.Count.ToString();
 
         new_school.name = school_name;
         new_school.code = school_code;
         new_school.prestige = Random.Range(0, 1000);
 
-        game_data.schools.Add(new_school);
+        game_data.school_list.Add(new_school);
         Set_School(school_code);
     }
     //학교 인원 구성하기===========================================================================
@@ -80,7 +80,8 @@ public class Instantiate_Character : MonoBehaviour
         Set_Active_Skills(new_coach.main_MA, new_coach.active_skills, 1);
         Set_Passive_Skills(new_coach.main_MA, new_coach.passive_skills, 1);
 
-        game_data.schools[int.Parse(school_code)].coach = new_coach;
+        game_data.school_list[int.Parse(school_code)].coach = new_coach;
+        game_data.coach_list.Add(new_coach);
     }
     //학생 생성====================================================================================
     public void New_Student(string school_code)
@@ -100,7 +101,8 @@ public class Instantiate_Character : MonoBehaviour
         new_student.main_MA = main_MA;
         new_student.stat = stat;
 
-        game_data.schools[int.Parse(school_code)].students.Add(new_student);
+        game_data.school_list[int.Parse(school_code)].students.Add(new_student);
+        game_data.student_list.Add(new_student);
     }
     //학교 이름 세팅===============================================================================
     void Set_SchoolName()

@@ -12,7 +12,9 @@ public class GameData
 {
     public int year;//게임 진행 년도
     public int month;//현재 월
-    public List<School> schools;//격투부 리스트
+    public List<School> school_list;//학교 리스트
+    public List<Coach> coach_list;//코치 리스트
+    public List<Student> student_list;//학생 리스트
 }
 //격투부 클래스====================================================================================
 [System.Serializable]
