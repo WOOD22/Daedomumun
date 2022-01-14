@@ -12,36 +12,35 @@ public class Prefab_Portrait_Card_Property : MonoBehaviour
 
     public Student student = new Student();
     //Text변경 필요할 때만 업데이트================================================================
-    void Start()
+    void Update()
     {
-        Debug.Log("Check");
         if (student.name != name.text)
         {
             name.text = student.name;
         }
-        if (student.stat.st_STR != int.Parse(st_STR.text))
+        if (student.stat.st_STR != float.Parse(st_STR.text))
         {
-            st_STR.text = student.stat.st_STR.ToString();
+            st_STR.text = Mathf.Floor(student.stat.st_STR).ToString();
         }
-        if (student.stat.st_DEX != int.Parse(st_DEX.text))
+        if (student.stat.st_DEX != float.Parse(st_DEX.text))
         {
-            st_DEX.text = student.stat.st_DEX.ToString();
+            st_DEX.text = Mathf.Floor(student.stat.st_DEX).ToString();
         }
-        if (student.stat.st_CON != int.Parse(st_CON.text))
+        if (student.stat.st_CON != float.Parse(st_CON.text))
         {
-            st_CON.text = student.stat.st_CON.ToString();
+            st_CON.text = Mathf.Floor(student.stat.st_CON).ToString();
         }
-        if (student.stat.st_INT != int.Parse(st_INT.text))
+        if (student.stat.st_INT != float.Parse(st_INT.text))
         {
-            st_INT.text = student.stat.st_INT.ToString();
+            st_INT.text = Mathf.Floor(student.stat.st_INT).ToString();
         }
-        if (student.stat.st_WIS != int.Parse(st_WIS.text))
+        if (student.stat.st_WIS != float.Parse(st_WIS.text))
         {
-            st_WIS.text = student.stat.st_WIS.ToString();
+            st_WIS.text = Mathf.Floor(student.stat.st_WIS).ToString();
         }
-        if (student.stat.st_WIL != int.Parse(st_WIL.text))
+        if (student.stat.st_WIL != float.Parse(st_WIL.text))
         {
-            st_WIL.text = student.stat.st_WIL.ToString();
+            st_WIL.text = Mathf.Floor(student.stat.st_WIL).ToString();
         }
     }
 }

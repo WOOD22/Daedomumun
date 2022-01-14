@@ -24,7 +24,7 @@ public class Instantiate_Character : MonoBehaviour
     public string main_MA;
     public int prestige;
     //캐릭터 능력치================================================================================
-    public Stat stat = new Stat();
+    public Stat stat;
     //보유한 스킬==================================================================================
 
     //CSV파일 호출=================================================================================
@@ -63,7 +63,7 @@ public class Instantiate_Character : MonoBehaviour
         }
     }
     //코치 생성====================================================================================
-    public void New_Coach(string school_code)
+    public void New_Coach(string code)
     {
         Coach new_coach = new Coach();
 
@@ -80,11 +80,11 @@ public class Instantiate_Character : MonoBehaviour
         Set_Active_Skills(new_coach.main_MA, new_coach.active_skills, 1);
         Set_Passive_Skills(new_coach.main_MA, new_coach.passive_skills, 1);
 
-        game_data.school_list[int.Parse(school_code)].coach = new_coach;
+        game_data.school_list[int.Parse(code)].coach = new_coach;
         game_data.coach_list.Add(new_coach);
     }
     //학생 생성====================================================================================
-    public void New_Student(string school_code)
+    public void New_Student(string code)
     {
         Student new_student = new Student();
 
@@ -93,15 +93,16 @@ public class Instantiate_Character : MonoBehaviour
         Set_School_Class();
         Set_Birth_Month();
         Set_Main_MA();
-        Set_Stat(school_class,'C');
+        Set_Stat(school_class, Random.Range(1, 5));
 
         new_student.name = last_name + first_name;
         new_student.gender = gender;
         new_student.birth_month = birth_month;
+        new_student.school_class = school_class;
         new_student.main_MA = main_MA;
         new_student.stat = stat;
 
-        game_data.school_list[int.Parse(school_code)].students.Add(new_student);
+        game_data.school_list[int.Parse(code)].students.Add(new_student);
         game_data.student_list.Add(new_student);
     }
     //학교 이름 세팅===============================================================================
@@ -185,7 +186,7 @@ public class Instantiate_Character : MonoBehaviour
     //학년=========================================================================================
     void Set_School_Class()
     {
-        school_class = Random.Range(1, 4);
+        school_class = Random.Range(1, 7);
     }
     //생월=========================================================================================
     void Set_Birth_Month()
@@ -210,9 +211,10 @@ public class Instantiate_Character : MonoBehaviour
         }
     }
     //스탯 세팅(Rank에 비례하여 잠재력, 현재 스탯 결정, 학년에 비례하여 현재 스탯 결정)============
-    void Set_Stat(int _school_class, char rank)
+    void Set_Stat(int _school_class, int rank)
     {
-        if (rank == 'S')
+        stat = new Stat();
+        if (rank == 4)
         {
             stat.pt_STR = Random.Range(160.0f, 200.0f);
             stat.pt_DEX = Random.Range(160.0f, 200.0f);
@@ -230,7 +232,7 @@ public class Instantiate_Character : MonoBehaviour
 
             stat.st_LUK = Random.Range(0.0f, 200.0f);
         }
-        else if (rank == 'A')
+        if (rank == 3)
         {
             stat.pt_STR = Random.Range(120.0f, 200.0f);
             stat.pt_DEX = Random.Range(120.0f, 200.0f);
@@ -248,7 +250,7 @@ public class Instantiate_Character : MonoBehaviour
 
             stat.st_LUK = Random.Range(0.0f, 200.0f);
         }
-        else if (rank == 'B')
+        if (rank == 2)
         {
             stat.pt_STR = Random.Range(100.0f, 200.0f);
             stat.pt_DEX = Random.Range(100.0f, 200.0f);
@@ -266,7 +268,7 @@ public class Instantiate_Character : MonoBehaviour
 
             stat.st_LUK = Random.Range(0.0f, 200.0f);
         }
-        else if (rank == 'C')
+        if (rank == 1)
         {
             stat.pt_STR = Random.Range(60.0f, 200.0f);
             stat.pt_DEX = Random.Range(60.0f, 200.0f);
