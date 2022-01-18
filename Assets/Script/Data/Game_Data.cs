@@ -84,7 +84,7 @@ public class Stat
     public float st_WIL, pt_WIL;    //의지, 의지 잠재력
     public float st_LUK;            //운(표시되지 않음)
 }
-//스킬 클래스======================================================================================
+//액티브 스킬 클래스===============================================================================
 [System.Serializable]
 public class ActiveSkill
 {
@@ -95,6 +95,7 @@ public class ActiveSkill
     public string qualification;    //스킬 습득 조건(정해진 규칙에 따라 작성)
     public string effect;           //스킬의 효과(정해진 규칙에 따라 작성)
 }
+//패시브 스킬 클래스===============================================================================
 [System.Serializable]
 public class PassiveSkill
 {
@@ -105,3 +106,16 @@ public class PassiveSkill
     public string qualification;    //스킬 습득 조건(정해진 규칙에 따라 작성)
     public string effect;           //스킬의 효과(정해진 규칙에 따라 작성)
 }
+//훈련 기반 시설===================================================================================
+[System.Serializable]
+public class Training_Infra
+{
+    public string name;                                 //이름
+    public int num;                                     //갯수
+    public int upgrade;                                 //업그레이드 횟수
+    public float change_STR, change_DEX, change_CON;    //육체 능력치 변화량
+    public float change_INT, change_WIS, change_WIL;    //정신 능력치 변화량
+}
+
+    
+    
