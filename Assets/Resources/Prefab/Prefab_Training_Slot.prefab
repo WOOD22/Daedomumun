@@ -1249,6 +1249,7 @@ GameObject:
   - component: {fileID: 7438255689799948624}
   - component: {fileID: 7438255689799948626}
   - component: {fileID: 7438255689799948625}
+  - component: {fileID: 5208467132817815986}
   m_Layer: 5
   m_Name: Prefab_Training_Slot
   m_TagString: Untagged
@@ -1316,6 +1317,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5208467132817815986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7438255689799948631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 641ea3c7fd77c4d48b76aae41568a16c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: {fileID: 7438255689466456851}
+  change_STR: {fileID: 7438255689545876390}
+  change_DEX: {fileID: 7438255689605531149}
+  change_CON: {fileID: 7438255689809006975}
+  change_INT: {fileID: 7438255689493117488}
+  change_WIS: {fileID: 7438255688941564826}
+  change_WIL: {fileID: 7438255688469026674}
+  portrait_card_slot: {fileID: 3340492697831116086}
+  training_infra:
+    name: 
+    num: 0
+    cost: 0
+    upgrade: 0
+    change_STR: 0
+    change_DEX: 0
+    change_CON: 0
+    change_INT: 0
+    change_WIS: 0
+    change_WIL: 0
 --- !u!1 &7438255689809006973
 GameObject:
   m_ObjectHideFlags: 0

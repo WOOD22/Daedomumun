@@ -112,6 +112,7 @@ public class Training_Infra
 {
     public string name;                                 //이름
     public int num;                                     //갯수
+    public int cost;                                    //설치 비용
     public int upgrade;                                 //업그레이드 횟수
     public float change_STR, change_DEX, change_CON;    //육체 능력치 변화량
     public float change_INT, change_WIS, change_WIL;    //정신 능력치 변화량
