@@ -60,8 +60,8 @@ public class Student
     public int prestige;            //학생의 명망(대회 성적으로 상승)
     //상태 정보====================================================================================
     public int condition;           //컨디션 (기본 최대치 100, 훈련의 효과 = 훈련 효과 수치 * (condition/100))
-    public string training;         //이번 턴 배정된 훈련(없을 시 NONE 으로 초기화)
-    public string schedule;         //이번 턴 배정된 일정(없을 시 NONE 으로 초기화)
+    public string training = "NONE";//이번 턴 배정된 훈련(없을 시 NONE 으로 초기화)
+    public string schedule = "NONE";//이번 턴 배정된 일정(없을 시 NONE 으로 초기화)
     public string main_MA;          //주 무공 종류(권, 장, 각 3타입)
     //능력치 정보==================================================================================
     public Stat stat = new Stat(); 

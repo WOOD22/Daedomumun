@@ -668,7 +668,7 @@ RectTransform:
   m_Children:
   - {fileID: 6054928}
   m_Father: {fileID: 874627335}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1432,6 +1432,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 558730219}
+        m_TargetAssemblyTypeName: Current_Page, Assembly-CSharp
+        m_MethodName: Open_Page
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Main_Page
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &456028438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1770,7 +1782,7 @@ RectTransform:
   m_Children:
   - {fileID: 1125907511}
   m_Father: {fileID: 874627335}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1896,6 +1908,7 @@ GameObject:
   - component: {fileID: 558730216}
   - component: {fileID: 558730217}
   - component: {fileID: 558730218}
+  - component: {fileID: 558730219}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2072,6 +2085,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   student_list: []
+--- !u!114 &558730219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558730213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7d271b0a8494e4d87a8fbaa8d3f68a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  open_page_name: 
 --- !u!1 &605100350
 GameObject:
   m_ObjectHideFlags: 0
@@ -2330,6 +2356,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 558730219}
+        m_TargetAssemblyTypeName: Current_Page, Assembly-CSharp
+        m_MethodName: Open_Page
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Main_Page
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &866717886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2487,6 +2525,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 558730219}
+        m_TargetAssemblyTypeName: Current_Page, Assembly-CSharp
+        m_MethodName: Open_Page
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Training_Page
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &871459521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2560,7 +2610,6 @@ RectTransform:
   - {fileID: 2048745160}
   - {fileID: 1546355502}
   - {fileID: 2062564327}
-  - {fileID: 1468154509}
   - {fileID: 116472640}
   - {fileID: 1210562415}
   - {fileID: 886614780}
@@ -2615,7 +2664,7 @@ RectTransform:
   m_Children:
   - {fileID: 1073807651}
   m_Father: {fileID: 874627335}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2835,7 +2884,7 @@ RectTransform:
   m_Children:
   - {fileID: 437928392}
   m_Father: {fileID: 874627335}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -3313,7 +3362,7 @@ GameObject:
   - component: {fileID: 1145704463}
   - component: {fileID: 1145704464}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Loading_Completion_Page
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3442,6 +3491,7 @@ RectTransform:
   - {fileID: 1145704463}
   - {fileID: 522904045}
   - {fileID: 874627335}
+  - {fileID: 1468154509}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3482,7 +3532,7 @@ RectTransform:
   m_Children:
   - {fileID: 1916386472}
   m_Father: {fileID: 874627335}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -3824,12 +3874,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1468154507}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 874627335}
-  m_RootOrder: 7
+  m_Father: {fileID: 1185353190}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3967,7 +4017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 1898450448}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 1
   m_Elasticity: 0.1
@@ -4133,7 +4183,7 @@ RectTransform:
   m_Children:
   - {fileID: 194760074}
   m_Father: {fileID: 874627335}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -4733,7 +4783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7438255689799948631, guid: 0669e45d2213b38489df31dccbcc977c, type: 3}
       propertyPath: m_Name
-      value: Prefab_Training_Slot
+      value: Prefab_Training_Slot_Weight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0669e45d2213b38489df31dccbcc977c, type: 3}
@@ -4829,7 +4879,7 @@ GameObject:
   - component: {fileID: 2048745162}
   - component: {fileID: 2048745161}
   m_Layer: 5
-  m_Name: Training_Unit_Scroll_View
+  m_Name: Unit_Scroll_View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5014,7 +5064,7 @@ GameObject:
   - component: {fileID: 2062564329}
   - component: {fileID: 2062564328}
   m_Layer: 5
-  m_Name: Head
+  m_Name: Head_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

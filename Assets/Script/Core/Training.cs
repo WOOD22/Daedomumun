@@ -16,7 +16,15 @@ public class Training : MonoBehaviour
     {
         sort_portrait_card = GameObject.Find("GameManager").GetComponent<Sort_Portrait_Card>();
         //문자순으로 정렬==========================================================================
-        sort_portrait_card.student_list = GameObject.Find("GameData").GetComponent<Game_Data>().game_data.school_list[1].students;
+        player_student_list = GameObject.Find("GameData").GetComponent<Game_Data>().game_data.school_list[1].students;
+        sort_portrait_card.student_list = new List<Student>();
+        for (int i = 0; i < player_student_list.Count; i++)
+        {
+            if (player_student_list[i].training == "NONE")
+            {
+                sort_portrait_card.student_list.Add((player_student_list[i]));
+            }
+        }
         sort_portrait_card.Sort_Name(false);
         player_student_list = sort_portrait_card.student_list;
         //=========================================================================================
@@ -26,7 +34,7 @@ public class Training : MonoBehaviour
             {
                 GameObject instance;
                 instance = Instantiate(prefab_portrait_card, content.transform);
-                instance.GetComponent<Prefab_Portrait_Card_Property>().student = player_student_list[i];
+                instance.GetComponent<Prefab_Portrait_Card_Property>().student = sort_portrait_card.student_list[i];
             }
         }
         Sort_Training_Page();

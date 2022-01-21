@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7936081836620510052}
   - component: {fileID: 7825488251708498818}
   - component: {fileID: 8559482461685290140}
+  - component: {fileID: 4453274510277869569}
   m_Layer: 5
   m_Name: Portrait_Card_Slot
   m_TagString: Untagged
@@ -75,6 +76,32 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4453274510277869569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3340492697831116086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 5
+    m_Right: 5
+    m_Top: 5
+    m_Bottom: 5
+  m_ChildAlignment: 0
+  m_Spacing: 5
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &7438255688376419627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1348,6 +1375,48 @@ MonoBehaviour:
     change_INT: 0
     change_WIS: 0
     change_WIL: 0
+  student:
+    code: 
+    name: 
+    gender: 0
+    nickname: 
+    birth_month: 0
+    school_class: 0
+    prestige: 0
+    condition: 0
+    training: NONE
+    schedule: NONE
+    main_MA: 
+    stat:
+      st_STR: 0
+      pt_STR: 0
+      st_DEX: 0
+      pt_DEX: 0
+      st_CON: 0
+      pt_CON: 0
+      st_INT: 0
+      pt_INT: 0
+      st_WIS: 0
+      pt_WIS: 0
+      st_WIL: 0
+      pt_WIL: 0
+      st_LUK: 0
+    active_skill:
+      code: 0
+      name: 
+      main_MA: 
+      need: 
+      qualification: 
+      effect: 
+    passive_skill:
+      code: 0
+      name: 
+      main_MA: 
+      need: 
+      qualification: 
+      effect: 
+    active_skills: []
+    passive_skills: []
 --- !u!1 &7438255689809006973
 GameObject:
   m_ObjectHideFlags: 0
