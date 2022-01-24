@@ -6,13 +6,12 @@ using UnityEngine.EventSystems;
 
 public class Prefab_Portrait_Card_Property : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    //Prefab_Portrait_Card의 Text 및 내부 속성=====================================================
-    public Text name;
+    //Prefab_Portrait_Card의 Text==================================================================
+    public new Text name;
     public Text st_STR, st_DEX, st_CON;
     public Text st_INT, st_WIS, st_WIL;
 
     public Student student = new Student();
-
     //Text변경 필요할 때만 업데이트================================================================
     void Update()
     {
@@ -101,17 +100,21 @@ public class Prefab_Portrait_Card_Property : MonoBehaviour, IBeginDragHandler, I
         {
             for (int i = 0; i < results.Count; i++)
             {
-                if (results[i].gameObject.name == "Portrait_Card_Slot")
+                if (results[i].gameObject.name == "Portrait_Card_Slot" && results[i].gameObject.transform.childCount == 0)
                 {
                     prev_parent = (results[i].gameObject);
-                    student.training = results[i].gameObject.transform.parent.name.Substring(21);
+                    this.transform.SetParent(prev_parent.transform);
+                }
+                else if (results[i].gameObject.name == "Portrait_Card_Slot" && results[i].gameObject.transform.childCount != 0)
+                {
+                    results[i].gameObject.transform.GetChild(0).transform.SetParent(list_parent.transform);
+                    prev_parent = (results[i].gameObject);
                     this.transform.SetParent(prev_parent.transform);
                 }
                 else if (results[i].gameObject.name == "Unit_Scroll_View")
                 {
                     prev_parent = list_parent;
                     this.transform.SetParent(prev_parent.transform);
-                    student.training = "NONE";
                 }
                 else
                 {

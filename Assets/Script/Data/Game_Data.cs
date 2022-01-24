@@ -26,6 +26,7 @@ public class School
     public Coach coach = new Coach();                           //학교의 코치
     public List<Student> students = new List<Student>();        //학교의 학생 리스트
     //상태 정보====================================================================================
+    public List<Training_Infra> training_infra_list = new List<Training_Infra>();
     public int prestige;                                        //학교의 명망(학생의 대회 성적, 프로데뷔 여부로 상승)
 }
 //코치 클래스======================================================================================
@@ -110,8 +111,8 @@ public class PassiveSkill
 [System.Serializable]
 public class Training_Infra
 {
+    public int code;                                    //훈련 기반 시설의 코드 00(타입)/0000(작성 순서)
     public string name;                                 //이름
-    public int num;                                     //갯수
     public int cost;                                    //설치 비용
     public int upgrade;                                 //업그레이드 횟수
     public float change_STR, change_DEX, change_CON;    //육체 능력치 변화량

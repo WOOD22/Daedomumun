@@ -10,7 +10,7 @@ public class Skill_Data : MonoBehaviour
     List<Dictionary<string, object>> passive_skill_table;
     public Dictionary<int, PassiveSkill> passive_skill_data = new Dictionary<int, PassiveSkill>();
 
-    private void Start()
+    void Start()
     {
         active_skill_table = CSVReader.Read("DataBase/CSV/Active_Skill_Table");
         passive_skill_table = CSVReader.Read("DataBase/CSV/Passive_Skill_Table");
