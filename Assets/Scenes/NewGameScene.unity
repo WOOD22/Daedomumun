@@ -2653,6 +2653,7 @@ GameObject:
   - component: {fileID: 787547795}
   - component: {fileID: 787547797}
   - component: {fileID: 787547798}
+  - component: {fileID: 787547799}
   m_Layer: 0
   m_Name: GameData
   m_TagString: Untagged
@@ -2675,7 +2676,9 @@ MonoBehaviour:
   game_data:
     year: 0
     month: 0
-    schools: []
+    school_list: []
+    coach_list: []
+    student_list: []
 --- !u!4 &787547796
 Transform:
   m_ObjectHideFlags: 0
@@ -2712,6 +2715,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97ea84c21a12f8f488909034abce82ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &787547799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787547794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42cdd39ddfd9b68458d54d155ec9f68d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &818088183

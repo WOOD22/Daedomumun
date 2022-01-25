@@ -9,7 +9,6 @@ public class Training_Infra_Data : MonoBehaviour
 
     void Start()
     {
-        training_infra_table = CSVReader.Read("DataBase/CSV/Training_Infra_Table");
 
         for (int i = 0; i < training_infra_data.Count; i++)
         {

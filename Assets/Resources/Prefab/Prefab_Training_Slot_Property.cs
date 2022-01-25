@@ -17,9 +17,11 @@ public class Prefab_Training_Slot_Property : MonoBehaviour
     int t = 0;
 
     List<Dictionary<string, object>> training_infra_table;
+    Sort_Portrait_Card sort_portrait_card;
 
     void Start()
     {
+        sort_portrait_card = GameObject.Find("GameManager").GetComponent<Sort_Portrait_Card>();
         training_infra_table = CSVReader.Read("DataBase/CSV/Training_Infra_Table");
     }
     //Text변경 필요할 때만 업데이트================================================================
@@ -53,8 +55,10 @@ public class Prefab_Training_Slot_Property : MonoBehaviour
         {
             change_WIL.text = Mathf.Round(training_infra.change_WIL).ToString();
         }
+        //트레이닝 슬롯이 채워지면 적용됨==========================================================
         if(portrait_card_slot.transform.childCount != 0)
         {
+            student.training = "NONE";                      //교체 시 초기화
             student = portrait_card_slot.transform.GetChild(0).GetComponent<Prefab_Portrait_Card_Property>().student;
             student.training = training_infra.name;
             training_infra.change_STR = student.stat.pt_STR / 100 * float.Parse(training_infra_table[t]["change_STR"].ToString());
@@ -65,6 +69,7 @@ public class Prefab_Training_Slot_Property : MonoBehaviour
             training_infra.change_WIL = student.stat.pt_WIL / 100 * float.Parse(training_infra_table[t]["change_WIL"].ToString());
 
         }
+        //트레이닝 슬롯이 비워지면 적용됨==========================================================
         else
         {
             training_infra.name = training_infra_table[t]["name"].ToString();
@@ -76,6 +81,7 @@ public class Prefab_Training_Slot_Property : MonoBehaviour
             training_infra.change_WIS = float.Parse(training_infra_table[t]["change_WIS"].ToString());
             training_infra.change_WIL = float.Parse(training_infra_table[t]["change_WIL"].ToString());
         }
+        //트레이닝 슬롯이 비워치면 초기화==========================================================
         if (portrait_card_slot.transform.childCount == 0 && student != new Student())
         {
             student.training = "NONE";

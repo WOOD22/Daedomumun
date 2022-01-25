@@ -634,7 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalFit: 1
+  m_HorizontalFit: 2
   m_VerticalFit: 0
 --- !u!1 &116472639
 GameObject:
@@ -1648,13 +1648,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 558730216}
-        m_TargetAssemblyTypeName: Battle, Assembly-CSharp
-        m_MethodName: check
-        m_Mode: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Training_Infra_Test, Assembly-CSharp
+        m_MethodName: infra_test
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 87c5ef38c1aabc644b705fa327637c49, type: 2}
-          m_ObjectArgumentAssemblyTypeName: ActiveSkill_Data, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2071,7 +2071,6 @@ MonoBehaviour:
   prefab_portrait_card: {fileID: 6041474339421415396, guid: a19828830a9fbcb44ae733fa01d66c2b, type: 3}
   content: {fileID: 116389509}
   pool: {fileID: 1468154507}
-  player_student_list: []
 --- !u!114 &558730218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2786,9 +2785,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 924599439}
-  - component: {fileID: 924599438}
   - component: {fileID: 924599440}
   - component: {fileID: 924599441}
+  - component: {fileID: 924599438}
+  - component: {fileID: 924599442}
   m_Layer: 0
   m_Name: GameData
   m_TagString: Untagged
@@ -2850,6 +2850,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97ea84c21a12f8f488909034abce82ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &924599442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 924599437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42cdd39ddfd9b68458d54d155ec9f68d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1071572072

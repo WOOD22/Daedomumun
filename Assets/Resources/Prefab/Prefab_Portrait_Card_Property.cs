@@ -73,7 +73,7 @@ public class Prefab_Portrait_Card_Property : MonoBehaviour, IBeginDragHandler, I
     {
         throw new System.NotImplementedException();
     }
-
+    //드래그 시 Pool의 자식으로 할당===============================================================
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
     {
         prev_parent = this.transform.parent.gameObject;
@@ -100,11 +100,13 @@ public class Prefab_Portrait_Card_Property : MonoBehaviour, IBeginDragHandler, I
         {
             for (int i = 0; i < results.Count; i++)
             {
+                //Portrait_Card_Slot이 비어있을 경우 자식으로 할당=================================
                 if (results[i].gameObject.name == "Portrait_Card_Slot" && results[i].gameObject.transform.childCount == 0)
                 {
                     prev_parent = (results[i].gameObject);
                     this.transform.SetParent(prev_parent.transform);
                 }
+                //Portrait_Card_Slot가 채워져 있을 경우 교체=======================================
                 else if (results[i].gameObject.name == "Portrait_Card_Slot" && results[i].gameObject.transform.childCount != 0)
                 {
                     results[i].gameObject.transform.GetChild(0).transform.SetParent(list_parent.transform);
