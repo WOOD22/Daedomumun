@@ -14,15 +14,13 @@ public class Prefab_Training_Slot_Property : MonoBehaviour
     public Training_Infra training_infra = new Training_Infra();
     public Student student = new Student();
 
-    int t = 0;
-
-    List<Dictionary<string, object>> training_infra_table;
+    Dictionary<int, Training_Infra> training_infra_data;
     Sort_Portrait_Card sort_portrait_card;
 
     void Start()
     {
         sort_portrait_card = GameObject.Find("GameManager").GetComponent<Sort_Portrait_Card>();
-        training_infra_table = CSVReader.Read("DataBase/CSV/Training_Infra_Table");
+        training_infra_data = GameObject.Find("GameData").GetComponent<Training_Infra_Data>().training_infra_data;
     }
     //Text변경 필요할 때만 업데이트================================================================
     void Update()
@@ -61,25 +59,18 @@ public class Prefab_Training_Slot_Property : MonoBehaviour
             student.training = "NONE";                      //교체 시 초기화
             student = portrait_card_slot.transform.GetChild(0).GetComponent<Prefab_Portrait_Card_Property>().student;
             student.training = training_infra.name;
-            training_infra.change_STR = student.stat.pt_STR / 100 * float.Parse(training_infra_table[t]["change_STR"].ToString());
-            training_infra.change_DEX = student.stat.pt_DEX / 100 * float.Parse(training_infra_table[t]["change_DEX"].ToString());
-            training_infra.change_CON = student.stat.pt_CON / 100 * float.Parse(training_infra_table[t]["change_CON"].ToString());
-            training_infra.change_INT = student.stat.pt_INT / 100 * float.Parse(training_infra_table[t]["change_INT"].ToString());
-            training_infra.change_WIS = student.stat.pt_WIS / 100 * float.Parse(training_infra_table[t]["change_WIS"].ToString());
-            training_infra.change_WIL = student.stat.pt_WIL / 100 * float.Parse(training_infra_table[t]["change_WIL"].ToString());
+            training_infra.change_STR = student.stat.pt_STR / 100 * float.Parse(training_infra_data[training_infra.code].change_STR.ToString());
+            training_infra.change_DEX = student.stat.pt_DEX / 100 * float.Parse(training_infra_data[training_infra.code].change_DEX.ToString());
+            training_infra.change_CON = student.stat.pt_CON / 100 * float.Parse(training_infra_data[training_infra.code].change_CON.ToString());
+            training_infra.change_INT = student.stat.pt_INT / 100 * float.Parse(training_infra_data[training_infra.code].change_INT.ToString());
+            training_infra.change_WIS = student.stat.pt_WIS / 100 * float.Parse(training_infra_data[training_infra.code].change_WIS.ToString());
+            training_infra.change_WIL = student.stat.pt_WIL / 100 * float.Parse(training_infra_data[training_infra.code].change_WIL.ToString());
 
         }
         //트레이닝 슬롯이 비워지면 적용됨==========================================================
         else
         {
-            training_infra.name = training_infra_table[t]["name"].ToString();
-            training_infra.cost = int.Parse(training_infra_table[t]["cost"].ToString());
-            training_infra.change_STR = float.Parse(training_infra_table[t]["change_STR"].ToString());
-            training_infra.change_DEX = float.Parse(training_infra_table[t]["change_DEX"].ToString());
-            training_infra.change_CON = float.Parse(training_infra_table[t]["change_CON"].ToString());
-            training_infra.change_INT = float.Parse(training_infra_table[t]["change_INT"].ToString());
-            training_infra.change_WIS = float.Parse(training_infra_table[t]["change_WIS"].ToString());
-            training_infra.change_WIL = float.Parse(training_infra_table[t]["change_WIL"].ToString());
+            training_infra = training_infra_data[training_infra.code];
         }
         //트레이닝 슬롯이 비워치면 초기화==========================================================
         if (portrait_card_slot.transform.childCount == 0 && student != new Student())

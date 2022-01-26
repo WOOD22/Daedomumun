@@ -26,7 +26,8 @@ public class School
     public Coach coach = new Coach();                           //학교의 코치
     public List<Student> students = new List<Student>();        //학교의 학생 리스트
     //상태 정보====================================================================================
-    public List<Training_Infra> training_infra_list = new List<Training_Infra>();
+    public int money;                                           //사용가능한 재화
+    public List<Training_Infra> training_infra_list = new List<Training_Infra>();   //학교의 훈련 기반 리스트
     public int prestige;                                        //학교의 명망(학생의 대회 성적, 프로데뷔 여부로 상승)
 }
 //코치 클래스======================================================================================

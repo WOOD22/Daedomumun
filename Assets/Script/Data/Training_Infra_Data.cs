@@ -5,12 +5,12 @@ using UnityEngine;
 public class Training_Infra_Data : MonoBehaviour
 {
     List<Dictionary<string, object>> training_infra_table;
-    public Dictionary<int, Training_Infra> training_infra_data = new Dictionary<int, Training_Infra>();
+    public Dictionary<int, Training_Infra>training_infra_data = new Dictionary<int, Training_Infra>();
 
     void Start()
     {
-
-        for (int i = 0; i < training_infra_data.Count; i++)
+        training_infra_table = CSVReader.Read("DataBase/CSV/Training_Infra_Table");
+        for (int i = 0; i < training_infra_table.Count; i++)
         {
             Training_Infra new_training_Infra = new Training_Infra();
 
