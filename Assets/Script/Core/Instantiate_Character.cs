@@ -16,6 +16,7 @@ public class Instantiate_Character : MonoBehaviour
     public string school_name;
     public string school_code;
     //캐릭터 개인 정보=============================================================================
+    public string character_code;
     public string last_name;
     public string first_name;
     public char gender;
@@ -67,11 +68,13 @@ public class Instantiate_Character : MonoBehaviour
     {
         Coach new_coach = new Coach();
 
+        Set_Code("COCH");
         Set_Gender();
         Set_Name(gender);
         Set_Birth_Month(); 
         Set_Main_MA();
 
+        new_coach.code = character_code;
         new_coach.name = last_name + first_name;
         new_coach.gender = gender;
         new_coach.birth_month = birth_month;
@@ -88,6 +91,7 @@ public class Instantiate_Character : MonoBehaviour
     {
         Student new_student = new Student();
 
+        Set_Code("STUD");
         Set_Gender();
         Set_Name(gender);
         Set_School_Class();
@@ -95,6 +99,7 @@ public class Instantiate_Character : MonoBehaviour
         Set_Main_MA();
         Set_Stat(school_class, Random.Range(1, 5));
 
+        new_student.code = character_code;
         new_student.name = last_name + first_name;
         new_student.gender = gender;
         new_student.birth_month = birth_month;
@@ -104,6 +109,31 @@ public class Instantiate_Character : MonoBehaviour
 
         game_data.school_list[int.Parse(code)].students.Add(new_student);
         game_data.student_list.Add(new_student);
+    }
+    //코치, 학생 코드 세팅=========================================================================
+    void Set_Code(string code_type)
+    {
+        //while (true)
+        //{
+            int int_random_code = Random.Range(0, 10000);
+            string string_random_code = int_random_code.ToString();
+
+            while (true)
+            {
+                if (string_random_code.Length < 4)
+                {
+                    string_random_code = "0" + string_random_code;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            if(birth_month.ToString().Length < 2)
+        {
+            character_code = code_type + "0" + birth_month + string_random_code;
+        }
+        //}
     }
     //학교 이름 세팅===============================================================================
     void Set_SchoolName()

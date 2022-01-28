@@ -21,7 +21,7 @@ public class GameData
 public class School
 {
     //인물 정보====================================================================================
-    public string code;                                         //학교의 코드(0~999)
+    public string code;                                         //학교의 코드 SCHL + 0000(오름차순)
     public string name;                                         //학교의 이름
     public Coach coach = new Coach();                           //학교의 코치
     public List<Student> students = new List<Student>();        //학교의 학생 리스트
@@ -35,7 +35,7 @@ public class School
 public class Coach
 {
     //개인 정보====================================================================================
-    public string code;             //코치의 코드 01(생월)/0000(중복되지 않는 랜덤)
+    public string code;             //코치의 코드 COCH + 00(생월)/0000(중복되지 않는 랜덤)
     public string name;             //코치의 이름
     public char gender;             //코치의 성별(M : 남성, F : 여성)
     public string nickname;         //코치의 별명
@@ -53,7 +53,7 @@ public class Coach
 public class Student
 {
     //개인 정보====================================================================================
-    public string code;             //학생의 코드 01(생월)/0000(중복되지 않는 랜덤)
+    public string code;             //학생의 코드 STUD + 00(생월)/0000(중복되지 않는 랜덤)
     public string name;             //학생의 이름
     public char gender;             //학생의 성별(M : 남성, F : 여성)
     public string nickname;         //학생의 별명

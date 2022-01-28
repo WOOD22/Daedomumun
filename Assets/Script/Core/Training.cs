@@ -52,16 +52,6 @@ public class Training : MonoBehaviour
             }
         }
         Sort_Training_Page();
-
-        for (int i = 0; i < player_training_infra_list.Count; i++)
-        {
-            if (training_list_scroll_view_content.transform.childCount < player_training_infra_list.Count)
-            {
-                GameObject instance;
-                instance = Instantiate(prefab_training_slot, training_list_scroll_view_content.transform);
-                instance.GetComponent<Prefab_Training_Slot_Property>().training_infra = player_training_infra_list[i];
-            }
-        }
     }
     //트레이닝 페이지 정렬=========================================================================
     public void Sort_Training_Page()
@@ -85,6 +75,16 @@ public class Training : MonoBehaviour
                 if (sort_portrait_card.student_list.Contains(player_student_list[i]) == false && player_student_list[i].training == "NONE")
                 {
                     sort_portrait_card.student_list.Add(player_student_list[i]);
+                }
+            }
+
+            for (int i = training_list_scroll_view_content.transform.childCount; i < player_training_infra_list.Count; i++)
+            {
+                if (training_list_scroll_view_content.transform.childCount < player_training_infra_list.Count)
+                {
+                    GameObject instance;
+                    instance = Instantiate(prefab_training_slot, training_list_scroll_view_content.transform);
+                    instance.GetComponent<Prefab_Training_Slot_Property>().training_infra = player_training_infra_list[i];
                 }
             }
         }
