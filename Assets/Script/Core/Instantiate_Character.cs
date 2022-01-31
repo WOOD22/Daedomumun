@@ -10,6 +10,7 @@ public class Instantiate_Character : MonoBehaviour
     List<Dictionary<string, object>> first_name_female_table;
 
     GameData game_data;
+    Dict_GameData dict_gamedata;
 
     Dictionary<int, ActiveSkill> active_skill_data;
     Dictionary<int, PassiveSkill> passive_skill_data;
@@ -39,19 +40,20 @@ public class Instantiate_Character : MonoBehaviour
         active_skill_data = GameObject.Find("GameData").GetComponent<Skill_Data>().active_skill_data;
         passive_skill_data = GameObject.Find("GameData").GetComponent<Skill_Data>().passive_skill_data;
         game_data = GameObject.Find("GameData").GetComponent<Game_Data>().game_data;
+        dict_gamedata = GameObject.Find("GameData").GetComponent<Game_Data>().dict_gamedata;
     }
     //새로운 학교 생성=============================================================================
     public void New_School()
     {
         School new_school = new School();
         Set_SchoolName();
-        school_code = game_data.school_list.Count.ToString();
+        school_code = dict_gamedata.school_dict.Count.ToString();
 
         new_school.name = school_name;
         new_school.code = school_code;
         new_school.prestige = Random.Range(0, 1000);
 
-        game_data.school_list.Add(new_school);
+        dict_gamedata.school_dict.Add(new_school.code, new_school);
         Set_School(school_code);
     }
     //학교 인원 구성하기===========================================================================
@@ -83,8 +85,8 @@ public class Instantiate_Character : MonoBehaviour
         Set_Active_Skills(new_coach.main_MA, new_coach.active_skills, 1);
         Set_Passive_Skills(new_coach.main_MA, new_coach.passive_skills, 1);
 
-        game_data.school_list[int.Parse(code)].coach = new_coach;
-        game_data.coach_list.Add(new_coach);
+        dict_gamedata.school_dict[code].coach_code = new_coach.code;
+        dict_gamedata.coach_dict.Add(new_coach.code, new_coach);
     }
     //학생 생성====================================================================================
     public void New_Student(string code)
@@ -107,20 +109,20 @@ public class Instantiate_Character : MonoBehaviour
         new_student.main_MA = main_MA;
         new_student.stat = stat;
 
-        game_data.school_list[int.Parse(code)].students.Add(new_student);
-        game_data.student_list.Add(new_student);
+        dict_gamedata.school_dict[code].student_code_list.Add(new_student.code);
+        dict_gamedata.student_dict.Add(new_student.code, new_student);
     }
     //코치, 학생 코드 세팅=========================================================================
     void Set_Code(string code_type)
     {
-        //while (true)
-        //{
-            int int_random_code = Random.Range(0, 10000);
+        while (true)
+        {
+            int int_random_code = Random.Range(0, 1000000);
             string string_random_code = int_random_code.ToString();
 
             while (true)
             {
-                if (string_random_code.Length < 4)
+                if (string_random_code.Length < 6)
                 {
                     string_random_code = "0" + string_random_code;
                 }
@@ -129,11 +131,29 @@ public class Instantiate_Character : MonoBehaviour
                     break;
                 }
             }
+
             if(birth_month.ToString().Length < 2)
-        {
-            character_code = code_type + "0" + birth_month + string_random_code;
+            {
+                character_code = code_type + "0" + birth_month + string_random_code;
+            }
+            else
+            {
+                character_code = code_type + birth_month + string_random_code;
+            }
+
+            if (code_type == "COCH" && dict_gamedata.coach_dict.ContainsKey(character_code) == false)
+            {
+                break;
+            }
+            else if (code_type == "STUD" && dict_gamedata.coach_dict.ContainsKey(character_code) == false)
+            {
+                break;
+            }
+            else
+            {
+                Debug.Log("캐릭터 코드 중복");
+            }
         }
-        //}
     }
     //학교 이름 세팅===============================================================================
     void Set_SchoolName()

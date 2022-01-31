@@ -5,6 +5,17 @@ using UnityEngine;
 public class Game_Data : MonoBehaviour
 {
     public GameData game_data;
+    public Dict_GameData dict_gamedata;
+}
+//Dictionary화 한 GameData=========================================================================
+[System.Serializable]
+public class Dict_GameData
+{
+    public int year;
+    public int month;
+    public Dictionary<string, School> school_dict = new Dictionary<string, School>();
+    public Dictionary<string, Coach> coach_dict = new Dictionary<string, Coach>();
+    public Dictionary<string, Student> student_dict = new Dictionary<string, Student>();
 }
 //게임 데이터 클래스===============================================================================
 [System.Serializable]
@@ -16,8 +27,21 @@ public class GameData
     public List<Coach> coach_list;//코치 리스트
     public List<Student> student_list;//학생 리스트
 }
-//격투부 클래스====================================================================================
+//학교 클래스====================================================================================
 [System.Serializable]
+public class School
+{
+    //인물 정보====================================================================================
+    public string code;                                         //학교의 코드 SCHL + 0000(오름차순)
+    public string name;                                         //학교의 이름
+    public string coach_code;                                   //학교의 코치
+    public List<string> student_code_list = new List<string>(); //학교의 학생 리스트
+    //상태 정보====================================================================================
+    public int money;                                           //사용가능한 재화
+    public List<Training_Infra> training_infra_list = new List<Training_Infra>();   //학교의 훈련 기반 리스트
+    public int prestige;                                        //학교의 명망(학생의 대회 성적, 프로데뷔 여부로 상승)
+}
+/*
 public class School
 {
     //인물 정보====================================================================================
@@ -30,12 +54,13 @@ public class School
     public List<Training_Infra> training_infra_list = new List<Training_Infra>();   //학교의 훈련 기반 리스트
     public int prestige;                                        //학교의 명망(학생의 대회 성적, 프로데뷔 여부로 상승)
 }
+*/
 //코치 클래스======================================================================================
 [System.Serializable]
 public class Coach
 {
     //개인 정보====================================================================================
-    public string code;             //코치의 코드 COCH + 00(생월)/0000(중복되지 않는 랜덤)
+    public string code;             //코치의 코드 COCH + 00(생월)/000000(중복되지 않는 랜덤)
     public string name;             //코치의 이름
     public char gender;             //코치의 성별(M : 남성, F : 여성)
     public string nickname;         //코치의 별명
@@ -53,7 +78,7 @@ public class Coach
 public class Student
 {
     //개인 정보====================================================================================
-    public string code;             //학생의 코드 STUD + 00(생월)/0000(중복되지 않는 랜덤)
+    public string code;             //학생의 코드 STUD + 00(생월)/000000(중복되지 않는 랜덤)
     public string name;             //학생의 이름
     public char gender;             //학생의 성별(M : 남성, F : 여성)
     public string nickname;         //학생의 별명

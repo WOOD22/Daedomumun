@@ -7,8 +7,10 @@ public class NewGameSetting : MonoBehaviour
 {
     //게임데이터 선언==============================================================================
     GameData game_data;
+    Dict_GameData dict_gamedata;
     //가상키보드===================================================================================
-    TouchScreenKeyboard keyboard;
+    TouchScreenKeyboard coach_name_keyboard;
+    TouchScreenKeyboard school_name_keyboard;
     //텍스트 입력용================================================================================
     public GameObject newgame_coach_name;           //NewGame_Coach_Name 오브젝트
     public GameObject newgame_school_name;          //NewGame_School_Name 오브젝트
@@ -16,71 +18,76 @@ public class NewGameSetting : MonoBehaviour
     public Text school_name_text;                   //Text_Coach_Name 텍스트
     public Text birth_month_text;                   //
     //=============================================================================================
+    public School player_school = new School();
+    public Coach player_coach = new Coach();
     void Start()
     {
-        //플레이어 학교 생성=====================================================================
+        //플레이어 학교 생성=======================================================================
         game_data = GameObject.Find("GameData").GetComponent<Game_Data>().game_data;
-        game_data.school_list.Add(new School());
-        game_data.school_list[0].code = "0";
+        dict_gamedata = GameObject.Find("GameData").GetComponent<Game_Data>().dict_gamedata;
+        player_school.code = "0";
+        dict_gamedata.school_dict.Add(player_school.code, player_school);
         //=========================================================================================
     }
 
     public void Name_Keyboard()
     {
         //가상키보드 NamePhonePad 타입으로 오픈 ===================================================
-        keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.NamePhonePad);
+        coach_name_keyboard = TouchScreenKeyboard.Open("강백호", TouchScreenKeyboardType.NamePhonePad);
+        school_name_keyboard = TouchScreenKeyboard.Open("무림", TouchScreenKeyboardType.NamePhonePad);
         //=========================================================================================
     }
 
     void Update()
     {
         //확인 -> NewGame_Coach_Name 오브젝트가 액티브되어 있는 경우===============================
-        if (keyboard != null && keyboard.status == TouchScreenKeyboard.Status.Done && newgame_coach_name.activeSelf == true)
+        if (coach_name_keyboard != null && coach_name_keyboard.status == TouchScreenKeyboard.Status.Done && newgame_coach_name.activeSelf == true)
         {
-            coach_name_text.text = keyboard.text;
+            coach_name_text.text = coach_name_keyboard.text;
         }
         //확인 -> NewGame_School_Name 오브젝트가 액티브되어 있는 경우==============================
-        else if (keyboard != null && keyboard.status == TouchScreenKeyboard.Status.Done && newgame_school_name.activeSelf == true)
+        if (school_name_keyboard != null && school_name_keyboard.status == TouchScreenKeyboard.Status.Done && newgame_school_name.activeSelf == true)
         {
-            school_name_text.text = keyboard.text;
+            school_name_text.text = school_name_keyboard.text;
         }
     }
     //코치 이름 입력 함수==========================================================================
     public void Coach_Name_Agree()
     {
-        game_data.school_list[0].coach.name = coach_name_text.text;
+        player_coach.name = coach_name_text.text;
     }
     //코치 성별 결정 함수(남)======================================================================
     public void Coach_Gender_Male_Decision()
     {
-        game_data.school_list[0].coach.gender = 'M';
+        player_coach.gender = 'M';
     }
     //코치 성별 결정 함수(여)======================================================================
     public void Coach_Gender_Female_Decision()
     {
-        game_data.school_list[0].coach.gender = 'F';
+        player_coach.gender = 'F';
     }
     //코치 생월 결정 함수==========================================================================
     public void Coach_Birth_Month_Decision(int birth)
     {
-        game_data.school_list[0].coach.birth_month = birth;
+        player_coach.birth_month = birth;
     }
     //학교 이름 확정 함수==========================================================================
     public void School_Name_Agree()
     {
-        game_data.school_list[0].name = school_name_text.text;
+        player_school.name = school_name_text.text;
     }
     //=============================================================================================
     public void Coach_ActiveSkill_Decision(int code)
     {
         ActiveSkill active_skill = new ActiveSkill();
         active_skill = GameObject.Find("GameData").GetComponent<Skill_Data>().active_skill_data[code];
-        game_data.school_list[0].coach.active_skills.Add(active_skill);
+        player_coach.active_skills.Add(active_skill);
     }
+    //
     public void Coach_PassiveSkill_Decision(int code)
     {
         PassiveSkill passive_skill = new PassiveSkill();
         passive_skill = GameObject.Find("GameData").GetComponent<Skill_Data>().passive_skill_data[code];
-        game_data.school_list[0].coach.passive_skills.Add(passive_skill);
+        player_coach.passive_skills.Add(passive_skill);
     }
 }
