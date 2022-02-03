@@ -5,46 +5,61 @@ using System.IO;
 
 public class Save_Load : MonoBehaviour
 {
-    GameData game_data = new GameData();
+    GameData gamedata = new GameData();
     Dict_GameData dict_gamedata = new Dict_GameData();
 
     public void Save_File(string save_file_name)
     {
-        dict_gamedata = GameObject.Find("GameData").GetComponent<Game_Data>().dict_gamedata;
-        game_data = GameObject.Find("GameData").GetComponent<Game_Data>().game_data;
+        From_Dict_to_Data();
 
-        game_data.year = dict_gamedata.year;
-        game_data.month = dict_gamedata.month;
-        game_data.school_list = new List<School>(dict_gamedata.school_dict.Values);
-        game_data.coach_list = new List<Coach>(dict_gamedata.coach_dict.Values);
-        game_data.student_list = new List<Student>(dict_gamedata.student_dict.Values);
-
-        string save = JsonUtility.ToJson(game_data, true);
+        string save = JsonUtility.ToJson(gamedata, true);
         string path = Path.Combine(Application.dataPath + "/Save", save_file_name + ".json");
         File.WriteAllText(path, save);
+    }
+
+    public void From_Dict_to_Data()
+    {
+        GameData gamedata = new GameData();
+
+        dict_gamedata = GameObject.Find("GameData").GetComponent<Game_Data>().dict_gamedata;
+        gamedata = GameObject.Find("GameData").GetComponent<Game_Data>().gamedata;
+
+        gamedata.year = dict_gamedata.year;
+        gamedata.month = dict_gamedata.month;
+        gamedata.school_list = new List<School>(dict_gamedata.school_dict.Values);
+        gamedata.coach_list = new List<Coach>(dict_gamedata.coach_dict.Values);
+        gamedata.student_list = new List<Student>(dict_gamedata.student_dict.Values);
     }
 
     public void Load_File(string save_file_name)
     {
         string path = Path.Combine(Application.dataPath + "/Save", save_file_name + ".json");
         string save = File.ReadAllText(path);
-        game_data = JsonUtility.FromJson<GameData>(save);
+        gamedata = JsonUtility.FromJson<GameData>(save);
 
-        GameObject.Find("GameData").GetComponent<Game_Data>().game_data = game_data;
+        GameObject.Find("GameData").GetComponent<Game_Data>().gamedata = gamedata;
 
-        dict_gamedata.year = game_data.year;
-        dict_gamedata.month = game_data.month;
-        for (int i = 0; i < game_data.school_list.Count; i++)
+        From_Data_to_Dict();
+    }
+
+    public void From_Data_to_Dict()
+    {
+        Dict_GameData dict_gamedata = new Dict_GameData();
+
+        dict_gamedata.year = gamedata.year;
+        dict_gamedata.month = gamedata.month;
+
+        for (int i = 0; i < gamedata.school_list.Count; i++)
         {
-            dict_gamedata.school_dict.Add(game_data.school_list[i].code, game_data.school_list[i]);
+            dict_gamedata.school_dict.Add(gamedata.school_list[i].code, gamedata.school_list[i]);
         }
-        for (int i = 0; i < game_data.coach_list.Count; i++)
+        for (int i = 0; i < gamedata.coach_list.Count; i++)
         {
-            dict_gamedata.coach_dict.Add(game_data.coach_list[i].code, game_data.coach_list[i]);
+            dict_gamedata.coach_dict.Add(gamedata.coach_list[i].code, gamedata.coach_list[i]);
         }
-        for (int i = 0; i < game_data.student_list.Count; i++)
+        for (int i = 0; i < gamedata.student_list.Count; i++)
         {
-            dict_gamedata.student_dict.Add(game_data.student_list[i].code, game_data.student_list[i]);
+            dict_gamedata.student_dict.Add(gamedata.student_list[i].code, gamedata.student_list[i]);
         }
 
         GameObject.Find("GameData").GetComponent<Game_Data>().dict_gamedata = dict_gamedata;

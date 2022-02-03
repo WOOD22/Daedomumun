@@ -13,22 +13,25 @@ public class Training : MonoBehaviour
     public GameObject unit_scroll_view_content;
     public GameObject training_list_scroll_view_content;
     public GameObject pool;
-    List<Student> player_student_list;
+    List<string> player_student_code_list;
     List<Training_Infra> player_training_infra_list;
+
+    Game_Data game_data;
     //트레이닝 페이지 오픈시 작동==================================================================
     public void Open_Training_Page()
     {
         sort_portrait_card = GameObject.Find("GameManager").GetComponent<Sort_Portrait_Card>();
         sort_portrait_card.student_list.Clear();
         //Portrait_Card문자순으로 정렬=============================================================
-        //player_student_list = GameObject.Find("GameData").GetComponent<Game_Data>().game_data.school_list[1].student_code_list;
-        player_training_infra_list = GameObject.Find("GameData").GetComponent<Game_Data>().game_data.school_list[1].training_infra_list;
+        game_data = GameObject.Find("GameData").GetComponent<Game_Data>();
+        player_student_code_list = game_data.dict_gamedata.school_dict["1"].student_code_list;
+        player_training_infra_list = game_data.dict_gamedata.school_dict["1"].training_infra_list;
 
         sort_portrait_card.student_list = new List<Student>();
 
-        for (int i = 0; i < player_student_list.Count; i++)
+        for (int i = 0; i < player_student_code_list.Count; i++)
         {
-            sort_portrait_card.student_list.Add(player_student_list[i]);
+            sort_portrait_card.student_list.Add(game_data.dict_gamedata.student_dict[player_student_code_list[i]]);
         }
 
         for (int i = 0; i < sort_portrait_card.student_list.Count; i++)
@@ -41,7 +44,7 @@ public class Training : MonoBehaviour
 
         sort_portrait_card.Sort_Name(false);
 
-        //player_student_list에 존재하며 현재 생성되지 않은 Portrait_Card를 unit_scroll_view_content에 생성한다=====
+        //player_student_list에 존재하며 현재 생성되지 않은 Portrait_Card를 unit_scroll_view_content에 생성한다
         for (int i = 0; i < sort_portrait_card.student_list.Count; i++)
         {
             if (unit_scroll_view_content.transform.childCount < sort_portrait_card.student_list.Count)
@@ -70,11 +73,11 @@ public class Training : MonoBehaviour
             //training != NONE 의 경우 정렬 리스트에서 제외
             sort_portrait_card.student_list.RemoveAll(student => student.training != "NONE");
             //training == NONE & 정렬 리스트에 중복이 없을 경우 리스트에 추가
-            for (int i = 0; i < player_student_list.Count; i++)
+            for (int i = 0; i < player_student_code_list.Count; i++)
             {
-                if (sort_portrait_card.student_list.Contains(player_student_list[i]) == false && player_student_list[i].training == "NONE")
+                if (sort_portrait_card.student_list.Contains(game_data.dict_gamedata.student_dict[player_student_code_list[i]]) == false && game_data.dict_gamedata.student_dict[player_student_code_list[i]].training == "NONE")
                 {
-                    sort_portrait_card.student_list.Add(player_student_list[i]);
+                    sort_portrait_card.student_list.Add(game_data.dict_gamedata.student_dict[player_student_code_list[i]]);
                 }
             }
 

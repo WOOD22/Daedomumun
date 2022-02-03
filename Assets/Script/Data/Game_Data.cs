@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Game_Data : MonoBehaviour
 {
-    public GameData game_data;
+    public GameData gamedata;
     public Dict_GameData dict_gamedata;
 }
 //Dictionary화 한 GameData=========================================================================

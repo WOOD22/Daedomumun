@@ -10,7 +10,7 @@ public class Training_Infra_Add : MonoBehaviour
 
     public void Buy_Training_Infra(string code)
     {
-        school = GameObject.Find("GameData").GetComponent<Game_Data>().game_data.school_list[1];
+        school = GameObject.Find("GameData").GetComponent<Game_Data>().gamedata.school_list[1];
         training_infra = GameObject.Find("GameData").GetComponent<Training_Infra_Data>().training_infra_data[int.Parse(code)];
         if (training_infra.cost <= school.money)
         {

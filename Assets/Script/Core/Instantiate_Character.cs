@@ -39,7 +39,7 @@ public class Instantiate_Character : MonoBehaviour
 
         active_skill_data = GameObject.Find("GameData").GetComponent<Skill_Data>().active_skill_data;
         passive_skill_data = GameObject.Find("GameData").GetComponent<Skill_Data>().passive_skill_data;
-        game_data = GameObject.Find("GameData").GetComponent<Game_Data>().game_data;
+        game_data = GameObject.Find("GameData").GetComponent<Game_Data>().gamedata;
         dict_gamedata = GameObject.Find("GameData").GetComponent<Game_Data>().dict_gamedata;
     }
     //새로운 학교 생성=============================================================================
