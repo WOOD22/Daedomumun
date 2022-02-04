@@ -5,7 +5,7 @@ using UnityEngine;
 public class End_Turn : MonoBehaviour
 {
     Game_Data game_data;
-    Save_Load save_load; 
+    Save_Load save_load;
 
     void Start()
     {
@@ -16,6 +16,12 @@ public class End_Turn : MonoBehaviour
     public void End_Turn_Check()
     {
         save_load.From_Dict_to_Data();
+        game_data.gamedata.month++;
+        if(game_data.gamedata.month > 12)
+        {
+            game_data.gamedata.month = 1;
+            game_data.gamedata.year++;
+        }
         Training_Page_Check();
         save_load.From_Data_to_Dict();
     }
