@@ -10,7 +10,16 @@ public class Save_Load : MonoBehaviour
 
     public void Save_File(string save_file_name)
     {
-        From_Dict_to_Data();
+        GameData gamedata = new GameData();
+
+        dict_gamedata = GameObject.Find("GameData").GetComponent<Game_Data>().dict_gamedata;
+        gamedata = GameObject.Find("GameData").GetComponent<Game_Data>().gamedata;
+
+        gamedata.year = dict_gamedata.year;
+        gamedata.month = dict_gamedata.month;
+        gamedata.school_list = new List<School>(dict_gamedata.school_dict.Values);
+        gamedata.coach_list = new List<Coach>(dict_gamedata.coach_dict.Values);
+        gamedata.student_list = new List<Student>(dict_gamedata.student_dict.Values);
 
         string save = JsonUtility.ToJson(gamedata, true);
         string path = Path.Combine(Application.dataPath + "/Save", save_file_name + ".json");

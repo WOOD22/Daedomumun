@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class NewGameSetting : MonoBehaviour
 {
     //게임데이터 선언==============================================================================
-    GameData game_data;
+    GameData gamedata;
     Dict_GameData dict_gamedata;
     //가상키보드===================================================================================
     TouchScreenKeyboard coach_name_keyboard;
@@ -23,10 +23,15 @@ public class NewGameSetting : MonoBehaviour
     void Start()
     {
         //플레이어 학교 생성=======================================================================
-        game_data = GameObject.Find("GameData").GetComponent<Game_Data>().gamedata;
+        gamedata = GameObject.Find("GameData").GetComponent<Game_Data>().gamedata;
         dict_gamedata = GameObject.Find("GameData").GetComponent<Game_Data>().dict_gamedata;
         player_school.code = "0";
+        player_coach.code = "COCH000001";
+        player_school.coach_code = player_coach.code;
         dict_gamedata.school_dict.Add(player_school.code, player_school);
+        dict_gamedata.coach_dict.Add(player_coach.code, player_coach);
+        dict_gamedata.year = 1;
+        dict_gamedata.month = 1;
         //=========================================================================================
     }
 
