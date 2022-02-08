@@ -7,7 +7,7 @@ public class Save_Load : MonoBehaviour
 {
     GameData gamedata = new GameData();
     Dict_GameData dict_gamedata = new Dict_GameData();
-
+    //파일 저장====================================================================================
     public void Save_File(string save_file_name)
     {
         GameData gamedata = new GameData();
@@ -25,7 +25,7 @@ public class Save_Load : MonoBehaviour
         string path = Path.Combine(Application.dataPath + "/Save", save_file_name + ".json");
         File.WriteAllText(path, save);
     }
-
+    //디렉토리 -> 데이터===========================================================================
     public void From_Dict_to_Data()
     {
         GameData gamedata = new GameData();
@@ -39,7 +39,7 @@ public class Save_Load : MonoBehaviour
         gamedata.coach_list = new List<Coach>(dict_gamedata.coach_dict.Values);
         gamedata.student_list = new List<Student>(dict_gamedata.student_dict.Values);
     }
-
+    //파일 로드====================================================================================
     public void Load_File(string save_file_name)
     {
         string path = Path.Combine(Application.dataPath + "/Save", save_file_name + ".json");
@@ -50,7 +50,7 @@ public class Save_Load : MonoBehaviour
 
         From_Data_to_Dict();
     }
-
+    //데이터 -> 디렉토리===========================================================================
     public void From_Data_to_Dict()
     {
         Dict_GameData dict_gamedata = new Dict_GameData();
