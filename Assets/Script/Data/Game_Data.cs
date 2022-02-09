@@ -41,20 +41,6 @@ public class School
     public List<Training_Infra> training_infra_list = new List<Training_Infra>();   //학교의 훈련 기반 리스트
     public int prestige;                                        //학교의 명망(학생의 대회 성적, 프로데뷔 여부로 상승)
 }
-/*
-public class School
-{
-    //인물 정보====================================================================================
-    public string code;                                         //학교의 코드 SCHL + 0000(오름차순)
-    public string name;                                         //학교의 이름
-    public Coach coach = new Coach();                           //학교의 코치
-    public List<Student> students = new List<Student>();        //학교의 학생 리스트
-    //상태 정보====================================================================================
-    public int money;                                           //사용가능한 재화
-    public List<Training_Infra> training_infra_list = new List<Training_Infra>();   //학교의 훈련 기반 리스트
-    public int prestige;                                        //학교의 명망(학생의 대회 성적, 프로데뷔 여부로 상승)
-}
-*/
 //코치 클래스======================================================================================
 [System.Serializable]
 public class Coach
@@ -144,6 +130,24 @@ public class Training_Infra
     public float change_STR, change_DEX, change_CON;    //육체 능력치 변화량
     public float change_INT, change_WIS, change_WIL;    //정신 능력치 변화량
 }
+//일정(대련, 경기, 이벤트 등)======================================================================
+[System.Serializable]
+public class Schedule
+{
+    public string code;                                                     //일정의 코드 S + 000000(랜덤 6자리)
+    public string name;                                                     //일정명
+    public int year;                                                        //일정년
+    public int month;                                                       //일정월
+    public int prestige;                                                    //우승 시 지급되는 명예
+    public int money;                                                       //우승 시 지급되는 상금
+    public List<Schedule_Player> player_list = new List<Schedule_Player>(); //일정 참가자
+}
+//일정 -> 참가하는 선수 
+[System.Serializable]
+public class Schedule_Player
+{
+    public string player_code;  //일정 참가자 코드
+    public string player_rank;  //일정 참가자 랭크
+}
 
-    
-    
+

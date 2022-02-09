@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Linq;
 using System;
 
-public class Training : MonoBehaviour
+public class Training_Page : MonoBehaviour
 {
     Sort_Portrait_Card sort_portrait_card;
 
