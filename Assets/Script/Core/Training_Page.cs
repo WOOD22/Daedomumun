@@ -44,7 +44,7 @@ public class Training_Page : MonoBehaviour
 
         sort_portrait_card.Sort_Name(false);
 
-        //player_student_list에 존재하며 현재 생성되지 않은 Portrait_Card를 unit_scroll_view_content에 생성한다
+        //ort_portrait_card.student_list에 존재하며 현재 생성되지 않은 Portrait_Card를 unit_scroll_view_content에 생성한다
         for (int i = 0; i < sort_portrait_card.student_list.Count; i++)
         {
             if (unit_scroll_view_content.transform.childCount < sort_portrait_card.student_list.Count)
