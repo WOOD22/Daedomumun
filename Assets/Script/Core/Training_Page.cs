@@ -43,8 +43,8 @@ public class Training_Page : MonoBehaviour
         }
 
         sort_portrait_card.Sort_Name(false);
-
-        //ort_portrait_card.student_list에 존재하며 현재 생성되지 않은 Portrait_Card를 unit_scroll_view_content에 생성한다
+        Debug.Log(unit_scroll_view_content.transform.childCount);
+        //sort_portrait_card.student_list에 존재하며 현재 생성되지 않은 Portrait_Card를 unit_scroll_view_content에 생성한다
         for (int i = 0; i < sort_portrait_card.student_list.Count; i++)
         {
             if (unit_scroll_view_content.transform.childCount < sort_portrait_card.student_list.Count)
@@ -52,6 +52,7 @@ public class Training_Page : MonoBehaviour
                 GameObject instance;
                 instance = Instantiate(prefab_portrait_card, unit_scroll_view_content.transform);
                 instance.GetComponent<Prefab_Portrait_Card_Property>().student = sort_portrait_card.student_list[i];
+                instance.name = instance.GetComponent<Prefab_Portrait_Card_Property>().student.code;
             }
         }
         Sort_Training_Page();
@@ -80,10 +81,10 @@ public class Training_Page : MonoBehaviour
                     sort_portrait_card.student_list.Add(game_data.dict_gamedata.student_dict[player_student_code_list[i]]);
                 }
             }
-
+            //training_infra_list의 크기만큼 training_infra(GameObject)생성
             for (int i = training_list_scroll_view_content.transform.childCount; i < player_training_infra_list.Count; i++)
             {
-                if (training_list_scroll_view_content.transform.childCount < player_training_infra_list.Count)
+                if (i < player_training_infra_list.Count)
                 {
                     GameObject instance;
                     instance = Instantiate(prefab_training_slot, training_list_scroll_view_content.transform);

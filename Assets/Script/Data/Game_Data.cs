@@ -125,6 +125,7 @@ public class Training_Infra
 {
     public int code;                                    //훈련 기반 시설의 코드 00(타입)/0000(작성 순서)
     public string name;                                 //이름
+    public string user_code;                            //사용자 코드
     public int cost;                                    //설치 비용
     public int upgrade;                                 //업그레이드 횟수
     public float change_STR, change_DEX, change_CON;    //육체 능력치 변화량
