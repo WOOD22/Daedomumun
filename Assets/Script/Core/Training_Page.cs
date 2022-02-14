@@ -16,12 +16,13 @@ public class Training_Page : MonoBehaviour
     List<string> player_student_code_list;
     List<Training_Infra> player_training_infra_list;
 
+    int portrait_card_in_page = 0;      //페이지 안에 있는 캐릭터 카드 갯수
+
     Game_Data game_data;
     //트레이닝 페이지 오픈시 작동==================================================================
     public void Open_Training_Page()
     {
         sort_portrait_card = GameObject.Find("GameManager").GetComponent<Sort_Portrait_Card>();
-        sort_portrait_card.student_list.Clear();
         //Portrait_Card문자순으로 정렬=============================================================
         game_data = GameObject.Find("GameData").GetComponent<Game_Data>();
         player_student_code_list = game_data.dict_gamedata.school_dict["1"].student_code_list;
@@ -43,19 +44,19 @@ public class Training_Page : MonoBehaviour
         }
 
         sort_portrait_card.Sort_Name(false);
-        Debug.Log(unit_scroll_view_content.transform.childCount);
         //sort_portrait_card.student_list에 존재하며 현재 생성되지 않은 Portrait_Card를 unit_scroll_view_content에 생성한다
-        for (int i = 0; i < sort_portrait_card.student_list.Count; i++)
+        for (int i = unit_scroll_view_content.transform.childCount; i < sort_portrait_card.student_list.Count; i++)
         {
-            if (unit_scroll_view_content.transform.childCount < sort_portrait_card.student_list.Count)
+            if (i < sort_portrait_card.student_list.Count && portrait_card_in_page < player_student_code_list.Count)
             {
                 GameObject instance;
                 instance = Instantiate(prefab_portrait_card, unit_scroll_view_content.transform);
                 instance.GetComponent<Prefab_Portrait_Card_Property>().student = sort_portrait_card.student_list[i];
                 instance.name = instance.GetComponent<Prefab_Portrait_Card_Property>().student.code;
+
+                portrait_card_in_page++;
             }
         }
-        Sort_Training_Page();
     }
     //트레이닝 페이지 정렬=========================================================================
     public void Sort_Training_Page()
