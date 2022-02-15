@@ -137,6 +137,8 @@ public class Schedule
 {
     public string code;                                                     //일정의 코드 S + 000000(랜덤 6자리)
     public string name;                                                     //일정명
+    public string type;                                                     //일정의 유형(참가 대회(public), 초청 대회(private), 친선 대련(sparring))
+    public string ticket;                                                   //일정 조건((ex) P100 : 개인 prestige 100 이상, S000000R08 : S000000 대회에서 8등 이상, C3PR16 : 3학년 이상, 명예 순위 16위 이상)
     public int year;                                                        //일정년
     public int month;                                                       //일정월
     public int prestige;                                                    //우승 시 지급되는 명예
