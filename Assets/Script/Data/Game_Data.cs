@@ -123,7 +123,7 @@ public class PassiveSkill
 [System.Serializable]
 public class Training_Infra
 {
-    public int code;                                    //훈련 기반 시설의 코드 00(타입)/0000(작성 순서)
+    public int code;                                    //훈련 기반 시설의 코드 T + 00(타입)/0000(작성 순서)
     public string name;                                 //이름
     public string user_code;                            //사용자 코드
     public int cost;                                    //설치 비용

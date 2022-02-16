@@ -60,6 +60,7 @@ public class Prefab_Training_Slot_Property : MonoBehaviour
             student.training = "NONE";                      //교체 시 초기화
             student = portrait_card_slot.transform.GetChild(0).GetComponent<Prefab_Portrait_Card_Property>().student;
             student.training = training_infra.name;
+            training_infra.user_code = student.code;
             training_infra.change_STR = student.stat.pt_STR / 100 * float.Parse(training_infra_data.training_infra_table[training_infra.code]["change_STR"].ToString());
             training_infra.change_DEX = student.stat.pt_DEX / 100 * float.Parse(training_infra_data.training_infra_table[training_infra.code]["change_DEX"].ToString());
             training_infra.change_CON = student.stat.pt_CON / 100 * float.Parse(training_infra_data.training_infra_table[training_infra.code]["change_CON"].ToString());
@@ -71,6 +72,7 @@ public class Prefab_Training_Slot_Property : MonoBehaviour
         //트레이닝 슬롯이 비워지면 적용됨==========================================================
         else
         {
+            training_infra.user_code = "";
             training_infra.change_STR = float.Parse(training_infra_data.training_infra_table[training_infra.code]["change_STR"].ToString());
             training_infra.change_DEX = float.Parse(training_infra_data.training_infra_table[training_infra.code]["change_DEX"].ToString());
             training_infra.change_CON = float.Parse(training_infra_data.training_infra_table[training_infra.code]["change_CON"].ToString());

@@ -44,19 +44,6 @@ public class Training_Page : MonoBehaviour
         }
 
         sort_portrait_card.Sort_Name(false);
-        //sort_portrait_card.student_list에 존재하며 현재 생성되지 않은 Portrait_Card를 unit_scroll_view_content에 생성한다
-        for (int i = unit_scroll_view_content.transform.childCount; i < sort_portrait_card.student_list.Count; i++)
-        {
-            if (i < sort_portrait_card.student_list.Count && portrait_card_in_page < player_student_code_list.Count)
-            {
-                GameObject instance;
-                instance = Instantiate(prefab_portrait_card, unit_scroll_view_content.transform);
-                instance.GetComponent<Prefab_Portrait_Card_Property>().student = sort_portrait_card.student_list[i];
-                instance.name = instance.GetComponent<Prefab_Portrait_Card_Property>().student.code;
-
-                portrait_card_in_page++;
-            }
-        }
     }
     //트레이닝 페이지 정렬=========================================================================
     public void Sort_Training_Page()
@@ -90,6 +77,34 @@ public class Training_Page : MonoBehaviour
                     GameObject instance;
                     instance = Instantiate(prefab_training_slot, training_list_scroll_view_content.transform);
                     instance.GetComponent<Prefab_Training_Slot_Property>().training_infra = player_training_infra_list[i];
+                }
+            }
+
+            //sort_portrait_card.student_list에 존재하며 현재 생성되지 않은 Portrait_Card를 unit_scroll_view_content에 생성한다
+            for (int i = unit_scroll_view_content.transform.childCount; i < sort_portrait_card.student_list.Count; i++)
+            {
+                //unit_scroll_view_content에 Portrait_Card 생성하기
+                if (i < sort_portrait_card.student_list.Count && portrait_card_in_page < player_student_code_list.Count)
+                {
+                    GameObject instance;
+                    instance = Instantiate(prefab_portrait_card, unit_scroll_view_content.transform);
+                    instance.GetComponent<Prefab_Portrait_Card_Property>().student = sort_portrait_card.student_list[i];
+                    instance.name = instance.GetComponent<Prefab_Portrait_Card_Property>().student.code;
+
+                    portrait_card_in_page++;
+                }
+            }
+            //트레이닝이 할당된 Portrait_Card를 트레이닝 슬롯에 생성한다.
+            for (int i = 0; i < player_training_infra_list.Count; i++)
+            {
+                if (player_training_infra_list[i].user_code != "" && portrait_card_in_page < player_student_code_list.Count)
+                {
+                    GameObject instance;
+                    instance = Instantiate(prefab_portrait_card, training_list_scroll_view_content.transform.GetChild(i).Find("Portrait_Card_Slot").transform);
+                    instance.GetComponent<Prefab_Portrait_Card_Property>().student = game_data.dict_gamedata.student_dict[player_training_infra_list[i].user_code];
+                    instance.name = instance.GetComponent<Prefab_Portrait_Card_Property>().student.code;
+
+                    portrait_card_in_page++;
                 }
             }
         }
