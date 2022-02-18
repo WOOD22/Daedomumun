@@ -42,20 +42,6 @@ public class Schedule_Page : MonoBehaviour
         }
 
         sort_portrait_card.Sort_Name(false);
-
-        //player_student_list에 존재하며 현재 생성되지 않은 Portrait_Card를 unit_scroll_view_content에 생성한다
-        for (int i = unit_scroll_view_content.transform.childCount; i < sort_portrait_card.student_list.Count; i++)
-        {
-            if (i < sort_portrait_card.student_list.Count && portrait_card_in_page < player_student_code_list.Count)
-            {
-                GameObject instance;
-                instance = Instantiate(prefab_portrait_card, unit_scroll_view_content.transform);
-                instance.GetComponent<Prefab_Portrait_Card_Property>().student = sort_portrait_card.student_list[i];
-                instance.name = instance.GetComponent<Prefab_Portrait_Card_Property>().student.code;
-
-                portrait_card_in_page++;
-            }
-        }
     }
     //트레이닝 페이지 정렬=========================================================================
     public void Sort_Schedule_Page()
@@ -71,7 +57,29 @@ public class Schedule_Page : MonoBehaviour
     {
         try
         {
+            //schedule != NONE 의 경우 정렬 리스트에서 제외
+            sort_portrait_card.student_list.RemoveAll(student => student.schedule != "NONE");
+            //training == NONE & 정렬 리스트에 중복이 없을 경우 리스트에 추가
+            for (int i = 0; i < player_student_code_list.Count; i++)
+            {
+                if (sort_portrait_card.student_list.Contains(game_data.dict_gamedata.student_dict[player_student_code_list[i]]) == false && game_data.dict_gamedata.student_dict[player_student_code_list[i]].schedule == "NONE")
+                {
+                    sort_portrait_card.student_list.Add(game_data.dict_gamedata.student_dict[player_student_code_list[i]]);
+                }
+            }
+            //player_student_list에 존재하며 현재 생성되지 않은 Portrait_Card를 unit_scroll_view_content에 생성한다
+            for (int i = unit_scroll_view_content.transform.childCount; i < sort_portrait_card.student_list.Count; i++)
+            {
+                if (i < sort_portrait_card.student_list.Count && portrait_card_in_page < player_student_code_list.Count)
+                {
+                    GameObject instance;
+                    instance = Instantiate(prefab_portrait_card, unit_scroll_view_content.transform);
+                    instance.GetComponent<Prefab_Portrait_Card_Property>().student = sort_portrait_card.student_list[i];
+                    instance.name = instance.GetComponent<Prefab_Portrait_Card_Property>().student.code;
 
+                    portrait_card_in_page++;
+                }
+            }
         }
         catch (NullReferenceException)
         {

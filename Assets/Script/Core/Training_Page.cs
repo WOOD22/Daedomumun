@@ -55,6 +55,7 @@ public class Training_Page : MonoBehaviour
             unit_scroll_view_content.transform.GetChild(i).GetComponent<Prefab_Portrait_Card_Property>().student = sort_portrait_card.student_list[i];
         }
     }
+
     void Update()
     {
         try
@@ -79,7 +80,6 @@ public class Training_Page : MonoBehaviour
                     instance.GetComponent<Prefab_Training_Slot_Property>().training_infra = player_training_infra_list[i];
                 }
             }
-
             //sort_portrait_card.student_list에 존재하며 현재 생성되지 않은 Portrait_Card를 unit_scroll_view_content에 생성한다
             for (int i = unit_scroll_view_content.transform.childCount; i < sort_portrait_card.student_list.Count; i++)
             {

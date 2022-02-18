@@ -16,16 +16,18 @@ public class Dict_GameData
     public Dictionary<string, School> school_dict = new Dictionary<string, School>();
     public Dictionary<string, Coach> coach_dict = new Dictionary<string, Coach>();
     public Dictionary<string, Student> student_dict = new Dictionary<string, Student>();
+    public Dictionary<string, Schedule> schedule_dict = new Dictionary<string, Schedule>();
 }
 //게임 데이터 클래스===============================================================================
 [System.Serializable]
 public class GameData
 {
-    public int year;//게임 진행 년도
-    public int month;//현재 월
-    public List<School> school_list;//학교 리스트
-    public List<Coach> coach_list;//코치 리스트
-    public List<Student> student_list;//학생 리스트
+    public int year;                        //게임 진행 년도
+    public int month;                       //현재 월
+    public List<School> school_list;        //학교 리스트
+    public List<Coach> coach_list;          //코치 리스트
+    public List<Student> student_list;      //학생 리스트
+    public List<Schedule> schedule_list;    //일정 리스트
 }
 //학교 클래스====================================================================================
 [System.Serializable]
