@@ -135,7 +135,7 @@ public class Training_Infra
 }
 //일정(대련, 경기, 이벤트 등)======================================================================
 [System.Serializable]
-public class Schedule
+public struct Schedule
 {
     public string code;                                                     //일정의 코드 S + 00(년차) + 00(월) +00(랜덤 2자리)
     public string name;                                                     //일정명
@@ -145,7 +145,7 @@ public class Schedule
     public int month;                                                       //일정월
     public int prestige;                                                    //우승 시 지급되는 명예
     public int money;                                                       //우승 시 지급되는 상금
-    public List<Schedule_Player> player_list = new List<Schedule_Player>(); //일정 참가자
+    public List<Schedule_Player> player_list;                               //일정 참가자
 }
 //일정 -> 참가하는 선수 
 [System.Serializable]

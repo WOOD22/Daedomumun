@@ -7,12 +7,13 @@ public class Schedule_Data : MonoBehaviour
     Game_Data game_data;
 
     List<Dictionary<string, object>> schedule_table;
-    public Dictionary<string, Schedule> schedule_data;
+    public List<Schedule> schedule_data_temp;
 
     void Start()
     {
         game_data = GameObject.Find("GameData").GetComponent<Game_Data>();
         schedule_table = CSVReader.Read("DataBase/CSV/Schedule_Table");
+
         for (int i = 0; i < schedule_table.Count; i++)
         {
             Schedule new_schedule = new Schedule();
@@ -23,20 +24,8 @@ public class Schedule_Data : MonoBehaviour
             new_schedule.month = int.Parse(schedule_table[i]["month"].ToString());
             new_schedule.prestige = int.Parse(schedule_table[i]["prestige"].ToString());
             new_schedule.money = int.Parse(schedule_table[i]["money"].ToString());
-            if(new_schedule.month >= 10)
-            {
-                new_schedule.code = "S" + new_schedule.month.ToString() + Random.Range(0, 10).ToString() + Random.Range(0, 10).ToString();
-            }
+
+            schedule_data_temp.Add(new_schedule);
         }
-    }
-
-    public void Set_Schedule()
-    {
-        
-    }
-
-    public void Refresh_Schedule()
-    {
-
     }
 }

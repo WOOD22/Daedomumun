@@ -15,6 +15,7 @@ public class End_Turn : MonoBehaviour
     //턴 종료 시 계산==============================================================================
     public void End_Turn_Check()
     {
+        //Dict에 있는 데이터를 GameData로 옮긴다.
         save_load.From_Dict_to_Data();
         game_data.gamedata.month++;
         if(game_data.gamedata.month > 12)
@@ -23,6 +24,8 @@ public class End_Turn : MonoBehaviour
             game_data.gamedata.year++;
         }
         Training_Page_Check();
+        Schedule_Page_Check();
+        //GameData를 Dict에 옮긴다.
         save_load.From_Data_to_Dict();
     }
     //트레이닝 효과 적용===========================================================================
@@ -49,5 +52,32 @@ public class End_Turn : MonoBehaviour
                 }
             }
         }
+    }
+    //2개월 앞의 일정 생성=========================================================================
+    void Schedule_Page_Check()
+    {
+        List<Schedule> schedule_data_temp = GameObject.Find("GameData").GetComponent<Schedule_Data>().schedule_data_temp;
+        for (int i = 0; i < schedule_data_temp.Count; i++)
+        {
+            Schedule new_schedule = new Schedule();
+            //1~10월
+            if (schedule_data_temp[i].month == game_data.gamedata.month + 2)
+            {
+                new_schedule = schedule_data_temp[i];
+                new_schedule.year = 0;
+                game_data.gamedata.schedule_list.Add(new_schedule);
+            }
+            //11~12월
+            else if (schedule_data_temp[i].month == game_data.gamedata.month - 10)
+            {
+                new_schedule = schedule_data_temp[i];
+                new_schedule.year = 1;
+                game_data.gamedata.schedule_list.Add(new_schedule);
+            }
+        }
+    }
+    void Set_Schedule_Code()
+    {
+
     }
 }
