@@ -24,7 +24,7 @@ public class End_Turn : MonoBehaviour
             game_data.gamedata.year++;
         }
         Training_Page_Check();
-        Schedule_Page_Check();
+        Public_Schedule_Page_Check();
         //GameData를 Dict에 옮긴다.
         save_load.From_Data_to_Dict();
     }
@@ -53,8 +53,8 @@ public class End_Turn : MonoBehaviour
             }
         }
     }
-    //2개월 앞의 일정 생성=========================================================================
-    void Schedule_Page_Check()
+    //2개월치 공개 일정 생성=========================================================================
+    void Public_Schedule_Page_Check()
     {
         List<Schedule> schedule_data_temp = GameObject.Find("GameData").GetComponent<Schedule_Data>().schedule_data_temp;
         for (int i = 0; i < schedule_data_temp.Count; i++)
@@ -64,20 +64,51 @@ public class End_Turn : MonoBehaviour
             if (schedule_data_temp[i].month == game_data.gamedata.month + 2)
             {
                 new_schedule = schedule_data_temp[i];
-                new_schedule.year = 0;
+                new_schedule.year = game_data.gamedata.year;
+                new_schedule.code = Set_Schedule_Code(new_schedule);//코드 매기기
                 game_data.gamedata.schedule_list.Add(new_schedule);
             }
             //11~12월
             else if (schedule_data_temp[i].month == game_data.gamedata.month - 10)
             {
                 new_schedule = schedule_data_temp[i];
-                new_schedule.year = 1;
+                new_schedule.year = game_data.gamedata.year + 1;
+                new_schedule.code = Set_Schedule_Code(new_schedule);//코드 매기기
                 game_data.gamedata.schedule_list.Add(new_schedule);
             }
         }
     }
-    void Set_Schedule_Code()
+    //일정에 코드 매기기(Struct구조체라 return으로 값을 줘야함)====================================
+    string Set_Schedule_Code(Schedule new_schedule)
     {
+        new_schedule.code = "S";
 
+        if (new_schedule.year < 10)
+        {
+            new_schedule.code = new_schedule.code + "0" + new_schedule.year.ToString();
+        }
+        else
+        {
+            new_schedule.code = new_schedule.code + new_schedule.year.ToString();
+        }
+
+        if (new_schedule.month < 10)
+        {
+            new_schedule.code = new_schedule.code + "0" + new_schedule.month.ToString();
+        }
+        else
+        {
+            new_schedule.code = new_schedule.code + new_schedule.month.ToString();
+        }
+
+        new_schedule.code = new_schedule.code + Random.Range(0, 10).ToString() + Random.Range(0, 10).ToString()
+                            + Random.Range(0, 10).ToString() + Random.Range(0, 10).ToString();//랜덤 4자리 숫자 추가;
+
+        if(game_data.dict_gamedata.schedule_dict.ContainsKey(new_schedule.code) == false)
+        {
+
+        }
+
+        return new_schedule.code;
     }
 }

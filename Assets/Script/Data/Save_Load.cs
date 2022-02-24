@@ -70,6 +70,10 @@ public class Save_Load : MonoBehaviour
         {
             dict_gamedata.student_dict.Add(gamedata.student_list[i].code, gamedata.student_list[i]);
         }
+        for (int i = 0; i < gamedata.schedule_list.Count; i++)
+        {
+            dict_gamedata.schedule_dict.Add(gamedata.schedule_list[i].code, gamedata.schedule_list[i]);
+        }
 
         GameObject.Find("GameData").GetComponent<Game_Data>().dict_gamedata = dict_gamedata;
     }
