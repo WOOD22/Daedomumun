@@ -17,6 +17,8 @@ public class Schedule_Page : MonoBehaviour
 
     int portrait_card_in_page = 0;      //페이지 안에 있는 캐릭터 카드 갯수
 
+    int calendar_month = 0;
+
     Game_Data game_data;
     //트레이닝 페이지 오픈시 작동==================================================================
     public void Open_Schedule_Page()
@@ -79,6 +81,17 @@ public class Schedule_Page : MonoBehaviour
 
                     portrait_card_in_page++;
                 }
+            }
+            //추가 일정 슬롯이 필요할 경우 일정 슬롯 생성(비사용시 비활성화)
+            for (int i = schedule_list_scroll_view_content.transform.childCount; i < game_data.dict_gamedata.schedule_dict.Count; i++)
+            {
+                Debug.Log(game_data.dict_gamedata.schedule_dict.Count);
+                //if (game_data.dict_gamedata.schedule_dict[i] < player_training_infra_list.Count)
+                //{
+                //    GameObject instance;
+                //    instance = Instantiate(prefab_training_slot, training_list_scroll_view_content.transform);
+                //    instance.GetComponent<Prefab_Training_Slot_Property>().training_infra = player_training_infra_list[i];
+                //}
             }
         }
         catch (NullReferenceException)
