@@ -66,8 +66,8 @@ public class End_Turn : MonoBehaviour
                 new_schedule = schedule_data_temp[i];
                 new_schedule.year = game_data.gamedata.year;
                 new_schedule.code = Set_Schedule_Code(new_schedule);//코드 매기기
-                game_data.gamedata.schedule_list.Add(new_schedule);
-                game_data.dict_gamedata.schedule_dict.Add(new_schedule.code, new_schedule);
+                game_data.gamedata.start_schedule_list.Add(new_schedule);
+                game_data.dict_gamedata.start_schedule_dict.Add(new_schedule.code, new_schedule);
             }
             //11~12월
             else if (schedule_data_temp[i].month == game_data.gamedata.month - 10)
@@ -75,8 +75,8 @@ public class End_Turn : MonoBehaviour
                 new_schedule = schedule_data_temp[i];
                 new_schedule.year = game_data.gamedata.year + 1;
                 new_schedule.code = Set_Schedule_Code(new_schedule);//코드 매기기
-                game_data.gamedata.schedule_list.Add(new_schedule);
-                game_data.dict_gamedata.schedule_dict.Add(new_schedule.code, new_schedule);
+                game_data.gamedata.start_schedule_list.Add(new_schedule);
+                game_data.dict_gamedata.start_schedule_dict.Add(new_schedule.code, new_schedule);
             }
         }
     }
@@ -108,7 +108,7 @@ public class End_Turn : MonoBehaviour
             new_schedule.code = new_schedule.code + Random.Range(0, 10).ToString() + Random.Range(0, 10).ToString()
                                 + Random.Range(0, 10).ToString() + Random.Range(0, 10).ToString();//랜덤 4자리 숫자 추가;
 
-            if (game_data.dict_gamedata.schedule_dict.ContainsKey(new_schedule.code) == false)
+            if (game_data.dict_gamedata.start_schedule_dict.ContainsKey(new_schedule.code) == false)
             {
                 break;
             }

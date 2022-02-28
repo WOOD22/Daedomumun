@@ -16,18 +16,20 @@ public class Dict_GameData
     public Dictionary<string, School> school_dict = new Dictionary<string, School>();
     public Dictionary<string, Coach> coach_dict = new Dictionary<string, Coach>();
     public Dictionary<string, Student> student_dict = new Dictionary<string, Student>();
-    public Dictionary<string, Schedule> schedule_dict = new Dictionary<string, Schedule>();
+    public Dictionary<string, Schedule> start_schedule_dict = new Dictionary<string, Schedule>();
+    public Dictionary<string, Schedule> end_schedule_dict = new Dictionary<string, Schedule>();
 }
 //게임 데이터 클래스===============================================================================
 [System.Serializable]
 public class GameData
 {
-    public int year;                        //게임 진행 년도
-    public int month;                       //현재 월
-    public List<School> school_list;        //학교 리스트
-    public List<Coach> coach_list;          //코치 리스트
-    public List<Student> student_list;      //학생 리스트
-    public List<Schedule> schedule_list;    //일정 리스트
+    public int year;                            //게임 진행 년도
+    public int month;                           //현재 월
+    public List<School> school_list;            //학교 리스트
+    public List<Coach> coach_list;              //코치 리스트
+    public List<Student> student_list;          //학생 리스트
+    public List<Schedule> start_schedule_list;  //진행 예정 일정 리스트
+    public List<Schedule> end_schedule_list;    //완료된 일정 리스트
 }
 //학교 클래스====================================================================================
 [System.Serializable]
@@ -132,6 +134,18 @@ public class Training_Infra
     public int upgrade;                                 //업그레이드 횟수
     public float change_STR, change_DEX, change_CON;    //육체 능력치 변화량
     public float change_INT, change_WIS, change_WIL;    //정신 능력치 변화량
+}
+//진행 예정 일정 리스트============================================================================
+[System.Serializable]
+public class Start_Schedule
+{
+    public List<Schedule> start_schedule;
+}
+//완료된 일정 리스트===============================================================================
+[System.Serializable]
+public class End_Schedule
+{
+    public List<Schedule> end_schedule;
 }
 //일정(대련, 경기, 이벤트 등)======================================================================
 [System.Serializable]

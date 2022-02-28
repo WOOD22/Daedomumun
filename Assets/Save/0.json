@@ -1,6 +1,6 @@
 {
     "year": 1,
-    "month": 1,
+    "month": 3,
     "school_list": [
         {
             "code": "0",
@@ -230,17 +230,17 @@
             "schedule": "NONE",
             "main_MA": "각",
             "stat": {
-                "st_STR": 96.07052612304688,
+                "st_STR": 115.91690063476563,
                 "pt_STR": 198.46368408203126,
-                "st_DEX": 83.9454574584961,
+                "st_DEX": 86.80672454833985,
                 "pt_DEX": 143.0630340576172,
-                "st_CON": 80.42544555664063,
+                "st_CON": 83.62646484375,
                 "pt_CON": 160.05099487304688,
                 "st_INT": 92.34069061279297,
                 "pt_INT": 176.44680786132813,
                 "st_WIS": 72.32980346679688,
                 "pt_WIS": 125.71733093261719,
-                "st_WIL": 53.22014617919922,
+                "st_WIL": 55.734779357910159,
                 "pt_WIL": 125.73147583007813,
                 "st_LUK": 43.2032585144043
             },
@@ -447,5 +447,41 @@
             "active_skills": [],
             "passive_skills": []
         }
-    ]
+    ],
+    "start_schedule_list": [
+        {
+            "code": "S01041844",
+            "name": "이화대회",
+            "type": "private",
+            "ticket": "P1000",
+            "year": 1,
+            "month": 4,
+            "prestige": 2500,
+            "money": 5000,
+            "player_list": []
+        },
+        {
+            "code": "S01052170",
+            "name": "춘계대회",
+            "type": "public",
+            "ticket": "C4C5C6",
+            "year": 1,
+            "month": 5,
+            "prestige": 1000,
+            "money": 1000,
+            "player_list": []
+        },
+        {
+            "code": "S01051325",
+            "name": "춘계대회(중등부)",
+            "type": "public",
+            "ticket": "C1C2C3",
+            "year": 1,
+            "month": 5,
+            "prestige": 500,
+            "money": 500,
+            "player_list": []
+        }
+    ],
+    "end_schedule_list": []
 }

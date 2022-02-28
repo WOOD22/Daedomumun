@@ -1,7 +1,7 @@
 ﻿name,type,ticket,month,prestige,money
 춘계대회,public,C4C5C6,5,1000,1000
 추계대회,public,C4C5C6,11,1200,1200
-후기지수선발대회,private,C6,12,5000,5000
+후기지수선발대회,public,C6,12,5000,5000
 춘계대회(중등부),public,C1C2C3,5,500,500
 추계대회(중등부),public,C1C2C3,11,600,600
-이화대회,private,P1000,4,2500,5000
+이화대회,public,P1000,4,2500,5000

@@ -14,13 +14,13 @@ public class Save_Load : MonoBehaviour
 
         dict_gamedata = GameObject.Find("GameData").GetComponent<Game_Data>().dict_gamedata;
         gamedata = GameObject.Find("GameData").GetComponent<Game_Data>().gamedata;
-
+        /*
         gamedata.year = dict_gamedata.year;
         gamedata.month = dict_gamedata.month;
         gamedata.school_list = new List<School>(dict_gamedata.school_dict.Values);
         gamedata.coach_list = new List<Coach>(dict_gamedata.coach_dict.Values);
         gamedata.student_list = new List<Student>(dict_gamedata.student_dict.Values);
-
+        */
         string save = JsonUtility.ToJson(gamedata, true);
         string path = Path.Combine(Application.dataPath + "/Save", save_file_name + ".json");
         File.WriteAllText(path, save);
@@ -35,9 +35,12 @@ public class Save_Load : MonoBehaviour
 
         gamedata.year = dict_gamedata.year;
         gamedata.month = dict_gamedata.month;
+
         gamedata.school_list = new List<School>(dict_gamedata.school_dict.Values);
         gamedata.coach_list = new List<Coach>(dict_gamedata.coach_dict.Values);
         gamedata.student_list = new List<Student>(dict_gamedata.student_dict.Values);
+        gamedata.start_schedule_list = new List<Schedule>(dict_gamedata.start_schedule_dict.Values);
+        gamedata.end_schedule_list = new List<Schedule>(dict_gamedata.end_schedule_dict.Values);
     }
     //파일 로드====================================================================================
     public void Load_File(string save_file_name)
@@ -70,9 +73,13 @@ public class Save_Load : MonoBehaviour
         {
             dict_gamedata.student_dict.Add(gamedata.student_list[i].code, gamedata.student_list[i]);
         }
-        for (int i = 0; i < gamedata.schedule_list.Count; i++)
+        for (int i = 0; i < gamedata.start_schedule_list.Count; i++)
         {
-            dict_gamedata.schedule_dict.Add(gamedata.schedule_list[i].code, gamedata.schedule_list[i]);
+            dict_gamedata.start_schedule_dict.Add(gamedata.start_schedule_list[i].code, gamedata.start_schedule_list[i]);
+        }
+        for (int i = 0; i < gamedata.end_schedule_list.Count; i++)
+        {
+            dict_gamedata.end_schedule_dict.Add(gamedata.end_schedule_list[i].code, gamedata.end_schedule_list[i]);
         }
 
         GameObject.Find("GameData").GetComponent<Game_Data>().dict_gamedata = dict_gamedata;
