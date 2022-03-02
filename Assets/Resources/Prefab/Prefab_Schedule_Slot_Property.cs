@@ -12,6 +12,8 @@ public class Prefab_Schedule_Slot_Property : MonoBehaviour
     public Schedule schedule = new Schedule();
     public Student student = new Student();
 
+    bool ticket_check;
+
     Schedule_Data schedule_data;
     Sort_Portrait_Card sort_portrait_card;
 
@@ -33,7 +35,7 @@ public class Prefab_Schedule_Slot_Property : MonoBehaviour
         {
             student.schedule = "NONE";                      //교체 시 초기화
             student = portrait_card_slot.transform.GetChild(0).GetComponent<Prefab_Portrait_Card_Property>().student;
-            student.training = schedule.name;
+            student.schedule = schedule.code;
 
         }
         //일정 슬롯이 비워지면 적용됨==============================================================
@@ -44,7 +46,7 @@ public class Prefab_Schedule_Slot_Property : MonoBehaviour
         //일정 슬롯이 비워치면 초기화==============================================================
         if (portrait_card_slot.transform.childCount == 0 && student != new Student())
         {
-            student.training = "NONE";
+            student.schedule = "NONE";
             student = new Student();
         }
     }
