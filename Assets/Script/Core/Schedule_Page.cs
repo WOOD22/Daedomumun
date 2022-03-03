@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,21 +16,21 @@ public class Schedule_Page : MonoBehaviour
     public GameObject pool;
     List<string> player_student_code_list;
 
-    int portrait_card_in_page = 0;      //ÆäÀÌÁö ¾È¿¡ ÀÖ´Â Ä³¸¯ÅÍ Ä«µå °¹¼ö
+    int portrait_card_in_page = 0;      //í˜ì´ì§€ ì•ˆì— ìˆëŠ” ìºë¦­í„° ì¹´ë“œ ê°¯ìˆ˜
 
     public Text calendar_month_text;
     int calendar_year = 0;
     int calendar_month = 0;
 
     Game_Data game_data;
-    //½ºÄÉÁÙ ÆäÀÌÁö ¿ÀÇÂ½Ã ÀÛµ¿====================================================================
+    //ìŠ¤ì¼€ì¤„ í˜ì´ì§€ ì˜¤í”ˆì‹œ ì‘ë™====================================================================
     public void Open_Schedule_Page()
     {
         sort_portrait_card = GameObject.Find("GameManager").GetComponent<Sort_Portrait_Card>();
-        //Portrait_Card¹®ÀÚ¼øÀ¸·Î Á¤·Ä=============================================================
+        //Portrait_Cardë¬¸ììˆœìœ¼ë¡œ ì •ë ¬=============================================================
         game_data = GameObject.Find("GameData").GetComponent<Game_Data>();
         player_student_code_list = game_data.dict_gamedata.school_dict["1"].student_code_list;
-        //½ºÄÉÁÙ ÆäÀÌÁö ³» ´Ş·Â ÃÊ±âÈ­
+        //ìŠ¤ì¼€ì¤„ í˜ì´ì§€ ë‚´ ë‹¬ë ¥ ì´ˆê¸°í™”
         calendar_year = game_data.dict_gamedata.year;
         calendar_month = game_data.dict_gamedata.month;
         calendar_month_text.text = calendar_month.ToString();
@@ -52,7 +52,7 @@ public class Schedule_Page : MonoBehaviour
 
         sort_portrait_card.Sort_Name(false);
     }
-    //½ºÄÉÁÙ ÆäÀÌÁö Á¤·Ä===========================================================================
+    //ìŠ¤ì¼€ì¤„ í˜ì´ì§€ ì •ë ¬===========================================================================
     public void Sort_Schedule_Page()
     {
         for (int i = 0; i < sort_portrait_card.student_list.Count; i++)
@@ -60,15 +60,15 @@ public class Schedule_Page : MonoBehaviour
             unit_scroll_view_content.transform.GetChild(i).GetComponent<Prefab_Portrait_Card_Property>().student = sort_portrait_card.student_list[i];
         }
     }
-    //½ºÄÉÁÙ ÆäÀÌÁö ´Ş·Â ¿ù º¯°æ===================================================================
+    //ìŠ¤ì¼€ì¤„ í˜ì´ì§€ ë‹¬ë ¥ ì›” ë³€ê²½===================================================================
     public void Turn_Calendar(bool is_Next)
     {
-        //´ÙÀ½ ´Ş ÀÌµ¿
+        //ë‹¤ìŒ ë‹¬ ì´ë™
         if (is_Next == true && calendar_month + calendar_year * 12 < game_data.dict_gamedata.month + 2 + game_data.dict_gamedata.year * 12)
         {
             calendar_month++;
         }
-        //ÀÌÀü ´Ş ÀÌµ¿
+        //ì´ì „ ë‹¬ ì´ë™
         else if (is_Next == false && calendar_month + calendar_year * 12 > game_data.dict_gamedata.month - 2 + game_data.dict_gamedata.year * 12)
         {
             calendar_month--;
@@ -94,9 +94,9 @@ public class Schedule_Page : MonoBehaviour
 
         try
         {
-            //schedule != NONE ÀÇ °æ¿ì Á¤·Ä ¸®½ºÆ®¿¡¼­ Á¦¿Ü
+            //schedule != NONE ì˜ ê²½ìš° ì •ë ¬ ë¦¬ìŠ¤íŠ¸ì—ì„œ ì œì™¸
             sort_portrait_card.student_list.RemoveAll(student => student.schedule != "NONE");
-            //training == NONE & Á¤·Ä ¸®½ºÆ®¿¡ Áßº¹ÀÌ ¾øÀ» °æ¿ì ¸®½ºÆ®¿¡ Ãß°¡
+            //schedule == NONE & ì •ë ¬ ë¦¬ìŠ¤íŠ¸ì— ì¤‘ë³µì´ ì—†ì„ ê²½ìš° ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€
             for (int i = 0; i < player_student_code_list.Count; i++)
             {
                 if (sort_portrait_card.student_list.Contains(game_data.dict_gamedata.student_dict[player_student_code_list[i]]) == false && game_data.dict_gamedata.student_dict[player_student_code_list[i]].schedule == "NONE")
@@ -104,7 +104,7 @@ public class Schedule_Page : MonoBehaviour
                     sort_portrait_card.student_list.Add(game_data.dict_gamedata.student_dict[player_student_code_list[i]]);
                 }
             }
-            //player_student_list¿¡ Á¸ÀçÇÏ¸ç ÇöÀç »ı¼ºµÇÁö ¾ÊÀº Portrait_Card¸¦ unit_scroll_view_content¿¡ »ı¼ºÇÑ´Ù
+            //sort_portrait_card.student_listì— ì¡´ì¬í•˜ë©° í˜„ì¬ ìƒì„±ë˜ì§€ ì•Šì€ Portrait_Cardë¥¼ unit_scroll_view_contentì— ìƒì„±í•œë‹¤
             for (int i = unit_scroll_view_content.transform.childCount; i < sort_portrait_card.student_list.Count; i++)
             {
                 if (i < sort_portrait_card.student_list.Count && portrait_card_in_page < player_student_code_list.Count)
@@ -117,7 +117,7 @@ public class Schedule_Page : MonoBehaviour
                     portrait_card_in_page++;
                 }
             }
-            //calendar_monthÀÇ ÀÏÁ¤ °¹¼ö Ä«¿îÆ®====================================================
+            //calendar_monthì˜ ì¼ì • ê°¯ìˆ˜ ì¹´ìš´íŠ¸====================================================
             for (int i = 0; i < game_data.dict_gamedata.start_schedule_dict.Count; i++)
             {
                 if (game_data.gamedata.start_schedule_list[i].month == calendar_month
@@ -127,21 +127,23 @@ public class Schedule_Page : MonoBehaviour
                     calendar_schedule.Add(game_data.gamedata.start_schedule_list[i]);
                 }
             }
-            //Ãß°¡ ÀÏÁ¤ ½½·ÔÀÌ ÇÊ¿äÇÒ °æ¿ì ÀÏÁ¤ ½½·Ô »ı¼º==========================================
+            //ì¶”ê°€ ì¼ì • ìŠ¬ë¡¯ì´ í•„ìš”í•  ê²½ìš° ì¼ì • ìŠ¬ë¡¯ ìƒì„±==========================================
             for (int i = schedule_list_scroll_view_content.transform.childCount; i < slot_count; i++)
             {
                 GameObject instance;
                 instance = Instantiate(prefab_schedule_slot, schedule_list_scroll_view_content.transform);
                 instance.GetComponent<Prefab_Schedule_Slot_Property>().schedule = game_data.gamedata.start_schedule_list[i];
             }
-            //ÀÏÁ¤ ½½·Ô¿¡ schedule°ª ÀÔ·ÂÇÏ±â======================================================
+            //ì¼ì • ìŠ¬ë¡¯ì— scheduleê°’ ì…ë ¥í•˜ê¸°======================================================
             for (int i = 0; i < schedule_list_scroll_view_content.transform.childCount; i++)
             {
                 if (i < slot_count)
                 {
                     schedule_list_scroll_view_content.transform.GetChild(i).gameObject.SetActive(true);
                     schedule_list_scroll_view_content.transform.GetChild(i).GetComponent<Prefab_Schedule_Slot_Property>().schedule = calendar_schedule[i];
+                    //schedule_list_scroll_view_content.transform.GetChild(i).Find("Portrait_Card_Slot").
                 }
+                //ì¼ì • ìŠ¬ë¡¯ì´ ì¼ì •ë³´ë‹¤ ë§ì„ ê²½ìš° ì‰ì—¬ ì¼ì • ìŠ¬ë¡¯ ë¹„í™œì„±í™”
                 else
                 {
                     schedule_list_scroll_view_content.transform.GetChild(i).gameObject.SetActive(false);

@@ -107,7 +107,7 @@ public class Prefab_Portrait_Card_Property : MonoBehaviour, IBeginDragHandler, I
                     this.transform.SetParent(prev_parent.transform);
                 }
                 //Portrait_Card_Slot가 채워져 있을 경우 교체=======================================
-                else if (results[i].gameObject.name == "Portrait_Card_Slot" && results[i].gameObject.transform.childCount != 0)
+                else if (results[i].gameObject.name == "Portrait_Card_Slot" && results[i].gameObject.transform.childCount != 0 && results[i].gameObject.transform.GetChild(0).gameObject.activeSelf == true)
                 {
                     results[i].gameObject.transform.GetChild(0).transform.SetParent(list_parent.transform);
                     prev_parent = (results[i].gameObject);

@@ -1,11 +1,11 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Prefab_Schedule_Slot_Property : MonoBehaviour
 {
-    //Prefab_Training_SlotÀÇ Text ¹× ³»ºÎ ¼Ó¼º=====================================================
+    //Prefab_Training_Slotì˜ Text ë° ë‚´ë¶€ ì†ì„±=====================================================
     public new Text name;
     public GameObject portrait_card_slot;
 
@@ -22,7 +22,7 @@ public class Prefab_Schedule_Slot_Property : MonoBehaviour
         sort_portrait_card = GameObject.Find("GameManager").GetComponent<Sort_Portrait_Card>();
         schedule_data = GameObject.Find("GameData").GetComponent<Schedule_Data>();
     }
-    //Textº¯°æ ÇÊ¿äÇÒ ¶§¸¸ ¾÷µ¥ÀÌÆ®================================================================
+    //Textë³€ê²½ í•„ìš”í•  ë•Œë§Œ ì—…ë°ì´íŠ¸================================================================
     void Update()
     {
         if (schedule.name != name.text)
@@ -30,20 +30,27 @@ public class Prefab_Schedule_Slot_Property : MonoBehaviour
             name.text = schedule.name;
         }
 
-        //ÀÏÁ¤ ½½·ÔÀÌ Ã¤¿öÁö¸é Àû¿ëµÊ==============================================================
+        //ì¼ì • ìŠ¬ë¡¯ì´ ì±„ì›Œì§€ë©´ ì ìš©ë¨==============================================================
         if (portrait_card_slot.transform.childCount != 0)
         {
-            student.schedule = "NONE";                      //±³Ã¼ ½Ã ÃÊ±âÈ­
+            Schedule_Player new_schedule_player = new Schedule_Player();
+
+            student.schedule = "NONE";                      //êµì²´ ì‹œ ì´ˆê¸°í™”ìš©
             student = portrait_card_slot.transform.GetChild(0).GetComponent<Prefab_Portrait_Card_Property>().student;
             student.schedule = schedule.code;
-
-        }
-        //ÀÏÁ¤ ½½·ÔÀÌ ºñ¿öÁö¸é Àû¿ëµÊ==============================================================
+            new_schedule_player.player_code = student.code;
+            //ì¤‘ë³µë°©ì§€
+            if (schedule.player_list.Contains(new_schedule_player) == false)
+            {
+                schedule.player_list.Add(new_schedule_player);
+            }
+        } 
+        //ì¼ì • ìŠ¬ë¡¯ì´ ë¹„ì›Œì§€ë©´ ì ìš©ë¨==============================================================
         else
         {
 
         }
-        //ÀÏÁ¤ ½½·ÔÀÌ ºñ¿öÄ¡¸é ÃÊ±âÈ­==============================================================
+        //ì¼ì • ìŠ¬ë¡¯ì´ ë¹„ì›Œì¹˜ë©´ ì´ˆê¸°í™”==============================================================
         if (portrait_card_slot.transform.childCount == 0 && student != new Student())
         {
             student.schedule = "NONE";
