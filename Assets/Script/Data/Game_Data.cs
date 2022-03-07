@@ -168,5 +168,15 @@ public class Schedule_Player
     public string player_code;  //일정 참가자 코드
     public string player_rank;  //일정 참가자 랭크
 }
-
+//학교 이벤트
+[System.Serializable]
+public class School_Event
+{
+    public string code;                             //코드
+    public string name;                             //이름
+    public List<Schedule_Player> school_list;       //학교리스트
+    public List<string> need = new List<string>();  //조건리스트
+    public float chance;                            //확률
+    public List<string> effect = new List<string>();//효과리스트
+}
 

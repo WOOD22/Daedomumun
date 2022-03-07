@@ -14,15 +14,22 @@ public class Save_Load : MonoBehaviour
 
         dict_gamedata = GameObject.Find("GameData").GetComponent<Game_Data>().dict_gamedata;
         gamedata = GameObject.Find("GameData").GetComponent<Game_Data>().gamedata;
-        /*
+        
         gamedata.year = dict_gamedata.year;
         gamedata.month = dict_gamedata.month;
         gamedata.school_list = new List<School>(dict_gamedata.school_dict.Values);
         gamedata.coach_list = new List<Coach>(dict_gamedata.coach_dict.Values);
         gamedata.student_list = new List<Student>(dict_gamedata.student_dict.Values);
-        */
+        gamedata.start_schedule_list = new List<Schedule>(dict_gamedata.start_schedule_dict.Values);
+        gamedata.end_schedule_list = new List<Schedule>(dict_gamedata.end_schedule_dict.Values);
+
+        if (!Directory.Exists(Application.persistentDataPath + "/Save"))
+        {
+            Directory.CreateDirectory(Application.persistentDataPath + "/Save");
+        }
+
         string save = JsonUtility.ToJson(gamedata, true);
-        string path = Path.Combine(Application.dataPath + "/Save", save_file_name + ".json");
+        string path = Path.Combine(Application.persistentDataPath + "/Save", save_file_name + ".json");
         File.WriteAllText(path, save);
     }
     //디렉토리 -> 데이터===========================================================================
@@ -45,7 +52,7 @@ public class Save_Load : MonoBehaviour
     //파일 로드====================================================================================
     public void Load_File(string save_file_name)
     {
-        string path = Path.Combine(Application.dataPath + "/Save", save_file_name + ".json");
+        string path = Path.Combine(Application.persistentDataPath + "/Save", save_file_name + ".json");
         string save = File.ReadAllText(path);
         gamedata = JsonUtility.FromJson<GameData>(save);
 

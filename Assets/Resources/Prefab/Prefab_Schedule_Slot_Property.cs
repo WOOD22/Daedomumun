@@ -40,10 +40,10 @@ public class Prefab_Schedule_Slot_Property : MonoBehaviour
             student.schedule = schedule.code;
             new_schedule_player.player_code = student.code;
             //중복방지
-            if (schedule.player_list.Contains(new_schedule_player) == false)
+            /*if (schedule.player_list.Contains(new_schedule_player) == false)
             {
                 schedule.player_list.Add(new_schedule_player);
-            }
+            }*/
         } 
         //일정 슬롯이 비워지면 적용됨==============================================================
         else

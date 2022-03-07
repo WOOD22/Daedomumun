@@ -170,6 +170,7 @@ GameObject:
   - component: {fileID: 6041474339421415399}
   - component: {fileID: 6041474339421415398}
   - component: {fileID: 8019128697105758901}
+  - component: {fileID: 2784494726580144716}
   m_Layer: 5
   m_Name: Prefab_Portrait_Card
   m_TagString: Untagged
@@ -303,6 +304,19 @@ MonoBehaviour:
       effect: 
     active_skills: []
     passive_skills: []
+  is_drag: 0
+--- !u!114 &2784494726580144716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6041474339421415396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53223be5911259643942caa370f17e8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6041474339451750220
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,6 @@
 {
     "year": 1,
-    "month": 3,
+    "month": 1,
     "school_list": [
         {
             "code": "0",
@@ -13,69 +13,18 @@
         },
         {
             "code": "1",
-            "name": "진주",
-            "coach_code": "COCH00292386",
+            "name": "순천팔마",
+            "coach_code": "COCH00876863",
             "student_code_list": [
-                "STUD10420254",
-                "STUD07956146",
-                "STUD03500164"
-            ],
-            "money": 400,
-            "training_infra_list": [
-                {
-                    "code": 0,
-                    "name": "중량운동",
-                    "user_code": "",
-                    "cost": 200,
-                    "upgrade": 0,
-                    "change_STR": 5.0,
-                    "change_DEX": 1.0,
-                    "change_CON": 1.0,
-                    "change_INT": 0.0,
-                    "change_WIS": 0.0,
-                    "change_WIL": 1.0
-                },
-                {
-                    "code": 0,
-                    "name": "중량운동",
-                    "user_code": "",
-                    "cost": 200,
-                    "upgrade": 0,
-                    "change_STR": 5.0,
-                    "change_DEX": 1.0,
-                    "change_CON": 1.0,
-                    "change_INT": 0.0,
-                    "change_WIS": 0.0,
-                    "change_WIL": 1.0
-                },
-                {
-                    "code": 0,
-                    "name": "중량운동",
-                    "user_code": "STUD07956146",
-                    "cost": 200,
-                    "upgrade": 0,
-                    "change_STR": 9.923184394836426,
-                    "change_DEX": 1.4306303262710572,
-                    "change_CON": 1.6005100011825562,
-                    "change_INT": 0.0,
-                    "change_WIS": 0.0,
-                    "change_WIL": 1.2573148012161255
-                }
-            ],
-            "prestige": 318
-        },
-        {
-            "code": "2",
-            "name": "광양여자",
-            "coach_code": "COCH09825421",
-            "student_code_list": [
-                "STUD06110217",
-                "STUD07876867",
-                "STUD04967582"
+                "STUD03451690",
+                "STUD01169504",
+                "STUD09395815",
+                "STUD06840398",
+                "STUD02958023"
             ],
             "money": 0,
             "training_infra_list": [],
-            "prestige": 494
+            "prestige": 443
         }
     ],
     "coach_list": [
@@ -90,42 +39,33 @@
             "main_MA": "",
             "active_skills": [
                 {
-                    "code": 2,
-                    "name": "비룡각",
-                    "main_MA": "각",
-                    "need": "50",
-                    "qualification": "DEX120",
-                    "effect": "DMG(DEX,1,1)"
-                }
-            ],
-            "passive_skills": [
-                {
-                    "code": 3,
-                    "name": "청룡각법",
-                    "main_MA": "각",
-                    "need": "0",
-                    "qualification": "DEX120",
-                    "effect": "ATK(DMG(DEX,0.1))"
-                }
-            ]
-        },
-        {
-            "code": "COCH00292386",
-            "name": "김채아",
-            "gender": 70,
-            "nickname": "",
-            "birth_month": 10,
-            "condition": 0,
-            "training": "",
-            "main_MA": "장",
-            "active_skills": [
-                {
                     "code": 0,
                     "name": "붕권",
                     "main_MA": "권",
                     "need": "100",
                     "qualification": "STR120",
                     "effect": "DMG(STR,4,1))&STUN(1,100)"
+                }
+            ],
+            "passive_skills": []
+        },
+        {
+            "code": "COCH00876863",
+            "name": "권이준",
+            "gender": 77,
+            "nickname": "",
+            "birth_month": 3,
+            "condition": 0,
+            "training": "",
+            "main_MA": "장",
+            "active_skills": [
+                {
+                    "code": 2,
+                    "name": "비룡각",
+                    "main_MA": "각",
+                    "need": "50",
+                    "qualification": "DEX120",
+                    "effect": "DMG(DEX,1,1)"
                 }
             ],
             "passive_skills": [
@@ -138,111 +78,35 @@
                     "effect": "ATK(BURN(1,50))"
                 }
             ]
-        },
-        {
-            "code": "COCH09825421",
-            "name": "서동현",
-            "gender": 77,
-            "nickname": "",
-            "birth_month": 6,
-            "condition": 0,
-            "training": "",
-            "main_MA": "각",
-            "active_skills": [
-                {
-                    "code": 2,
-                    "name": "비룡각",
-                    "main_MA": "각",
-                    "need": "50",
-                    "qualification": "DEX120",
-                    "effect": "DMG(DEX,1,1)"
-                }
-            ],
-            "passive_skills": [
-                {
-                    "code": 3,
-                    "name": "청룡각법",
-                    "main_MA": "각",
-                    "need": "0",
-                    "qualification": "DEX120",
-                    "effect": "ATK(DMG(DEX,0.1))"
-                }
-            ]
         }
     ],
     "student_list": [
         {
-            "code": "STUD10420254",
-            "name": "권지훈",
-            "gender": 77,
+            "code": "STUD03451690",
+            "name": "이주하",
+            "gender": 70,
             "nickname": "",
-            "birth_month": 7,
-            "school_class": 1,
-            "prestige": 0,
-            "condition": 0,
-            "training": "NONE",
-            "schedule": "NONE",
-            "main_MA": "장",
-            "stat": {
-                "st_STR": 27.15631103515625,
-                "pt_STR": 184.14480590820313,
-                "st_DEX": 27.707935333251954,
-                "pt_DEX": 167.9085693359375,
-                "st_CON": 27.034801483154298,
-                "pt_CON": 166.94927978515626,
-                "st_INT": 20.847898483276368,
-                "pt_INT": 188.8877716064453,
-                "st_WIS": 25.99777603149414,
-                "pt_WIS": 164.2557373046875,
-                "st_WIL": 26.53993797302246,
-                "pt_WIL": 163.9637451171875,
-                "st_LUK": 56.04819107055664
-            },
-            "active_skill": {
-                "code": 0,
-                "name": "",
-                "main_MA": "",
-                "need": "",
-                "qualification": "",
-                "effect": ""
-            },
-            "passive_skill": {
-                "code": 0,
-                "name": "",
-                "main_MA": "",
-                "need": "",
-                "qualification": "",
-                "effect": ""
-            },
-            "active_skills": [],
-            "passive_skills": []
-        },
-        {
-            "code": "STUD07956146",
-            "name": "이태인",
-            "gender": 77,
-            "nickname": "",
-            "birth_month": 3,
+            "birth_month": 1,
             "school_class": 4,
             "prestige": 0,
             "condition": 0,
-            "training": "중량운동",
+            "training": "NONE",
             "schedule": "NONE",
             "main_MA": "각",
             "stat": {
-                "st_STR": 115.91690063476563,
-                "pt_STR": 198.46368408203126,
-                "st_DEX": 86.80672454833985,
-                "pt_DEX": 143.0630340576172,
-                "st_CON": 83.62646484375,
-                "pt_CON": 160.05099487304688,
-                "st_INT": 92.34069061279297,
-                "pt_INT": 176.44680786132813,
-                "st_WIS": 72.32980346679688,
-                "pt_WIS": 125.71733093261719,
-                "st_WIL": 55.734779357910159,
-                "pt_WIL": 125.73147583007813,
-                "st_LUK": 43.2032585144043
+                "st_STR": 68.99071502685547,
+                "pt_STR": 124.14804077148438,
+                "st_DEX": 61.740604400634769,
+                "pt_DEX": 152.5647430419922,
+                "st_CON": 59.926307678222659,
+                "pt_CON": 135.41305541992188,
+                "st_INT": 99.0857162475586,
+                "pt_INT": 165.5164337158203,
+                "st_WIS": 65.49964141845703,
+                "pt_WIS": 143.18902587890626,
+                "st_WIL": 51.05486297607422,
+                "pt_WIL": 106.11302947998047,
+                "st_LUK": 194.87457275390626
             },
             "active_skill": {
                 "code": 0,
@@ -264,31 +128,31 @@
             "passive_skills": []
         },
         {
-            "code": "STUD03500164",
-            "name": "심태윤",
-            "gender": 77,
+            "code": "STUD01169504",
+            "name": "주나현",
+            "gender": 70,
             "nickname": "",
             "birth_month": 9,
-            "school_class": 6,
+            "school_class": 2,
             "prestige": 0,
             "condition": 0,
             "training": "NONE",
             "schedule": "NONE",
             "main_MA": "권",
             "stat": {
-                "st_STR": 79.85816955566406,
-                "pt_STR": 122.0032730102539,
-                "st_DEX": 145.8030242919922,
-                "pt_DEX": 165.16734313964845,
-                "st_CON": 96.3207015991211,
-                "pt_CON": 153.0525665283203,
-                "st_INT": 130.5128631591797,
-                "pt_INT": 135.09524536132813,
-                "st_WIS": 117.98670959472656,
-                "pt_WIS": 185.9024200439453,
-                "st_WIL": 121.55426788330078,
-                "pt_WIL": 123.76630401611328,
-                "st_LUK": 94.53123474121094
+                "st_STR": 38.21531677246094,
+                "pt_STR": 173.042236328125,
+                "st_DEX": 49.53129577636719,
+                "pt_DEX": 198.88800048828126,
+                "st_CON": 51.61418914794922,
+                "pt_CON": 175.8006591796875,
+                "st_INT": 47.14556884765625,
+                "pt_INT": 184.6138153076172,
+                "st_WIS": 39.208892822265628,
+                "pt_WIS": 168.01327514648438,
+                "st_WIL": 39.73027801513672,
+                "pt_WIL": 190.43142700195313,
+                "st_LUK": 101.82069396972656
             },
             "active_skill": {
                 "code": 0,
@@ -310,103 +174,11 @@
             "passive_skills": []
         },
         {
-            "code": "STUD06110217",
-            "name": "김수현",
+            "code": "STUD09395815",
+            "name": "김서후",
             "gender": 77,
             "nickname": "",
-            "birth_month": 7,
-            "school_class": 1,
-            "prestige": 0,
-            "condition": 0,
-            "training": "NONE",
-            "schedule": "NONE",
-            "main_MA": "장",
-            "stat": {
-                "st_STR": 24.531883239746095,
-                "pt_STR": 196.44265747070313,
-                "st_DEX": 23.456531524658204,
-                "pt_DEX": 164.6438751220703,
-                "st_CON": 29.834228515625,
-                "pt_CON": 183.68463134765626,
-                "st_INT": 18.426502227783204,
-                "pt_INT": 175.81431579589845,
-                "st_WIS": 18.027084350585939,
-                "pt_WIS": 179.0976104736328,
-                "st_WIL": 25.457096099853517,
-                "pt_WIL": 163.0260772705078,
-                "st_LUK": 176.91026306152345
-            },
-            "active_skill": {
-                "code": 0,
-                "name": "",
-                "main_MA": "",
-                "need": "",
-                "qualification": "",
-                "effect": ""
-            },
-            "passive_skill": {
-                "code": 0,
-                "name": "",
-                "main_MA": "",
-                "need": "",
-                "qualification": "",
-                "effect": ""
-            },
-            "active_skills": [],
-            "passive_skills": []
-        },
-        {
-            "code": "STUD07876867",
-            "name": "김시우",
-            "gender": 77,
-            "nickname": "",
-            "birth_month": 4,
-            "school_class": 1,
-            "prestige": 0,
-            "condition": 0,
-            "training": "NONE",
-            "schedule": "NONE",
-            "main_MA": "권",
-            "stat": {
-                "st_STR": 17.128572463989259,
-                "pt_STR": 162.9587860107422,
-                "st_DEX": 25.402225494384767,
-                "pt_DEX": 170.62594604492188,
-                "st_CON": 22.74663543701172,
-                "pt_CON": 162.8377685546875,
-                "st_INT": 30.450157165527345,
-                "pt_INT": 191.75477600097657,
-                "st_WIS": 25.844730377197267,
-                "pt_WIS": 166.8599853515625,
-                "st_WIL": 22.55790138244629,
-                "pt_WIL": 197.15032958984376,
-                "st_LUK": 124.34486389160156
-            },
-            "active_skill": {
-                "code": 0,
-                "name": "",
-                "main_MA": "",
-                "need": "",
-                "qualification": "",
-                "effect": ""
-            },
-            "passive_skill": {
-                "code": 0,
-                "name": "",
-                "main_MA": "",
-                "need": "",
-                "qualification": "",
-                "effect": ""
-            },
-            "active_skills": [],
-            "passive_skills": []
-        },
-        {
-            "code": "STUD04967582",
-            "name": "배정현",
-            "gender": 77,
-            "nickname": "",
-            "birth_month": 9,
+            "birth_month": 6,
             "school_class": 3,
             "prestige": 0,
             "condition": 0,
@@ -414,19 +186,111 @@
             "schedule": "NONE",
             "main_MA": "각",
             "stat": {
-                "st_STR": 84.59266662597656,
-                "pt_STR": 179.41912841796876,
-                "st_DEX": 46.29143142700195,
-                "pt_DEX": 135.71766662597657,
-                "st_CON": 79.18832397460938,
-                "pt_CON": 160.685791015625,
-                "st_INT": 98.35380554199219,
-                "pt_INT": 197.47080993652345,
-                "st_WIS": 67.00581359863281,
-                "pt_WIS": 192.01153564453126,
-                "st_WIL": 74.34890747070313,
-                "pt_WIL": 187.81748962402345,
-                "st_LUK": 76.54234313964844
+                "st_STR": 45.91483688354492,
+                "pt_STR": 147.1313934326172,
+                "st_DEX": 63.173892974853519,
+                "pt_DEX": 170.49095153808595,
+                "st_CON": 35.152034759521487,
+                "pt_CON": 70.47665405273438,
+                "st_INT": 29.835857391357423,
+                "pt_INT": 74.99050903320313,
+                "st_WIS": 49.84204864501953,
+                "pt_WIS": 117.70622253417969,
+                "st_WIL": 25.75739288330078,
+                "pt_WIL": 73.20030212402344,
+                "st_LUK": 174.14913940429688
+            },
+            "active_skill": {
+                "code": 0,
+                "name": "",
+                "main_MA": "",
+                "need": "",
+                "qualification": "",
+                "effect": ""
+            },
+            "passive_skill": {
+                "code": 0,
+                "name": "",
+                "main_MA": "",
+                "need": "",
+                "qualification": "",
+                "effect": ""
+            },
+            "active_skills": [],
+            "passive_skills": []
+        },
+        {
+            "code": "STUD06840398",
+            "name": "곽승민",
+            "gender": 77,
+            "nickname": "",
+            "birth_month": 2,
+            "school_class": 3,
+            "prestige": 0,
+            "condition": 0,
+            "training": "NONE",
+            "schedule": "NONE",
+            "main_MA": "장",
+            "stat": {
+                "st_STR": 91.28742980957031,
+                "pt_STR": 199.71636962890626,
+                "st_DEX": 88.88452911376953,
+                "pt_DEX": 186.20962524414063,
+                "st_CON": 95.43559265136719,
+                "pt_CON": 192.33001708984376,
+                "st_INT": 71.37307739257813,
+                "pt_INT": 166.291015625,
+                "st_WIS": 60.08186340332031,
+                "pt_WIS": 162.29681396484376,
+                "st_WIL": 71.05541229248047,
+                "pt_WIL": 163.20858764648438,
+                "st_LUK": 151.33505249023438
+            },
+            "active_skill": {
+                "code": 0,
+                "name": "",
+                "main_MA": "",
+                "need": "",
+                "qualification": "",
+                "effect": ""
+            },
+            "passive_skill": {
+                "code": 0,
+                "name": "",
+                "main_MA": "",
+                "need": "",
+                "qualification": "",
+                "effect": ""
+            },
+            "active_skills": [],
+            "passive_skills": []
+        },
+        {
+            "code": "STUD02958023",
+            "name": "정도윤",
+            "gender": 77,
+            "nickname": "",
+            "birth_month": 2,
+            "school_class": 6,
+            "prestige": 0,
+            "condition": 0,
+            "training": "NONE",
+            "schedule": "NONE",
+            "main_MA": "각",
+            "stat": {
+                "st_STR": 105.34640502929688,
+                "pt_STR": 169.15234375,
+                "st_DEX": 133.82522583007813,
+                "pt_DEX": 172.47923278808595,
+                "st_CON": 131.43450927734376,
+                "pt_CON": 180.44046020507813,
+                "st_INT": 104.35586547851563,
+                "pt_INT": 133.59689331054688,
+                "st_WIS": 91.5298843383789,
+                "pt_WIS": 102.65007019042969,
+                "st_WIL": 172.371337890625,
+                "pt_WIL": 173.95010375976563,
+                "st_LUK": 9.098315238952637
             },
             "active_skill": {
                 "code": 0,
@@ -448,40 +312,6 @@
             "passive_skills": []
         }
     ],
-    "start_schedule_list": [
-        {
-            "code": "S01041844",
-            "name": "이화대회",
-            "type": "private",
-            "ticket": "P1000",
-            "year": 1,
-            "month": 4,
-            "prestige": 2500,
-            "money": 5000,
-            "player_list": []
-        },
-        {
-            "code": "S01052170",
-            "name": "춘계대회",
-            "type": "public",
-            "ticket": "C4C5C6",
-            "year": 1,
-            "month": 5,
-            "prestige": 1000,
-            "money": 1000,
-            "player_list": []
-        },
-        {
-            "code": "S01051325",
-            "name": "춘계대회(중등부)",
-            "type": "public",
-            "ticket": "C1C2C3",
-            "year": 1,
-            "month": 5,
-            "prestige": 500,
-            "money": 500,
-            "player_list": []
-        }
-    ],
+    "start_schedule_list": [],
     "end_schedule_list": []
 }
