@@ -2989,6 +2989,7 @@ GameObject:
   - component: {fileID: 558730218}
   - component: {fileID: 558730219}
   - component: {fileID: 558730220}
+  - component: {fileID: 558730217}
   - component: {fileID: 558730221}
   m_Layer: 0
   m_Name: GameManager
@@ -3137,6 +3138,42 @@ MonoBehaviour:
         effect: 
       active_skills: []
       passive_skills: []
+--- !u!114 &558730217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558730213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa78225fe2b817346b429e36a09ea424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  school_name: 
+  school_code: 
+  character_code: 
+  last_name: 
+  first_name: 
+  gender: 0
+  school_class: 0
+  birth_month: 0
+  main_MA: 
+  prestige: 0
+  stat:
+    st_STR: 0
+    pt_STR: 0
+    st_DEX: 0
+    pt_DEX: 0
+    st_CON: 0
+    pt_CON: 0
+    st_INT: 0
+    pt_INT: 0
+    st_WIS: 0
+    pt_WIS: 0
+    st_WIL: 0
+    pt_WIL: 0
+    st_LUK: 0
 --- !u!114 &558730218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3415,6 +3452,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628635205}
   m_CullTransparentMesh: 1
+--- !u!1 &646673754
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 646673756}
+  - component: {fileID: 646673755}
+  m_Layer: 0
+  m_Name: Event_Bus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &646673755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646673754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16a06be893644e846986b64596d9b74f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &646673756
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646673754}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &655307810
 GameObject:
   m_ObjectHideFlags: 0
@@ -4292,7 +4372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9bba094bf7936e46af571330a908c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  school_event_data: []
+  school_event_list: []
 --- !u!1 &932358147
 GameObject:
   m_ObjectHideFlags: 0

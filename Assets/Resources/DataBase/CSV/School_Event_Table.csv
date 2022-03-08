@@ -1,2 +1,2 @@
 ﻿code,name,need,chance,effect,info
-SE0001,신입생,#month:3,100,#new_student,신입생 입학 이벤트
+SE0001,신입생,#month:3,100,#freshman,신입생 입학 이벤트

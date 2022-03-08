@@ -172,11 +172,11 @@ public class Schedule_Player
 [System.Serializable]
 public class School_Event
 {
-    public string code;                             //코드
-    public string name;                             //이름
-    public List<Schedule_Player> school_list;       //학교리스트
-    public List<string> need = new List<string>();  //조건리스트
-    public float chance;                            //확률
-    public List<string> effect = new List<string>();//효과리스트
+    public string code;                                                         //코드
+    public string name;                                                         //이름
+    public List<string> school_code_list=new List<string>();                    //학교 코드 리스트
+    public Dictionary<string,string> need = new Dictionary<string, string>();   //조건리스트
+    public float chance;                                                        //확률
+    public Dictionary<string, string> effect = new Dictionary<string, string>();//효과리스트
 }
 

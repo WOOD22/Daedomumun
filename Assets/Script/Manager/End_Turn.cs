@@ -6,24 +6,40 @@ public class End_Turn : MonoBehaviour
 {
     Game_Data game_data;
     Save_Load save_load;
+    School_Event_Data school_event_data;
 
     void Start()
     {
         game_data = GameObject.Find("GameData").GetComponent<Game_Data>();
         save_load = GameObject.Find("GameData").GetComponent<Save_Load>();
+        school_event_data = GameObject.Find("GameData").GetComponent<School_Event_Data>();
     }
     //턴 종료 시 계산==============================================================================
     public void End_Turn_Check()
     {
         //Dict에 있는 데이터를 GameData로 옮긴다.
         save_load.From_Dict_to_Data();
+        //이벤트 발동
+        for (int i = 0; i < school_event_data.school_event_list.Count; i++)
+        {
+            for (int j = 0; j < game_data.gamedata.school_list.Count; j++)
+            {
+                GameObject.Find("Event_Bus").GetComponent<School_Event_Bus>().School_Event_Ride
+                    (school_event_data.school_event_list[i], game_data.gamedata.school_list[j]);
+            }
+            GameObject.Find("Event_Bus").GetComponent<School_Event_Bus>().School_Event_Effect
+                    (school_event_data.school_event_list[i]);
+        }
+        //달력 넘기기
         game_data.gamedata.month++;
         if(game_data.gamedata.month > 12)
         {
             game_data.gamedata.month = 1;
             game_data.gamedata.year++;
         }
+        //트레이닝 적용
         Training_Page_Check();
+        //공동 일정 적용
         Public_Schedule_Page_Check();
         //GameData를 Dict에 옮긴다.
         save_load.From_Data_to_Dict();

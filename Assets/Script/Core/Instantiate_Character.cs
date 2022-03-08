@@ -9,7 +9,7 @@ public class Instantiate_Character : MonoBehaviour
     List<Dictionary<string, object>> first_name_male_table;
     List<Dictionary<string, object>> first_name_female_table;
 
-    GameData game_data;
+    Game_Data game_data;
     Dict_GameData dict_gamedata;
 
     Dictionary<int, ActiveSkill> active_skill_data;
@@ -39,7 +39,7 @@ public class Instantiate_Character : MonoBehaviour
 
         active_skill_data = GameObject.Find("GameData").GetComponent<Skill_Data>().active_skill_data;
         passive_skill_data = GameObject.Find("GameData").GetComponent<Skill_Data>().passive_skill_data;
-        game_data = GameObject.Find("GameData").GetComponent<Game_Data>().gamedata;
+        game_data = GameObject.Find("GameData").GetComponent<Game_Data>();
         dict_gamedata = GameObject.Find("GameData").GetComponent<Game_Data>().dict_gamedata;
     }
     //새로운 학교 생성=============================================================================
@@ -109,8 +109,8 @@ public class Instantiate_Character : MonoBehaviour
         new_student.main_MA = main_MA;
         new_student.stat = stat;
 
-        dict_gamedata.school_dict[code].student_code_list.Add(new_student.code);
-        dict_gamedata.student_dict.Add(new_student.code, new_student);
+        game_data.gamedata.school_list[int.Parse(code)].student_code_list.Add(new_student.code);
+        game_data.gamedata.student_list.Add(new_student);
     }
     //코치, 학생 코드 세팅=========================================================================
     void Set_Code(string code_type)
