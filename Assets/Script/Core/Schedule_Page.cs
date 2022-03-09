@@ -29,7 +29,7 @@ public class Schedule_Page : MonoBehaviour
         sort_portrait_card = GameObject.Find("GameManager").GetComponent<Sort_Portrait_Card>();
         //Portrait_Card문자순으로 정렬=============================================================
         game_data = GameObject.Find("GameData").GetComponent<Game_Data>();
-        player_student_code_list = game_data.dict_gamedata.school_dict["1"].student_code_list;
+        player_student_code_list = game_data.dict_gamedata.school_dict["0"].student_code_list;
         //스케줄 페이지 내 달력 초기화
         calendar_year = game_data.dict_gamedata.year;
         calendar_month = game_data.dict_gamedata.month;

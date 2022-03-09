@@ -25,8 +25,8 @@ public class Training_Page : MonoBehaviour
         sort_portrait_card = GameObject.Find("GameManager").GetComponent<Sort_Portrait_Card>();
         //Portrait_Card문자순으로 정렬=============================================================
         game_data = GameObject.Find("GameData").GetComponent<Game_Data>();
-        player_student_code_list = game_data.dict_gamedata.school_dict["1"].student_code_list;
-        player_training_infra_list = game_data.dict_gamedata.school_dict["1"].training_infra_list;
+        player_student_code_list = game_data.dict_gamedata.school_dict["0"].student_code_list;
+        player_training_infra_list = game_data.dict_gamedata.school_dict["0"].training_infra_list;
 
         sort_portrait_card.student_list = new List<Student>();
 
